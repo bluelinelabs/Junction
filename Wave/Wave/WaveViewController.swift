@@ -9,5 +9,5 @@
 import UIKit
 
 final public class WaveViewController: UIViewController {
-
+    //The controller that will manage the actual sidebar
 }
