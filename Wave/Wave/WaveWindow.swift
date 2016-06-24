@@ -20,10 +20,9 @@ public class WaveWindow: UIWindow {
         self.keeper = keeper
         self.side = side
         
-        //There's probably a better way to do this that doesn't rely on the user having this marked in their source somewhere. Maybe pass in a bool to the init on whether or not it's debug, and let the user determine in the app delegate?
-        #if DEBUG
+        if WaveDebug.shouldDisplayWave() {
             self.isDebug = true
-        #endif
+        }
         
         self.waveViewController = WaveViewController(waveKeeper: keeper)
         
