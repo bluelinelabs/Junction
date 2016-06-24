@@ -10,6 +10,7 @@
 		39CBDD981D1D77B100CA2124 /* Wave.h in Headers */ = {isa = PBXBuildFile; fileRef = 39CBDD971D1D77B100CA2124 /* Wave.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39CBDD9F1D1D77B100CA2124 /* Wave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39CBDD941D1D77B100CA2124 /* Wave.framework */; };
 		39CBDDA41D1D77B100CA2124 /* WaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDA31D1D77B100CA2124 /* WaveTests.swift */; };
+		39CBDDAF1D1D893C00CA2124 /* WaveWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDAE1D1D893C00CA2124 /* WaveWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		39CBDD9E1D1D77B100CA2124 /* WaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CBDDA31D1D77B100CA2124 /* WaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveTests.swift; sourceTree = "<group>"; };
 		39CBDDA51D1D77B100CA2124 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39CBDDAE1D1D893C00CA2124 /* WaveWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		39CBDD961D1D77B100CA2124 /* Wave */ = {
 			isa = PBXGroup;
 			children = (
+				39CBDDAE1D1D893C00CA2124 /* WaveWindow.swift */,
 				39CBDD971D1D77B100CA2124 /* Wave.h */,
 				39CBDD991D1D77B100CA2124 /* Info.plist */,
 			);
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39CBDDAF1D1D893C00CA2124 /* WaveWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +314,7 @@
 		39CBDDA91D1D77B100CA2124 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,12 +325,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.Wave;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		39CBDDAA1D1D77B100CA2124 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -378,6 +385,7 @@
 				39CBDDAA1D1D77B100CA2124 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39CBDDAB1D1D77B100CA2124 /* Build configuration list for PBXNativeTarget "WaveTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +394,7 @@
 				39CBDDAD1D1D77B100CA2124 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
