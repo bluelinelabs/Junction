@@ -10,4 +10,16 @@ import UIKit
 
 final public class WaveViewController: UIViewController {
     //The controller that will manage the actual sidebar
+    
+    private var waveKeeper: WaveKeeper
+    
+    public init(waveKeeper: WaveKeeper) {
+        self.waveKeeper = waveKeeper
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

@@ -25,7 +25,7 @@ public class WaveWindow: UIWindow {
             self.isDebug = true
         #endif
         
-        self.waveViewController = WaveViewController()
+        self.waveViewController = WaveViewController(waveKeeper: keeper)
         
         super.init(frame: frame)
     }
