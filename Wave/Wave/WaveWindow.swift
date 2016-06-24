@@ -14,6 +14,7 @@ public class WaveWindow: UIWindow {
     private var keeper: WaveKeeper
     private var side: Side
     private var isDebug = false
+    private var waveViewController: WaveViewController
     
     public init(frame: CGRect, keeper: WaveKeeper, side: Side) {
         self.keeper = keeper
@@ -23,6 +24,8 @@ public class WaveWindow: UIWindow {
         #if DEBUG
             self.isDebug = true
         #endif
+        
+        self.waveViewController = WaveViewController()
         
         super.init(frame: frame)
     }
