@@ -10,5 +10,6 @@ import Foundation
 
 protocol Section: SectionType {
     associatedtype T = Setting
+    
     var settings: [T] { get set }
 }

@@ -11,11 +11,10 @@ import UIKit
 final public class WaveViewController: UIViewController {
     //The controller that will manage the actual sidebar
     
-    private var waveKeeper: WaveKeeper
+    var sections: [SectionType]
     
-    public init(waveKeeper: WaveKeeper) {
-        self.waveKeeper = waveKeeper
-        
+    public init(sections: [SectionType]) {
+        self.sections = sections
         super.init(nibName: nil, bundle: nil)
     }
     

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol SectionType {
+public protocol SectionType {
     var name: String { get set }
 }
