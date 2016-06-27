@@ -11,6 +11,7 @@
 		399C5C0D1D217C0800DF8691 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C5C0C1D217C0800DF8691 /* Section.swift */; };
 		399C5C0F1D217C2A00DF8691 /* SettingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C5C0E1D217C2A00DF8691 /* SettingType.swift */; };
 		399C5C111D217C3400DF8691 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C5C101D217C3400DF8691 /* Setting.swift */; };
+		399C5C141D2180D900DF8691 /* RowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C5C131D2180D900DF8691 /* RowType.swift */; };
 		39CBDD981D1D77B100CA2124 /* Wave.h in Headers */ = {isa = PBXBuildFile; fileRef = 39CBDD971D1D77B100CA2124 /* Wave.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39CBDD9F1D1D77B100CA2124 /* Wave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39CBDD941D1D77B100CA2124 /* Wave.framework */; };
 		39CBDDA41D1D77B100CA2124 /* WaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDA31D1D77B100CA2124 /* WaveTests.swift */; };
@@ -35,6 +36,7 @@
 		399C5C0C1D217C0800DF8691 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		399C5C0E1D217C2A00DF8691 /* SettingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingType.swift; sourceTree = "<group>"; };
 		399C5C101D217C3400DF8691 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		399C5C131D2180D900DF8691 /* RowType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowType.swift; sourceTree = "<group>"; };
 		39CBDD941D1D77B100CA2124 /* Wave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Wave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CBDD971D1D77B100CA2124 /* Wave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wave.h; sourceTree = "<group>"; };
 		39CBDD991D1D77B100CA2124 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,6 +68,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		399C5C121D2180AC00DF8691 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				399C5C0A1D217BC500DF8691 /* SectionType.swift */,
+				399C5C0C1D217C0800DF8691 /* Section.swift */,
+				399C5C0E1D217C2A00DF8691 /* SettingType.swift */,
+				399C5C101D217C3400DF8691 /* Setting.swift */,
+				399C5C131D2180D900DF8691 /* RowType.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		39CBDD8A1D1D77B100CA2124 = {
 			isa = PBXGroup;
 			children = (
@@ -90,10 +104,7 @@
 				39CBDDAE1D1D893C00CA2124 /* WaveWindow.swift */,
 				39CBDDB41D1D8C1000CA2124 /* WaveDesign.swift */,
 				39CBDDB01D1D8A9A00CA2124 /* WaveViewController.swift */,
-				399C5C0A1D217BC500DF8691 /* SectionType.swift */,
-				399C5C0C1D217C0800DF8691 /* Section.swift */,
-				399C5C0E1D217C2A00DF8691 /* SettingType.swift */,
-				399C5C101D217C3400DF8691 /* Setting.swift */,
+				399C5C121D2180AC00DF8691 /* Protocols */,
 				39CBDDB21D1D8B0B00CA2124 /* WaveKeeper.swift */,
 				39CBDD971D1D77B100CA2124 /* Wave.h */,
 				39CBDD991D1D77B100CA2124 /* Info.plist */,
@@ -223,6 +234,7 @@
 				399C5C0B1D217BC500DF8691 /* SectionType.swift in Sources */,
 				39CBDDAF1D1D893C00CA2124 /* WaveWindow.swift in Sources */,
 				399C5C0D1D217C0800DF8691 /* Section.swift in Sources */,
+				399C5C141D2180D900DF8691 /* RowType.swift in Sources */,
 				39CBDDB11D1D8A9A00CA2124 /* WaveViewController.swift in Sources */,
 				399C5C111D217C3400DF8691 /* Setting.swift in Sources */,
 				39CBDDB31D1D8B0B00CA2124 /* WaveKeeper.swift in Sources */,
