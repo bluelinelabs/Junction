@@ -14,7 +14,6 @@
 		39CBDDB11D1D8A9A00CA2124 /* WaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDB01D1D8A9A00CA2124 /* WaveViewController.swift */; };
 		39CBDDB31D1D8B0B00CA2124 /* WaveKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDB21D1D8B0B00CA2124 /* WaveKeeper.swift */; };
 		39CBDDB51D1D8C1000CA2124 /* WaveDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDB41D1D8C1000CA2124 /* WaveDesign.swift */; };
-		39CBDDB71D1D939D00CA2124 /* WaveDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDB61D1D939D00CA2124 /* WaveDebug.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +37,6 @@
 		39CBDDB01D1D8A9A00CA2124 /* WaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveViewController.swift; sourceTree = "<group>"; };
 		39CBDDB21D1D8B0B00CA2124 /* WaveKeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveKeeper.swift; sourceTree = "<group>"; };
 		39CBDDB41D1D8C1000CA2124 /* WaveDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveDesign.swift; sourceTree = "<group>"; };
-		39CBDDB61D1D939D00CA2124 /* WaveDebug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveDebug.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				39CBDDAE1D1D893C00CA2124 /* WaveWindow.swift */,
-				39CBDDB61D1D939D00CA2124 /* WaveDebug.swift */,
 				39CBDDB41D1D8C1000CA2124 /* WaveDesign.swift */,
 				39CBDDB01D1D8A9A00CA2124 /* WaveViewController.swift */,
 				39CBDDB21D1D8B0B00CA2124 /* WaveKeeper.swift */,
@@ -212,7 +209,6 @@
 				39CBDDB51D1D8C1000CA2124 /* WaveDesign.swift in Sources */,
 				39CBDDAF1D1D893C00CA2124 /* WaveWindow.swift in Sources */,
 				39CBDDB11D1D8A9A00CA2124 /* WaveViewController.swift in Sources */,
-				39CBDDB71D1D939D00CA2124 /* WaveDebug.swift in Sources */,
 				39CBDDB31D1D8B0B00CA2124 /* WaveKeeper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

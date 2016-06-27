@@ -20,10 +20,6 @@ public class WaveWindow: UIWindow {
         self.keeper = keeper
         self.side = side
         
-        if WaveDebug.shouldDisplayWave() {
-            self.isDebug = true
-        }
-        
         self.waveViewController = WaveViewController(waveKeeper: keeper)
         
         super.init(frame: frame)
