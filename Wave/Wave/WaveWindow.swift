@@ -18,7 +18,7 @@ public class WaveWindow: UIWindow {
     public init(frame: CGRect, style: PresentationStyle, sections: [SectionType], enabled: Bool) {
         self.style = style
         self.enabled = enabled
-        self.waveViewController = WaveViewController(sections: sections)
+        self.waveViewController = WaveViewController(frame: frame, sections: sections)
         
         if style == .LeftDrawer || style == .Shake {
             fatalError("LeftDrawer and Shake styles are not yet supported. Please use RightDrawer")

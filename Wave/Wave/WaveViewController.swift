@@ -12,13 +12,24 @@ final public class WaveViewController: UIViewController {
     //The controller that will manage the actual sidebar
     
     var sections: [SectionType]
+    var frame: CGRect
     
-    public init(sections: [SectionType]) {
+    private var tableView: UITableView!
+    
+    public init(frame: CGRect, sections: [SectionType]) {
         self.sections = sections
+        self.frame = frame
+        
         super.init(nibName: nil, bundle: nil)
+        
+        self.commonInit()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func commonInit() {
+        tableView = UITableView(frame: self.frame, style: .Grouped)
     }
 }
