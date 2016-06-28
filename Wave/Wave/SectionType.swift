@@ -12,4 +12,6 @@ public protocol SectionType {
     var name: String { get set }
     
     func registerCells(tableView: UITableView)
+    func numberOfRows() -> Int
+    func tableViewCellIdentifier(indexPath: NSIndexPath) -> String
 }

@@ -17,4 +17,12 @@ public class Section: SectionType {
             setting.registerCells(tableView)
         }
     }
+    
+    public func numberOfRows() -> Int {
+        return settings.count
+    }
+    
+    public func tableViewCellIdentifier(indexPath: NSIndexPath) -> String {
+        return settings[indexPath.row].cellIdentifier
+    }
 }

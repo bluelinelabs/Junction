@@ -11,7 +11,7 @@ import UIKit
 final public class WaveViewController: UIViewController {
     //The controller that will manage the actual sidebar
     
-    var sections: [Section]
+    var sections: [SectionType]
     var frame: CGRect
     
     private lazy var tableView: UITableView = {
@@ -38,11 +38,11 @@ extension WaveViewController: UITableViewDataSource {
     }
     
     public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].settings.count
+        return sections[section].numberOfRows()
     }
     
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = sections[indexPath.section].settings[indexPath.row].cellIdentifier
+        let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath)
         let cell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
         return cell
