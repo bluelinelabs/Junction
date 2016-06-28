@@ -10,4 +10,6 @@ import Foundation
 
 public protocol SectionType {
     var name: String { get set }
+    
+    func registerCells(tableView: UITableView)
 }

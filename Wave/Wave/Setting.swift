@@ -8,8 +8,20 @@
 
 import Foundation
 
-protocol Setting: SettingType {
-    associatedtype T
+class Setting<U>: SettingType, RowType {
+    typealias T = U
     
-    var name: String? { get set }
+    var defaultValue: Setting.T? = nil
+    var key: String = ""
+    
+    var value: Setting.T? = nil
+    var cellIdentifier: String = ""
+    
+    func registerCells(tableView: UITableView) {
+        
+    }
+    
+    func configureCell(tableViewCell: UITableViewCell) {
+        
+    }
 }

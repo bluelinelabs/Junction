@@ -11,9 +11,9 @@ import Foundation
 protocol RowType {
     associatedtype T
     
-    var value: T { get set }
+    var value: T? { get set }
     var cellIdentifier: String { get set }
     
-    func registerCells()
-    func configureCell()
+    func registerCells(tableView: UITableView)
+    func configureCell(tableViewCell: UITableViewCell)
 }

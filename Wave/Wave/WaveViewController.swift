@@ -31,5 +31,9 @@ final public class WaveViewController: UIViewController {
     
     private func commonInit() {
         tableView = UITableView(frame: self.frame, style: .Grouped)
+        
+        for section in sections {
+            
+        }
     }
 }

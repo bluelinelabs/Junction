@@ -8,8 +8,13 @@
 
 import Foundation
 
-protocol Section: SectionType {
-    associatedtype T = Setting
+class Section: SectionType {
+    var name: String = ""
+    var settings = [Setting<Any>]()
     
-    var settings: [T] { get set }
+    func registerCells(tableView: UITableView) {
+        for setting in settings {
+            setting.registerCells(tableView)
+        }
+    }
 }
