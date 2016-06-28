@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Section: SectionType {
-    var name: String = ""
+public class Section: SectionType {
+    public var name: String = ""
     var settings = [Setting<Any>]()
     
-    func registerCells(tableView: UITableView) {
+    public func registerCells(tableView: UITableView) {
         for setting in settings {
             setting.registerCells(tableView)
         }

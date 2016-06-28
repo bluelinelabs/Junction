@@ -15,7 +15,7 @@ public class WaveWindow: UIWindow {
     private var enabled: Bool
     private var waveViewController: WaveViewController
     
-    public init(frame: CGRect, style: PresentationStyle, sections: [SectionType], enabled: Bool) {
+    public init(frame: CGRect, style: PresentationStyle, sections: [Section], enabled: Bool) {
         self.style = style
         self.enabled = enabled
         self.waveViewController = WaveViewController(frame: frame, sections: sections)

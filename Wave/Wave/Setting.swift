@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Setting<U>: SettingType, RowType {
+public class Setting<U>: SettingType, RowType {
     typealias T = U
     
     var defaultValue: Setting.T? = nil
