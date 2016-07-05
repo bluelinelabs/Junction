@@ -8,9 +8,6 @@
 
 import Foundation
 
-protocol SettingType {
-    associatedtype T
-    
-    var defaultValue: T? { get set }
-    var key: String { get set }
+public protocol SettingType {
+    func store()
 }

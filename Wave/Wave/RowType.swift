@@ -9,9 +9,6 @@
 import Foundation
 
 public protocol RowType {
-    associatedtype T
-    
-    var value: T? { get set }
     var cellIdentifier: String { get set }
     
     func registerCells(tableView: UITableView)

@@ -10,7 +10,7 @@ import Foundation
 
 public class Section: SectionType {
     public var name: String = ""
-    var settings = [Setting<AnyObject>]()
+    var settings = [Setting]()
     
     public init() { }
     
@@ -28,7 +28,8 @@ public class Section: SectionType {
         return settings[indexPath.row].cellIdentifier
     }
     
-    public func addRow<T: RowType>(row: T) -> Section {
+    public func addRow(setting: Setting) -> Section {
+        settings.append(setting)
         return self
     }
 }

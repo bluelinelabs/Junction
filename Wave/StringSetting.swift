@@ -8,15 +8,20 @@
 
 import Foundation
 
-public final class StringSetting: Setting<String> {
+public final class StringSetting: Setting {
     public var placeholder: String
+    public var defaultValue: String?
+    public var value: String
+    public var key: String
     
-    public init(placeholder: String, defaultValue: String?, key: String) {
+    public init(placeholder: String, defaultValue: String?, key: String, value: String) {
         self.placeholder = placeholder
-        
-        super.init()
-        
         self.defaultValue = defaultValue
         self.key = key
+        self.value = value
+    }
+    
+    override public func store() {
+        
     }
 }

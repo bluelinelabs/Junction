@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        window = WaveWindow(frame: UIScreen.mainScreen().bounds, style: .RightDrawer, sections: [Section()], enabled: true)
+        let section = Section().addRow(StringSetting(placeholder: "", defaultValue: "", key: "", value: ""))
+        
+        window = WaveWindow(frame: UIScreen.mainScreen().bounds, style: .RightDrawer, sections: [section], enabled: true)
         window!.rootViewController = UINavigationController(rootViewController: ViewController())
         window!.makeKeyAndVisible()
         
