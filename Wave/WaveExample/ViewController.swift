@@ -3,7 +3,7 @@
 //  WaveExample
 //
 //  Created by Jimmy McDermott on 6/28/16.
-//  Copyright © 2016 Blue Line Labs. All rights reserved.
+//  Copyright © 2016 BlueLine Labs. All rights reserved.
 //
 
 import UIKit

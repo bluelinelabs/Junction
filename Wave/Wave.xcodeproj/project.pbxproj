@@ -230,7 +230,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = "Blue Line Labs";
+				ORGANIZATIONNAME = "BlueLine Labs";
 				TargetAttributes = {
 					39B377751D22C378009C4834 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -532,6 +532,7 @@
 				39B377861D22C378009C4834 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39CBDD8E1D1D77B100CA2124 /* Build configuration list for PBXProject "Wave" */ = {
 			isa = XCConfigurationList;
