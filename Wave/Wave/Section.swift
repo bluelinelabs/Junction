@@ -34,4 +34,8 @@ public class Section: SectionType {
         settings.append(setting)
         return self
     }
+ 
+    public func configureCell(cell: UITableViewCell, row: Int) {
+        settings[row].configureCell(cell)
+    }
 }

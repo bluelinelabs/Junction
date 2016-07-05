@@ -24,6 +24,12 @@ public final class StringSetting: Setting {
         self.title = title
     }
     
+    public override func configureCell(tableViewCell: UITableViewCell) {
+        super.configureCell(tableViewCell)
+        
+        tableViewCell.textLabel?.text = (tableViewCell.textLabel?.text)! + " test"
+    }
+    
     override public func store() {
         
     }

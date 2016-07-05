@@ -53,12 +53,17 @@ extension WaveViewController: UITableViewDataSource {
     }
     
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        sections[indexPath.section].registerCells(tableView)
+        let section = sections[indexPath.section]
+        section.registerCells(tableView)
+        
         let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath)
         let cell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        
+        section.configureCell(cell, row: indexPath.row)
+        
         return cell
     }
-    
+     
     public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].name
     }

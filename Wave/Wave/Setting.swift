@@ -18,7 +18,7 @@ public class Setting: SettingType, RowType {
     }
     
     public func configureCell(tableViewCell: UITableViewCell) {
-        
+        tableViewCell.textLabel?.text = title
     }
     
     public func store() {
