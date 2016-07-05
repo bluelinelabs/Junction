@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let section = Section().addRow(StringSetting(placeholder: "", defaultValue: "", key: "", value: ""))
+        let section = Section(name: "Endpoint")
+        .addRow(StringSetting(placeholder: "", defaultValue: "", key: "", value: "", title: ""))
         
         window = WaveWindow(frame: UIScreen.mainScreen().bounds, style: .RightDrawer, sections: [section], enabled: true)
         window!.rootViewController = UINavigationController(rootViewController: ViewController())

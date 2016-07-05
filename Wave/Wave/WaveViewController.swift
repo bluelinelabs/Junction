@@ -56,7 +56,10 @@ extension WaveViewController: UITableViewDataSource {
         sections[indexPath.section].registerCells(tableView)
         let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath)
         let cell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
-        
         return cell
+    }
+    
+    public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].name
     }
 }

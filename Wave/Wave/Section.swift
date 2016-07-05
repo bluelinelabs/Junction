@@ -12,7 +12,9 @@ public class Section: SectionType {
     public var name: String = ""
     var settings = [Setting]()
     
-    public init() { }
+    public init(name: String) {
+        self.name = name
+    }
     
     public func registerCells(tableView: UITableView) {
         for setting in settings {
