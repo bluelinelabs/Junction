@@ -28,7 +28,7 @@ public class Section: SectionType {
         return settings[indexPath.row].cellIdentifier
     }
     
-    public func addRow() -> Section {
+    public func addRow<T: RowType>(row: T) -> Section {
         return self
     }
 }

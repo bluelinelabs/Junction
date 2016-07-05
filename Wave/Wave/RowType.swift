@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol RowType {
+public protocol RowType {
     associatedtype T
     
     var value: T? { get set }

@@ -9,19 +9,19 @@
 import Foundation
 
 public class Setting<U>: SettingType, RowType {
-    typealias T = U
+    public typealias T = U
     
     var defaultValue: Setting.T? = nil
     var key: String = ""
     
-    var value: Setting.T? = nil
-    var cellIdentifier: String = "cell"
+    public var value: Setting.T? = nil
+    public var cellIdentifier: String = "cell"
     
-    func registerCells(tableView: UITableView) {
+    public func registerCells(tableView: UITableView) {
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
-    func configureCell(tableViewCell: UITableViewCell) {
+    public func configureCell(tableViewCell: UITableViewCell) {
         
     }
 }
