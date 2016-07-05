@@ -20,11 +20,13 @@ final public class WaveViewController: UIViewController {
         return tableView
     }()
     
-    public init(frame: CGRect, sections: [Section]) {
+    public init(frame: CGRect, sections: [SectionType]) {
         self.sections = sections
         self.frame = frame
         
         super.init(nibName: nil, bundle: nil)
+        
+        view.addSubview(tableView)
     }
     
     public required init?(coder aDecoder: NSCoder) {

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "39CBDD931D1D77B100CA2124"
-               BuildableName = "Wave.framework"
-               BlueprintName = "Wave"
+               BlueprintIdentifier = "39B377751D22C378009C4834"
+               BuildableName = "WaveExample.app"
+               BlueprintName = "WaveExample"
                ReferencedContainer = "container:Wave.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,23 +28,13 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "39CBDD9D1D1D77B100CA2124"
-               BuildableName = "WaveTests.xctest"
-               BlueprintName = "WaveTests"
-               ReferencedContainer = "container:Wave.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "39CBDD931D1D77B100CA2124"
-            BuildableName = "Wave.framework"
-            BlueprintName = "Wave"
+            BlueprintIdentifier = "39B377751D22C378009C4834"
+            BuildableName = "WaveExample.app"
+            BlueprintName = "WaveExample"
             ReferencedContainer = "container:Wave.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "39CBDD931D1D77B100CA2124"
-            BuildableName = "Wave.framework"
-            BlueprintName = "Wave"
+            BlueprintIdentifier = "39B377751D22C378009C4834"
+            BuildableName = "WaveExample.app"
+            BlueprintName = "WaveExample"
             ReferencedContainer = "container:Wave.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -79,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "39CBDD931D1D77B100CA2124"
-            BuildableName = "Wave.framework"
-            BlueprintName = "Wave"
+            BlueprintIdentifier = "39B377751D22C378009C4834"
+            BuildableName = "WaveExample.app"
+            BlueprintName = "WaveExample"
             ReferencedContainer = "container:Wave.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

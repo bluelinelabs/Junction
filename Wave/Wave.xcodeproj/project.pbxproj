@@ -12,6 +12,11 @@
 		399C5C0F1D217C2A00DF8691 /* SettingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C5C0E1D217C2A00DF8691 /* SettingType.swift */; };
 		399C5C111D217C3400DF8691 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C5C101D217C3400DF8691 /* Setting.swift */; };
 		399C5C141D2180D900DF8691 /* RowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C5C131D2180D900DF8691 /* RowType.swift */; };
+		39B377791D22C378009C4834 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B377781D22C378009C4834 /* AppDelegate.swift */; };
+		39B3777B1D22C378009C4834 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3777A1D22C378009C4834 /* ViewController.swift */; };
+		39B3777E1D22C378009C4834 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B3777C1D22C378009C4834 /* Main.storyboard */; };
+		39B377801D22C378009C4834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39B3777F1D22C378009C4834 /* Assets.xcassets */; };
+		39B377831D22C378009C4834 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B377811D22C378009C4834 /* LaunchScreen.storyboard */; };
 		39CBDD981D1D77B100CA2124 /* Wave.h in Headers */ = {isa = PBXBuildFile; fileRef = 39CBDD971D1D77B100CA2124 /* Wave.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39CBDD9F1D1D77B100CA2124 /* Wave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39CBDD941D1D77B100CA2124 /* Wave.framework */; };
 		39CBDDA41D1D77B100CA2124 /* WaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDA31D1D77B100CA2124 /* WaveTests.swift */; };
@@ -37,6 +42,13 @@
 		399C5C0E1D217C2A00DF8691 /* SettingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingType.swift; sourceTree = "<group>"; };
 		399C5C101D217C3400DF8691 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		399C5C131D2180D900DF8691 /* RowType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowType.swift; sourceTree = "<group>"; };
+		39B377761D22C378009C4834 /* WaveExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaveExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39B377781D22C378009C4834 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		39B3777A1D22C378009C4834 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		39B3777D1D22C378009C4834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		39B3777F1D22C378009C4834 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		39B377821D22C378009C4834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		39B377841D22C378009C4834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39CBDD941D1D77B100CA2124 /* Wave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Wave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CBDD971D1D77B100CA2124 /* Wave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wave.h; sourceTree = "<group>"; };
 		39CBDD991D1D77B100CA2124 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +62,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		39B377731D22C378009C4834 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		39CBDD901D1D77B100CA2124 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -80,11 +99,25 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		39B377771D22C378009C4834 /* WaveExample */ = {
+			isa = PBXGroup;
+			children = (
+				39B377781D22C378009C4834 /* AppDelegate.swift */,
+				39B3777A1D22C378009C4834 /* ViewController.swift */,
+				39B3777C1D22C378009C4834 /* Main.storyboard */,
+				39B3777F1D22C378009C4834 /* Assets.xcassets */,
+				39B377811D22C378009C4834 /* LaunchScreen.storyboard */,
+				39B377841D22C378009C4834 /* Info.plist */,
+			);
+			path = WaveExample;
+			sourceTree = "<group>";
+		};
 		39CBDD8A1D1D77B100CA2124 = {
 			isa = PBXGroup;
 			children = (
 				39CBDD961D1D77B100CA2124 /* Wave */,
 				39CBDDA21D1D77B100CA2124 /* WaveTests */,
+				39B377771D22C378009C4834 /* WaveExample */,
 				39CBDD951D1D77B100CA2124 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +127,7 @@
 			children = (
 				39CBDD941D1D77B100CA2124 /* Wave.framework */,
 				39CBDD9E1D1D77B100CA2124 /* WaveTests.xctest */,
+				39B377761D22C378009C4834 /* WaveExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,6 +169,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		39B377751D22C378009C4834 /* WaveExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39B377871D22C378009C4834 /* Build configuration list for PBXNativeTarget "WaveExample" */;
+			buildPhases = (
+				39B377721D22C378009C4834 /* Sources */,
+				39B377731D22C378009C4834 /* Frameworks */,
+				39B377741D22C378009C4834 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaveExample;
+			productName = WaveExample;
+			productReference = 39B377761D22C378009C4834 /* WaveExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 		39CBDD931D1D77B100CA2124 /* Wave */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39CBDDA81D1D77B100CA2124 /* Build configuration list for PBXNativeTarget "Wave" */;
@@ -181,6 +232,9 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Blue Line Labs";
 				TargetAttributes = {
+					39B377751D22C378009C4834 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					39CBDD931D1D77B100CA2124 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -195,6 +249,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 39CBDD8A1D1D77B100CA2124;
 			productRefGroup = 39CBDD951D1D77B100CA2124 /* Products */;
@@ -203,11 +258,22 @@
 			targets = (
 				39CBDD931D1D77B100CA2124 /* Wave */,
 				39CBDD9D1D1D77B100CA2124 /* WaveTests */,
+				39B377751D22C378009C4834 /* WaveExample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		39B377741D22C378009C4834 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39B377831D22C378009C4834 /* LaunchScreen.storyboard in Resources */,
+				39B377801D22C378009C4834 /* Assets.xcassets in Resources */,
+				39B3777E1D22C378009C4834 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		39CBDD921D1D77B100CA2124 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,6 +291,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		39B377721D22C378009C4834 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39B3777B1D22C378009C4834 /* ViewController.swift in Sources */,
+				39B377791D22C378009C4834 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		39CBDD8F1D1D77B100CA2124 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -259,7 +334,48 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		39B3777C1D22C378009C4834 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39B3777D1D22C378009C4834 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		39B377811D22C378009C4834 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39B377821D22C378009C4834 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		39B377851D22C378009C4834 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WaveExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.WaveExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		39B377861D22C378009C4834 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WaveExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.WaveExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		39CBDDA61D1D77B100CA2124 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -409,6 +525,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		39B377871D22C378009C4834 /* Build configuration list for PBXNativeTarget "WaveExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39B377851D22C378009C4834 /* Debug */,
+				39B377861D22C378009C4834 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		39CBDD8E1D1D77B100CA2124 /* Build configuration list for PBXProject "Wave" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

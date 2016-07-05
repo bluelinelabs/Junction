@@ -12,6 +12,8 @@ public class Section: SectionType {
     public var name: String = ""
     var settings = [Setting<Any>]()
     
+    public init() { }
+    
     public func registerCells(tableView: UITableView) {
         for setting in settings {
             setting.registerCells(tableView)
@@ -24,5 +26,9 @@ public class Section: SectionType {
     
     public func tableViewCellIdentifier(indexPath: NSIndexPath) -> String {
         return settings[indexPath.row].cellIdentifier
+    }
+    
+    public class func addRow() -> Section {
+        return Section()
     }
 }

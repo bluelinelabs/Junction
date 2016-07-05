@@ -15,16 +15,29 @@ public class WaveWindow: UIWindow {
     private var enabled: Bool
     private var waveViewController: WaveViewController
     
-    public init(frame: CGRect, style: PresentationStyle, sections: [Section], enabled: Bool) {
+    public init(frame: CGRect, style: PresentationStyle, sections: [SectionType], enabled: Bool) {
         self.style = style
         self.enabled = enabled
+        
         self.waveViewController = WaveViewController(frame: frame, sections: sections)
         
+        super.init(frame: frame)
+    
         if style == .LeftDrawer || style == .Shake {
             fatalError("LeftDrawer and Shake styles are not yet supported. Please use RightDrawer")
         }
+    }
+    
+    public override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == .MotionShake {
+            self.presentWave()
+        }
         
-        super.init(frame: frame)
+        super.motionBegan(motion, withEvent: event)
+    }
+    
+    @objc private func presentWave() {
+        
     }
     
     public required init?(coder aDecoder: NSCoder) {
