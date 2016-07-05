@@ -14,7 +14,7 @@ public final class SingleSelectionSection: SectionType, SettingType {
     public var enableCustom = false
     public var customOption: RowType?
     public var name: String
-    private var settings = [Setting]()
+    private var settings = [StringSetting]()
     
     public init(possibleValues: [Any], enableCustom: Bool, customOption: RowType?, name: String) {
         self.possibleValues = possibleValues
@@ -26,6 +26,9 @@ public final class SingleSelectionSection: SectionType, SettingType {
             self.settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(name)_\(value)", value: String(value), title: nil))
         }
         
+        if self.enableCustom {
+            self.settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "", value: "Custom Option", title: nil))
+        }
     }
     
     public func registerCells(tableView: UITableView) {
@@ -47,9 +50,12 @@ public final class SingleSelectionSection: SectionType, SettingType {
     }
     
     public func configureCell(cell: UITableViewCell, row: Int) {
-        settings[row].configureCell(cell)
+        cell.textLabel!.text = settings[row].value
+        if row == 0 {
+            cell.accessoryType = .Checkmark
+        }
     }
-    
+
     public func store() {
         
     }
