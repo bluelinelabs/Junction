@@ -11,6 +11,7 @@ import Foundation
 public class Setting: SettingType, RowType {
     
     public var cellIdentifier: String = "waveCell"
+    public var title: String?
     
     public func registerCells(tableView: UITableView) {
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)

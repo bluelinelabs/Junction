@@ -1,5 +1,5 @@
 //
-//  StringSetting.swift
+//  IntSetting.swift
 //  Wave
 //
 //  Created by Jimmy McDermott on 7/5/16.
@@ -8,22 +8,20 @@
 
 import Foundation
 
-public final class StringSetting: Setting {
-    public var placeholder: String?
+public final class IntSetting: Setting {
     public var defaultValue: String?
-    public var value: String
+    public var value: Int
     public var key: String
     
-    public init(placeholder: String?, defaultValue: String?, key: String, value: String, title: String?) {
-        self.placeholder = placeholder
+    public init(defaultValue: String?, value: Int, key: String, title: String?) {
         self.defaultValue = defaultValue
-        self.key = key
         self.value = value
+        self.key = key
         
         super.init()
         self.title = title
     }
-    
+
     override public func store() {
         
     }
