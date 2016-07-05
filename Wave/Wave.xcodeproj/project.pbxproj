@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3919DC001D2C131A00A68973 /* StringSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3919DBFF1D2C131A00A68973 /* StringSetting.swift */; };
 		3919DC021D2C1FFD00A68973 /* IntSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3919DC011D2C1FFD00A68973 /* IntSetting.swift */; };
+		398BF6961D2C2D2300068FDC /* SingleSelectionSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398BF6951D2C2D2300068FDC /* SingleSelectionSetting.swift */; };
 		399C5C0B1D217BC500DF8691 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C5C0A1D217BC500DF8691 /* SectionType.swift */; };
 		399C5C0D1D217C0800DF8691 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C5C0C1D217C0800DF8691 /* Section.swift */; };
 		399C5C0F1D217C2A00DF8691 /* SettingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C5C0E1D217C2A00DF8691 /* SettingType.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		3919DBFF1D2C131A00A68973 /* StringSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringSetting.swift; path = ../StringSetting.swift; sourceTree = "<group>"; };
 		3919DC011D2C1FFD00A68973 /* IntSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntSetting.swift; sourceTree = "<group>"; };
+		398BF6951D2C2D2300068FDC /* SingleSelectionSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSelectionSetting.swift; sourceTree = "<group>"; };
 		399C5C0A1D217BC500DF8691 /* SectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
 		399C5C0C1D217C0800DF8691 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		399C5C0E1D217C2A00DF8691 /* SettingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingType.swift; sourceTree = "<group>"; };
@@ -91,6 +93,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		398BF6971D2C2D3000068FDC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3919DC011D2C1FFD00A68973 /* IntSetting.swift */,
+				398BF6951D2C2D2300068FDC /* SingleSelectionSetting.swift */,
+				3919DBFF1D2C131A00A68973 /* StringSetting.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		399C5C121D2180AC00DF8691 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,11 +151,10 @@
 		39CBDD961D1D77B100CA2124 /* Wave */ = {
 			isa = PBXGroup;
 			children = (
-				3919DC011D2C1FFD00A68973 /* IntSetting.swift */,
-				3919DBFF1D2C131A00A68973 /* StringSetting.swift */,
 				39CBDDAE1D1D893C00CA2124 /* WaveWindow.swift */,
 				39CBDDB41D1D8C1000CA2124 /* WaveDesign.swift */,
 				39CBDDB01D1D8A9A00CA2124 /* WaveViewController.swift */,
+				398BF6971D2C2D3000068FDC /* Settings */,
 				399C5C121D2180AC00DF8691 /* Protocols */,
 				39CBDDB21D1D8B0B00CA2124 /* WaveKeeper.swift */,
 				39CBDD971D1D77B100CA2124 /* Wave.h */,
@@ -319,6 +330,7 @@
 				399C5C141D2180D900DF8691 /* RowType.swift in Sources */,
 				39CBDDB11D1D8A9A00CA2124 /* WaveViewController.swift in Sources */,
 				399C5C111D217C3400DF8691 /* Setting.swift in Sources */,
+				398BF6961D2C2D2300068FDC /* SingleSelectionSetting.swift in Sources */,
 				39CBDDB31D1D8B0B00CA2124 /* WaveKeeper.swift in Sources */,
 				3919DC021D2C1FFD00A68973 /* IntSetting.swift in Sources */,
 			);
