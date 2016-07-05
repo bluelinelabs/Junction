@@ -30,6 +30,7 @@ final public class WaveViewController: UIViewController {
         super.loadView()
         let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(dismiss))
         navigationItem.rightBarButtonItem = doneButton
+        title = NSLocalizedString("Wave", comment: "Wave Nav Bar Title")
         
         view.addSubview(tableView)
     }
