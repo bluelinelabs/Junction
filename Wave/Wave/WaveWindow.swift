@@ -22,7 +22,7 @@ public class WaveWindow: UIWindow {
         self.waveViewController = WaveViewController(frame: frame, sections: sections)
         
         super.init(frame: frame)
-    
+        
         if style == .LeftDrawer || style == .Shake {
             fatalError("LeftDrawer and Shake styles are not yet supported. Please use RightDrawer")
         }
@@ -37,7 +37,21 @@ public class WaveWindow: UIWindow {
     }
     
     @objc private func presentWave() {
+        guard let rootViewController = rootViewController else {
+            return
+        }
         
+        var visibleViewController = rootViewController
+        while (visibleViewController.presentedViewController != nil) {
+            visibleViewController = visibleViewController.presentedViewController!
+        }
+        
+        if let nav = visibleViewController as? UINavigationController, firstVc = nav.viewControllers.first {
+            if !(firstVc is WaveViewController) {
+                let navController = UINavigationController(rootViewController: waveViewController)
+                visibleViewController.presentViewController(navController, animated: true, completion: nil)
+            }
+        }
     }
     
     public required init?(coder aDecoder: NSCoder) {

@@ -15,10 +15,10 @@ public class Setting<U>: SettingType, RowType {
     var key: String = ""
     
     var value: Setting.T? = nil
-    var cellIdentifier: String = ""
+    var cellIdentifier: String = "cell"
     
     func registerCells(tableView: UITableView) {
-        
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
     func configureCell(tableViewCell: UITableViewCell) {

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         window = WaveWindow(frame: UIScreen.mainScreen().bounds, style: .RightDrawer, sections: [Section()], enabled: true)
-        window!.rootViewController = ViewController()
+        window!.rootViewController = UINavigationController(rootViewController: ViewController())
         window!.makeKeyAndVisible()
         
         return true

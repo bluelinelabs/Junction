@@ -17,21 +17,30 @@ final public class WaveViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: self.frame, style: .Grouped)
         tableView.autoresizingMask = [.FlexibleRightMargin, .FlexibleLeftMargin, .FlexibleBottomMargin, .FlexibleTopMargin]
+        tableView.delegate = self
+        tableView.dataSource = self
         return tableView
     }()
     
+    override public func loadView() {
+        super.loadView()
+        view.addSubview(tableView)
+    }
+
     public init(frame: CGRect, sections: [SectionType]) {
         self.sections = sections
         self.frame = frame
         
         super.init(nibName: nil, bundle: nil)
-        
-        view.addSubview(tableView)
     }
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+extension WaveViewController: UITableViewDelegate {
+    
 }
 
 extension WaveViewController: UITableViewDataSource {
@@ -44,6 +53,7 @@ extension WaveViewController: UITableViewDataSource {
     }
     
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        sections[indexPath.section].registerCells(tableView)
         let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath)
         let cell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
