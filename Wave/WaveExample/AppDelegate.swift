@@ -28,7 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         .addRow(intSetting)
         .addRow(stringSetting)
         
-        window = WaveWindow(frame: UIScreen.mainScreen().bounds, style: .RightDrawer, sections: [firstSection, secondSection], enabled: true)
+        let thirdSection = SingleSelectionSection(possibleValues: ["endpoint 1", "endpoint 2"], enableCustom: false, customOption: nil, name: "Single Selection")
+        
+        window = WaveWindow(frame: UIScreen.mainScreen().bounds, style: .RightDrawer, sections: [firstSection, secondSection, thirdSection], enabled: true)
         window!.rootViewController = UINavigationController(rootViewController: ViewController())
         window!.makeKeyAndVisible()
         
