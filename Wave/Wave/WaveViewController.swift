@@ -22,8 +22,15 @@ final public class WaveViewController: UIViewController {
         return tableView
     }()
     
+    func dismiss() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override public func loadView() {
         super.loadView()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(dismiss))
+        navigationItem.rightBarButtonItem = doneButton
+        
         view.addSubview(tableView)
     }
 
