@@ -17,10 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let section = Section(name: "Endpoints")
-        .addRow(StringSetting(placeholder: "", defaultValue: "", key: "", value: "http://www.healthipass.com/api/v2/", title: "Main Endpoint:"))
+        let stringSetting = StringSetting(placeholder: "", defaultValue: nil, key: "mainEndpoint", value: "http://www.healthipass.com/api/v2/", title: "Main Endpoint:")
+        let intSetting = IntSetting(defaultValue: nil, value: 8080, key: "port", title: "Port")
         
-        window = WaveWindow(frame: UIScreen.mainScreen().bounds, style: .RightDrawer, sections: [section], enabled: true)
+        let firstSection = Section(name: "Endpoints")
+        .addRow(stringSetting)
+        .addRow(intSetting)
+        
+        let secondSection = Section(name: "Second Section")
+        .addRow(intSetting)
+        .addRow(stringSetting)
+        
+        window = WaveWindow(frame: UIScreen.mainScreen().bounds, style: .RightDrawer, sections: [firstSection, secondSection], enabled: true)
         window!.rootViewController = UINavigationController(rootViewController: ViewController())
         window!.makeKeyAndVisible()
         

@@ -21,6 +21,16 @@ public final class IntSetting: Setting {
         super.init()
         self.title = title
     }
+    
+    override public func configureCell(tableViewCell: UITableViewCell) {
+        super.configureCell(tableViewCell)
+        
+        guard let currentText = tableViewCell.textLabel?.text else {
+            tableViewCell.textLabel?.text = String(value)
+            return
+        }
+        tableViewCell.textLabel?.text = "\(currentText) \(value)"
+    }
 
     override public func store() {
         
