@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let section = Section(name: "Endpoints")
-        .addRow(StringSetting(placeholder: "", defaultValue: "", key: "", value: "", title: "Main Endpoint:"))
+        .addRow(StringSetting(placeholder: "", defaultValue: "", key: "", value: "http://www.healthipass.com/api/v2/", title: "Main Endpoint:"))
         
         window = WaveWindow(frame: UIScreen.mainScreen().bounds, style: .RightDrawer, sections: [section], enabled: true)
         window!.rootViewController = UINavigationController(rootViewController: ViewController())
