@@ -31,7 +31,7 @@ public final class WaveKeeper {
         return exists
     }
     
-    public func getValueWithKey(key: String) -> AnyObject? {
+    internal func getValueWithKey(key: String) -> AnyObject? {
         self.createPlistIfNeeded()
         
         let filename = "WaveData.plist"
@@ -42,17 +42,28 @@ public final class WaveKeeper {
         return dict[key]
     }
     
+    private func loadAllData() -> NSDictionary? {
+        let filename = "WaveData.plist"
+        
+        guard let fileURL =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first?.URLByAppendingPathComponent(filename) else { return nil }
+        
+        guard let dict = NSDictionary(contentsOfURL: fileURL) else { return nil }
+        return dict
+    }
+    
     public func addValueForKey(key: String, value: AnyObject) -> Bool {
+        self.createPlistIfNeeded()
+        
         let filename = "WaveData.plist"
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         let path = documentDirectory.stringByAppendingString("/\(filename)")
         
-        guard getValueWithKey(key) == nil else {
-            return false
-        }
-        
         let dictionary = NSDictionary(dictionary: [key: value])
-        dictionary.writeToFile(path, atomically: true)
-        return true
+        
+        let previousValues = loadAllData()?.mutableCopy()
+        
+        previousValues?.addEntriesFromDictionary(dictionary as [NSObject : AnyObject])
+        
+        return previousValues!.writeToFile(path, atomically: true)
     }
 }

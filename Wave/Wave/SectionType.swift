@@ -16,4 +16,5 @@ public protocol SectionType {
     func tableViewCellIdentifier(indexPath: NSIndexPath) -> String
     func configureCell(cell: UITableViewCell, row: Int)
     func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath)
+    func store()
 }

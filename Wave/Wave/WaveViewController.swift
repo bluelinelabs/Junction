@@ -23,8 +23,11 @@ final public class WaveViewController: UIViewController {
     }()
     
     func dismiss() {
+        
         for section in sections {
+            section.store()
         }
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     

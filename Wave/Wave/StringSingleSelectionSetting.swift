@@ -25,7 +25,7 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
         }
         
         if enableCustom {
-            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "", value: "Custom Option", title: nil))
+            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(name)_customOption", value: "Custom Option", title: nil))
         }
     }
     
@@ -55,7 +55,9 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
     }
 
     public func store() {
-        
+        for setting in settings {
+            setting.store()
+        }
     }
     
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {

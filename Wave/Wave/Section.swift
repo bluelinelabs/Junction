@@ -16,6 +16,12 @@ public class Section: SectionType {
         self.name = name
     }
     
+    public func store() {
+        for setting in settings {
+            setting.store()
+        }
+    }
+    
     public func registerCells(tableView: UITableView) {
         for setting in settings {
             setting.registerCells(tableView)
