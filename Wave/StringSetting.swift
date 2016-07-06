@@ -27,7 +27,7 @@ public final class StringSetting: Setting {
     public override func configureCell(tableViewCell: UITableViewCell) {
         super.configureCell(tableViewCell)
         
-        tableViewCell.textLabel?.text = "\(tableViewCell.textLabel?.text!) \(value)"
+        tableViewCell.textLabel!.text = "\(tableViewCell.textLabel!.text!) \(value)"
     }
     
     override public func store() {
