@@ -32,10 +32,25 @@ public final class WaveKeeper {
     }
     
     public func valueForKey(key: String) -> AnyObject? {
+        let name = "WaveData"
+        let plist = "\(name).plist"
+        
+        var sourcePath:String? {
+            guard let path = NSBundle.mainBundle().pathForResource(plist, ofType: "plist") else { return nil }
+            return path
+        }
+        
+        var destPath: String? {
+            guard sourcePath != .None else { return nil }
+            let dir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+            return (dir as NSString).stringByAppendingPathComponent("\(name).plist")
+        }
+        
         if !createPlistIfNeeded() {
             return nil
         } else {
-            return ""
+            guard let dict = NSDictionary(contentsOfFile: plist) else { return nil }
+            return dict[key]
         }
     }
 }

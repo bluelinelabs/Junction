@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        WaveKeeper.sharedInstance.test()
+        print(WaveKeeper.sharedInstance.valueForKey("test"))
         
         let stringSetting = StringSetting(placeholder: "", defaultValue: nil, key: "mainEndpoint", value: "https://www.google.com", title: "Main Endpoint:")
         let intSetting = IntSetting(defaultValue: nil, value: 8080, key: "port", title: "Port")
