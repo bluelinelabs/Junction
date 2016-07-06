@@ -8,20 +8,20 @@
 
 import Foundation
 
-public class Setting<U>: SettingType, RowType {
-    typealias T = U
+public class Setting: SettingType, RowType {
     
-    var defaultValue: Setting.T? = nil
-    var key: String = ""
+    public var cellIdentifier: String = "waveCell"
+    public var title: String?
     
-    var value: Setting.T? = nil
-    var cellIdentifier: String = "cell"
-    
-    func registerCells(tableView: UITableView) {
+    public func registerCells(tableView: UITableView) {
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
-    func configureCell(tableViewCell: UITableViewCell) {
+    public func configureCell(tableViewCell: UITableViewCell) {
+        tableViewCell.textLabel?.text = title
+    }
+    
+    public func store() {
         
     }
 }

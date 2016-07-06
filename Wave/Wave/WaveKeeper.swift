@@ -9,5 +9,7 @@
 import UIKit
 
 public final class WaveKeeper {
-    //The class that will hold all of the store data, and manage its' persistance 
+    public static let sharedInstance = WaveKeeper()
+    
+    private init() { }
 }

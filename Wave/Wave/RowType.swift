@@ -8,10 +8,7 @@
 
 import Foundation
 
-protocol RowType {
-    associatedtype T
-    
-    var value: T? { get set }
+public protocol RowType {
     var cellIdentifier: String { get set }
     
     func registerCells(tableView: UITableView)

@@ -22,8 +22,15 @@ final public class WaveViewController: UIViewController {
         return tableView
     }()
     
+    func dismiss() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override public func loadView() {
         super.loadView()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(dismiss))
+        title = NSLocalizedString("Wave", comment: "Wave Nav Bar Title")
+        
         view.addSubview(tableView)
     }
 
@@ -40,7 +47,9 @@ final public class WaveViewController: UIViewController {
 }
 
 extension WaveViewController: UITableViewDelegate {
-    
+    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 }
 
 extension WaveViewController: UITableViewDataSource {
@@ -53,10 +62,18 @@ extension WaveViewController: UITableViewDataSource {
     }
     
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        sections[indexPath.section].registerCells(tableView)
+        let section = sections[indexPath.section]
+        section.registerCells(tableView)
+        
         let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath)
         let cell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
+        section.configureCell(cell, row: indexPath.row)
+        
         return cell
+    }
+     
+    public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].name
     }
 }

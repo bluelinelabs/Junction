@@ -10,9 +10,11 @@ import Foundation
 
 public class Section: SectionType {
     public var name: String = ""
-    var settings = [Setting<AnyObject>]()
+    var settings = [Setting]()
     
-    public init() { }
+    public init(name: String) {
+        self.name = name
+    }
     
     public func registerCells(tableView: UITableView) {
         for setting in settings {
@@ -28,7 +30,12 @@ public class Section: SectionType {
         return settings[indexPath.row].cellIdentifier
     }
     
-    public func addRow() -> Section {
+    public func addRow(setting: Setting) -> Section {
+        settings.append(setting)
         return self
+    }
+ 
+    public func configureCell(cell: UITableViewCell, row: Int) {
+        settings[row].configureCell(cell)
     }
 }
