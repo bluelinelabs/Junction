@@ -22,12 +22,12 @@ public final class SingleSelectionSection: SectionType, SettingType {
         self.customOption = customOption
         self.name = name
         
-        for value in self.possibleValues {
-            self.settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(name)_\(value)", value: String(value), title: nil))
+        for value in possibleValues {
+            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(name)_\(value)", value: String(value), title: nil))
         }
         
-        if self.enableCustom {
-            self.settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "", value: "Custom Option", title: nil))
+        if enableCustom {
+            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "", value: "Custom Option", title: nil))
         }
     }
     
