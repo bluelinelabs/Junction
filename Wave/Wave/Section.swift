@@ -38,4 +38,8 @@ public class Section: SectionType {
     public func configureCell(cell: UITableViewCell, row: Int) {
         settings[row].configureCell(cell)
     }
+    
+    public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
+        settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
+    }
 }

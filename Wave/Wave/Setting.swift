@@ -20,6 +20,10 @@ public class Setting: SettingType, RowType {
     public func configureCell(tableViewCell: UITableViewCell) {
         tableViewCell.textLabel?.text = title
     }
+
+    public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
     
     public func store() {
         

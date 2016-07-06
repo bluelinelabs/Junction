@@ -66,4 +66,7 @@ public final class IntSingleSelectionSetting: SectionType, SettingType {
         
     }
 
+    public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
+        settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
+    }
 }

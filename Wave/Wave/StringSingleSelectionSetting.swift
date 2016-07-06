@@ -57,4 +57,8 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
     public func store() {
         
     }
+    
+    public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
+        settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
+    }
 }
