@@ -12,14 +12,12 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
     
     public var possibleValues: [String]
     public var enableCustom = false
-    public var customOption: RowType?
     public var name: String
     private var settings = [StringSetting]()
     
-    public init(possibleValues: [String], enableCustom: Bool, customOption: RowType?, name: String) {
+    public init(possibleValues: [String], enableCustom: Bool, name: String) {
         self.possibleValues = possibleValues
         self.enableCustom = enableCustom
-        self.customOption = customOption
         self.name = name
         
         for value in possibleValues {

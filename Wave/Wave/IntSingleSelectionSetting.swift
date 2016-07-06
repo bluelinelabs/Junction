@@ -11,14 +11,12 @@ import Foundation
 public final class IntSingleSelectionSetting: SectionType, SettingType {
     public var possibleValues: [Int]
     public var enableCustom = false
-    public var customOption: RowType?
     public var name: String
     private var settings = [Setting]()
     
-    public init(possibleValues: [Int], enableCustom: Bool, customOption: RowType?, name: String) {
+    public init(possibleValues: [Int], enableCustom: Bool, name: String) {
         self.possibleValues = possibleValues
         self.enableCustom = enableCustom
-        self.customOption = customOption
         self.name = name
         
         for value in possibleValues {
