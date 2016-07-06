@@ -13,7 +13,7 @@ public final class WaveKeeper {
     
     private init() { }
     
-    public func createPlistIfNeeded() -> Bool {
+    private func createPlistIfNeeded() -> Bool {
         var exists = false
         let plist = "WaveData.plist"
         let fileManager = NSFileManager.defaultManager()
@@ -46,6 +46,10 @@ public final class WaveKeeper {
         let filename = "WaveData.plist"
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         let path = documentDirectory.stringByAppendingString("/\(filename)")
+        
+        guard getValueWithKey(key) == nil else {
+            return false
+        }
         
         let dictionary = NSDictionary(dictionary: [key: value])
         dictionary.writeToFile(path, atomically: true)
