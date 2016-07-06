@@ -9,5 +9,7 @@
 import UIKit
 
 public final class WaveKeeper {
-    public static let sharkedInstance = WaveKeeper()
+    public static let sharedInstance = WaveKeeper()
+    
+    private init() { }
 }
