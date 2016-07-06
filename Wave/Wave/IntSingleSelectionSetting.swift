@@ -1,29 +1,28 @@
 //
-//  SingleSelectionSetting.swift
+//  IntSelectionSetting.swift
 //  Wave
 //
-//  Created by Jimmy McDermott on 7/5/16.
+//  Created by Jimmy McDermott on 7/6/16.
 //  Copyright © 2016 BlueLine Labs. All rights reserved.
 //
 
 import Foundation
 
-public final class SingleSelectionSection: SectionType, SettingType {
-    
-    public var possibleValues: [Any]
+public final class IntSingleSelectionSetting: SectionType, SettingType {
+    public var possibleValues: [Int]
     public var enableCustom = false
     public var customOption: RowType?
     public var name: String
-    private var settings = [StringSetting]()
+    private var settings = [Setting]()
     
-    public init(possibleValues: [Any], enableCustom: Bool, customOption: RowType?, name: String) {
+    public init(possibleValues: [Int], enableCustom: Bool, customOption: RowType?, name: String) {
         self.possibleValues = possibleValues
         self.enableCustom = enableCustom
         self.customOption = customOption
         self.name = name
         
         for value in possibleValues {
-            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(name)_\(value)", value: String(value), title: nil))
+            settings.append(IntSetting(defaultValue: nil, value: value, key: "\(name)_\(value)", title: nil))
         }
         
         if enableCustom {
@@ -50,13 +49,23 @@ public final class SingleSelectionSection: SectionType, SettingType {
     }
     
     public func configureCell(cell: UITableViewCell, row: Int) {
-        cell.textLabel!.text = settings[row].value
+        var value: AnyObject!
+        
+        if let intSetting = settings[row] as? IntSetting {
+            value = intSetting.value
+        } else if let stringSetting = settings[row] as? StringSetting {
+            value = stringSetting.value
+        }
+        
+        cell.textLabel!.text = String(value)
+        
         if row == 0 {
             cell.accessoryType = .Checkmark
         }
     }
-
+    
     public func store() {
         
     }
+
 }
