@@ -24,8 +24,8 @@ final public class WaveViewController: UIViewController {
     
     func dismiss() {
         
-        for section in sections {
-            section.store()
+        for (index, section) in sections.enumerate() {
+            section.store(index)
         }
         
         dismissViewControllerAnimated(true, completion: nil)

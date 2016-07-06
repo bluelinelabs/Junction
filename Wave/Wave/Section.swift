@@ -16,7 +16,7 @@ public class Section: SectionType {
         self.name = name
     }
     
-    public func store() {
+    public func store(row: Int) {
         for setting in settings {
             setting.store()
         }

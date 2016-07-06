@@ -62,13 +62,14 @@ public final class IntSingleSelectionSetting: SectionType, SettingType {
         }
     }
     
-    public func store() {
-        for setting in settings {
-            setting.store()
-        }
+    public func store(row: Int) {
+        
     }
+    
+    public func store() { }
 
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
+        store(indexPath.row)
         settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
     }
 }

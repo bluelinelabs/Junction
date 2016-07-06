@@ -49,18 +49,23 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
     
     public func configureCell(cell: UITableViewCell, row: Int) {
         cell.textLabel!.text = settings[row].value
-        if row == 0 {
+        guard let selectedOption = WaveKeeper.sharedInstance.getValueWithKey("\(name)_\(possibleValues[row])") as? String else {
+            return
+        }
+        
+        if selectedOption == possibleValues[row] {
             cell.accessoryType = .Checkmark
         }
     }
-
-    public func store() {
-        for setting in settings {
-            setting.store()
-        }
+    
+    public func store(row: Int) {
+        WaveKeeper.sharedInstance.addValueForKey(name, value: possibleValues[row])
     }
+
+    public func store() { }
     
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
+        store(indexPath.row)
         settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
     }
 }
