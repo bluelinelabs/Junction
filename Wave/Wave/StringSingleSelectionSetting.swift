@@ -24,7 +24,7 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
         self.key = key
         
         for value in possibleValues {
-            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(name)_\(value)", value: String(value), title: nil))
+            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
         }
         
         if enableCustom {
@@ -57,6 +57,10 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
             return
         }
         
+        guard row < possibleValues.count else {
+            return
+        }
+        
         if selectedOption == possibleValues[row] {
             cell.accessoryType = .Checkmark
         } else {
@@ -70,16 +74,24 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
             return
         }
         
-        WaveKeeper.sharedInstance.addValueForKey(key, value: selectedSetting.value)
+        selectedSetting.store()
+    }
+    
+    private func customOptionTapped() {
     }
     
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
+        settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
+        
+        guard settings[indexPath.row].value != "Custom Option" else {
+            customOptionTapped()
+            return
+        }
+        
         selectedSetting = settings[indexPath.row]
         store()
          
         configureCell(tableViewCell, row: indexPath.row)
         tableView.reloadData()
-        
-        settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
     }
 }

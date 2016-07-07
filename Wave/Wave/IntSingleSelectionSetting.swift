@@ -23,7 +23,7 @@ public final class IntSingleSelectionSetting: SectionType, SettingType {
         self.key = key
         
         for value in possibleValues {
-            settings.append(IntSetting(defaultValue: nil, value: value, key: "\(name)_\(value)", title: nil))
+            settings.append(IntSetting(defaultValue: nil, value: value, key: key, title: nil))
         }
         
         if enableCustom {
@@ -80,13 +80,18 @@ public final class IntSingleSelectionSetting: SectionType, SettingType {
             return
         }
         
-        WaveKeeper.sharedInstance.addValueForKey(key, value: selectedSetting.value)
+        selectedSetting.store()
+    }
+    
+    private func customOptionTapped() {
+        
     }
 
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
         settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
         
         guard let setting = settings[indexPath.row] as? IntSetting else {
+            customOptionTapped()
             return
         }
         
