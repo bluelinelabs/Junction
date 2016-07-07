@@ -14,7 +14,7 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
     public var enableCustom = false
     public var name: String
     private var settings = [StringSetting]()
-    private var selectedSetting: StringSetting!
+    private var selectedSetting: StringSetting?
     
     public init(possibleValues: [String], enableCustom: Bool, name: String) {
         self.possibleValues = possibleValues
@@ -63,6 +63,10 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
     }
 
     public func store() {
+        
+        guard let selectedSetting = selectedSetting else {
+            return
+        }
         
         WaveKeeper.sharedInstance.addValueForKey(name, value: selectedSetting.value)
     }

@@ -13,6 +13,7 @@ public final class IntSingleSelectionSetting: SectionType, SettingType {
     public var enableCustom = false
     public var name: String
     private var settings = [Setting]()
+    private var selectedSetting: IntSetting?
     
     public init(possibleValues: [Int], enableCustom: Bool, name: String) {
         self.possibleValues = possibleValues
@@ -57,19 +58,41 @@ public final class IntSingleSelectionSetting: SectionType, SettingType {
         
         cell.textLabel!.text = String(value)
         
-        if row == 0 {
+        guard let selectedOption = WaveKeeper.sharedInstance.getValueWithKey(name) as? Int else {
+            return
+        }
+        
+        guard row < possibleValues.count else {
+            return
+        }
+        
+        if selectedOption == possibleValues[row] {
             cell.accessoryType = .Checkmark
+        } else {
+            cell.accessoryType = .None
         }
     }
     
-    public func store(row: Int) {
+    public func store() {
+        guard let selectedSetting = selectedSetting else {
+            return
+        }
         
+        WaveKeeper.sharedInstance.addValueForKey(name, value: selectedSetting.value)
     }
-    
-    public func store() { }
 
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
-        store(indexPath.row)
         settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
+        
+        guard let setting = settings[indexPath.row] as? IntSetting else {
+            return
+        }
+        
+        selectedSetting = setting
+        store()
+        
+        configureCell(tableViewCell, row: indexPath.row)
+        tableView.reloadData()
+        
     }
 }

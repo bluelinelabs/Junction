@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let thirdSection = StringSingleSelectionSection(possibleValues: ["google.com", "yahoo.com"], enableCustom: false, name: "Single Selection String")
         let fourthSection = IntSingleSelectionSetting(possibleValues: [1, 2, 3, 4], enableCustom: true, name: "Single Selection Int")
         
-        window = WaveWindow(frame: UIScreen.mainScreen().bounds, style: .RightDrawer, sections: [firstSection, thirdSection], enabled: true)
+        window = WaveWindow(frame: UIScreen.mainScreen().bounds, style: .RightDrawer, sections: [firstSection, thirdSection, fourthSection], enabled: true)
         window!.rootViewController = UINavigationController(rootViewController: ViewController())
         window!.makeKeyAndVisible()
         
