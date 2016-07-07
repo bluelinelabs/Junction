@@ -49,7 +49,8 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
     
     public func configureCell(cell: UITableViewCell, row: Int) {
         cell.textLabel!.text = settings[row].value
-        guard let selectedOption = WaveKeeper.sharedInstance.getValueWithKey("\(name)_\(possibleValues[row])") as? String else {
+        
+        guard let selectedOption = WaveKeeper.sharedInstance.getValueWithKey(name) as? String else {
             return
         }
         
