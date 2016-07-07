@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Section: SectionType {
+public final class Section: SectionType {
     public var name: String = ""
     var settings = [Setting]()
     
