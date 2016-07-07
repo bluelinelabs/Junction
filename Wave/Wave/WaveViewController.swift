@@ -24,11 +24,17 @@ final public class WaveViewController: UIViewController {
     
     func dismiss() {
         
-        for (index, section) in sections.enumerate() {
-            section.store(index)
+        for section in sections {
+            section.store()
         }
         
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    public override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView.reloadData()
     }
     
     override public func loadView() {
