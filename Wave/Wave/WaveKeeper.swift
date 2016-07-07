@@ -8,8 +8,8 @@
 
 import UIKit
 
-public final class WaveKeeper {
-    public static let sharedInstance = WaveKeeper()
+internal final class WaveKeeper {
+    internal static let sharedInstance = WaveKeeper()
     
     private init() { }
     
@@ -51,7 +51,7 @@ public final class WaveKeeper {
         return dict
     }
     
-    public func addValueForKey(key: String, value: AnyObject) -> Bool {
+    internal func addValueForKey(key: String, value: AnyObject) -> Bool {
         self.createPlistIfNeeded()
         
         let filename = "WaveData.plist"
