@@ -15,11 +15,13 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
     public var name: String
     private var settings = [StringSetting]()
     private var selectedSetting: StringSetting?
+    private var key: String
     
-    public init(possibleValues: [String], enableCustom: Bool, name: String) {
+    public init(possibleValues: [String], enableCustom: Bool, name: String, key: String) {
         self.possibleValues = possibleValues
         self.enableCustom = enableCustom
         self.name = name
+        self.key = key
         
         for value in possibleValues {
             settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(name)_\(value)", value: String(value), title: nil))
@@ -51,7 +53,7 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
     public func configureCell(cell: UITableViewCell, row: Int) {
         cell.textLabel!.text = settings[row].value
         
-        guard let selectedOption = WaveKeeper.sharedInstance.getValueWithKey(name) as? String else {
+        guard let selectedOption = WaveKeeper.sharedInstance.getValueWithKey(key) as? String else {
             return
         }
         
@@ -68,7 +70,7 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
             return
         }
         
-        WaveKeeper.sharedInstance.addValueForKey(name, value: selectedSetting.value)
+        WaveKeeper.sharedInstance.addValueForKey(key, value: selectedSetting.value)
     }
     
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
