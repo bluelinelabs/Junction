@@ -9,7 +9,7 @@
 import UIKit
 
 //Subclassing UIWindow allows the user to set the window in the App Delegate, and then not worry about it anywhere else in the app. In all essence, this allows the user to access the pullout on any screen in the app
-public class WaveWindow: UIWindow {
+public final class WaveWindow: UIWindow {
     
     private var style: PresentationStyle
     private var enabled: Bool
@@ -23,20 +23,20 @@ public class WaveWindow: UIWindow {
         
         super.init(frame: frame)
         
-        if style == .LeftDrawer || style == .Shake {
-            fatalError("LeftDrawer and Shake styles are not yet supported. Please use RightDrawer")
+        if style == .LeftDrawer || style == .RightDrawer {
+            fatalError("LeftDrawer and RightDrawer styles are not yet supported. Please use Shake")
         }
     }
     
     public override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if motion == .MotionShake {
+        if motion == .MotionShake && style == .Shake {
             self.presentWave()
         }
         
         super.motionBegan(motion, withEvent: event)
     }
     
-    @objc private func presentWave() {
+    private func presentWave() {
         guard let rootViewController = rootViewController else {
             return
         }

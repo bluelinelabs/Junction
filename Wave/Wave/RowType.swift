@@ -13,4 +13,5 @@ public protocol RowType {
     
     func registerCells(tableView: UITableView)
     func configureCell(tableViewCell: UITableViewCell)
+    func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath)
 }

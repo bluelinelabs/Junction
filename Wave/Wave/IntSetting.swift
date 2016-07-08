@@ -29,6 +29,6 @@ public final class IntSetting: Setting {
     }
 
     override public func store() {
-        
+        WaveKeeper.sharedInstance.addValueForKey(key, value: value)
     }
 }

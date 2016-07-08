@@ -8,12 +8,18 @@
 
 import Foundation
 
-public class Section: SectionType {
+public final class Section: SectionType {
     public var name: String = ""
     var settings = [Setting]()
     
     public init(name: String) {
         self.name = name
+    }
+    
+    public func store() {
+        for setting in settings {
+            setting.store()
+        }
     }
     
     public func registerCells(tableView: UITableView) {
@@ -37,5 +43,9 @@ public class Section: SectionType {
  
     public func configureCell(cell: UITableViewCell, row: Int) {
         settings[row].configureCell(cell)
+    }
+    
+    public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
+        settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
     }
 }

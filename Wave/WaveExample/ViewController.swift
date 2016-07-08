@@ -12,12 +12,14 @@ class ViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        
         view.backgroundColor = UIColor.whiteColor()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let button = UIButton(frame: CGRect(x: 0, y: 100, width: 100, height: 50))
+        button.setTitle("test", forState: .Normal)
+        view.addSubview(button)
     }
 }
-

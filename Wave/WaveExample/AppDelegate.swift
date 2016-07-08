@@ -24,14 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         .addRow(stringSetting)
         .addRow(intSetting)
         
-        let secondSection = Section(name: "Second Section")
-        .addRow(intSetting)
-        .addRow(stringSetting)
+        let secondSection = StringSingleSelectionSection(possibleValues: ["google.com", "yahoo.com"], enableCustom: true, name: "Single Selection String", key: "singleSelectionString")
+        //let secondSection = IntSingleSelectionSetting(possibleValues: [1, 2, 3, 4, 5], enableCustom: true, name: "test", key: "singleSelectionInt")
         
-        let thirdSection = StringSingleSelectionSection(possibleValues: ["endpoint 1", "endpoint 2"], enableCustom: false, name: "Single Selection String")
-        let fourthSection = IntSingleSelectionSetting(possibleValues: [1, 2, 3, 4], enableCustom: true, name: "Single Selection Int")
-        
-        window = WaveWindow(frame: UIScreen.mainScreen().bounds, style: .RightDrawer, sections: [firstSection, secondSection, thirdSection, fourthSection], enabled: true)
+        window = WaveWindow(frame: UIScreen.mainScreen().bounds, style: .Shake, sections: [firstSection, secondSection], enabled: true)
         window!.rootViewController = UINavigationController(rootViewController: ViewController())
         window!.makeKeyAndVisible()
         

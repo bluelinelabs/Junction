@@ -13,18 +13,21 @@ public final class IntSingleSelectionSetting: SectionType, SettingType {
     public var enableCustom = false
     public var name: String
     private var settings = [Setting]()
+    private var selectedSetting: IntSetting?
+    private var key: String
     
-    public init(possibleValues: [Int], enableCustom: Bool, name: String) {
+    public init(possibleValues: [Int], enableCustom: Bool, name: String, key: String) {
         self.possibleValues = possibleValues
         self.enableCustom = enableCustom
         self.name = name
+        self.key = key
         
         for value in possibleValues {
-            settings.append(IntSetting(defaultValue: nil, value: value, key: "\(name)_\(value)", title: nil))
+            settings.append(IntSetting(defaultValue: nil, value: value, key: key, title: nil))
         }
         
         if enableCustom {
-            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "", value: "Custom Option", title: nil))
+            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(name)_customOption", value: "Custom Option", title: nil))
         }
     }
     
@@ -57,13 +60,46 @@ public final class IntSingleSelectionSetting: SectionType, SettingType {
         
         cell.textLabel!.text = String(value)
         
-        if row == 0 {
+        guard let selectedOption = WaveKeeper.sharedInstance.getValueWithKey(key) as? Int else {
+            return
+        }
+        
+        guard row < possibleValues.count else {
+            return
+        }
+        
+        if selectedOption == possibleValues[row] {
             cell.accessoryType = .Checkmark
+        } else {
+            cell.accessoryType = .None
         }
     }
     
     public func store() {
+        guard let selectedSetting = selectedSetting else {
+            return
+        }
+        
+        selectedSetting.store()
+    }
+    
+    private func customOptionTapped() {
         
     }
 
+    public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
+        settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
+        
+        guard let setting = settings[indexPath.row] as? IntSetting else {
+            customOptionTapped()
+            return
+        }
+        
+        selectedSetting = setting
+        store()
+        
+        configureCell(tableViewCell, row: indexPath.row)
+        tableView.reloadData()
+        
+    }
 }

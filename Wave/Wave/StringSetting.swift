@@ -31,6 +31,6 @@ public final class StringSetting: Setting {
     }
     
     override public func store() {
-        
+        WaveKeeper.sharedInstance.addValueForKey(key, value: value)
     }
 }
