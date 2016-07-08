@@ -32,7 +32,7 @@ internal final class WaveKeeper {
     }
     
     internal func getValueWithKey(key: String) -> AnyObject? {
-        self.createPlistIfNeeded()
+        createPlistIfNeeded()
         
         let filename = "WaveData.plist"
         
@@ -52,7 +52,7 @@ internal final class WaveKeeper {
     }
     
     internal func addValueForKey(key: String, value: AnyObject) -> Bool {
-        self.createPlistIfNeeded()
+        createPlistIfNeeded()
         
         let filename = "WaveData.plist"
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
