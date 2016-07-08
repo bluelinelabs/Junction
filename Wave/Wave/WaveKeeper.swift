@@ -38,8 +38,7 @@ internal final class WaveKeeper {
         
         guard let fileURL =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first?.URLByAppendingPathComponent(filename) else { return nil }
         
-        guard let dict = NSDictionary(contentsOfURL: fileURL) else { return nil }
-        return dict[key]
+        return NSDictionary(contentsOfURL: fileURL)?[key]
     }
     
     private func loadAllData() -> NSDictionary? {
