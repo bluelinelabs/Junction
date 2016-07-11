@@ -50,10 +50,6 @@ public final class IntSingleSelectionSetting: SectionType, SettingType {
         }
     }
     
-    public func addSetting(text: String, key: String) {
-        
-    }
-    
     public func tableViewCellIdentifier(row: Int) -> String {
         return settings[row].cellIdentifier
     }

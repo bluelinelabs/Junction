@@ -50,10 +50,6 @@ public final class Section: SectionType {
         settings[row].configureCell(cell)
     }
     
-    public func addSetting(text: String, key: String) {
-        settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: text, title: nil))
-    }
-    
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
         settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
     }

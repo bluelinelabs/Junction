@@ -32,6 +32,15 @@ public final class StringSingleSelectionSection: NSObject, SectionType, SettingT
         
         if enableCustom {
             settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(key)_customOption", value: "Custom Option", title: "Custom Option"))
+            
+            guard let customOptions = WaveKeeper.sharedInstance.getValueWithKey("\(key)_customOption") as? [String] else {
+                return
+            }
+            
+            for option in customOptions {
+                self.possibleValues.append(option)
+                settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: option, title: nil))
+            }
         }
     }
     
@@ -46,10 +55,6 @@ public final class StringSingleSelectionSection: NSObject, SectionType, SettingT
         } else {
             return possibleValues.count
         }
-    }
-    
-    public func addSetting(text: String, key: String) {
-        
     }
     
     public func tableViewCellIdentifier(row: Int) -> String {
@@ -107,6 +112,15 @@ public final class StringSingleSelectionSection: NSObject, SectionType, SettingT
 extension StringSingleSelectionSection: UITextFieldDelegate {
     public func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
+        if textField.text != nil && textField.text != "" {
+            WaveKeeper.sharedInstance.addValueToCustomOption("\(key)_customOption", value: textField.text!)
+            possibleValues.append(textField.text!)
+            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: textField.text!, title: nil))
+        }
+        
+        textField.text = nil
+        
         self.sectionDelegate?.editsMade!()
         return true
     }
