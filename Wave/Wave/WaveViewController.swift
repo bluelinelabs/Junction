@@ -8,7 +8,7 @@
 
 import UIKit
 
-final public class WaveViewController: UIViewController {
+final internal class WaveViewController: UIViewController {
     //The controller that will manage the actual sidebar
     
     var sections: [SectionType]
@@ -31,13 +31,13 @@ final public class WaveViewController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    public override func viewDidAppear(animated: Bool) {
+    internal override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         tableView.reloadData()
     }
     
-    override public func loadView() {
+    override internal func loadView() {
         super.loadView()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(dismiss))
         title = NSLocalizedString("Wave", comment: "Wave Nav Bar Title")
@@ -45,20 +45,31 @@ final public class WaveViewController: UIViewController {
         view.addSubview(tableView)
     }
 
-    public init(frame: CGRect, sections: [SectionType]) {
+    internal init(frame: CGRect, sections: [SectionType]) {
         self.sections = sections
         self.frame = frame
         
         super.init(nibName: nil, bundle: nil)
+        
+        for var section in sections {
+            section.sectionDelegate = self
+        }
     }
     
-    public required init?(coder aDecoder: NSCoder) {
+    internal init() {
+        self.sections = []
+        self.frame = CGRectZero
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    internal required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
 extension WaveViewController: UITableViewDelegate {
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let section = sections[indexPath.section]
         let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath)
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
@@ -67,15 +78,15 @@ extension WaveViewController: UITableViewDelegate {
 }
 
 extension WaveViewController: UITableViewDataSource {
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    internal func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return sections.count
     }
     
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].numberOfRows()
     }
     
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    internal func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let section = sections[indexPath.section]
         section.registerCells(tableView)
         
@@ -87,7 +98,13 @@ extension WaveViewController: UITableViewDataSource {
         return cell
     }
      
-    public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    internal func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].name
+    }
+}
+
+extension WaveViewController: WaveDelegate {
+    func editsMade() {
+        tableView.reloadData() 
     }
 }

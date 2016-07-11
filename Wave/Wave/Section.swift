@@ -11,6 +11,7 @@ import Foundation
 public final class Section: SectionType {
     public var name: String = ""
     var settings = [Setting]()
+    public var sectionDelegate: WaveDelegate?
     
     public init(name: String) {
         self.name = name
@@ -43,6 +44,10 @@ public final class Section: SectionType {
  
     public func configureCell(cell: UITableViewCell, row: Int) {
         settings[row].configureCell(cell)
+    }
+    
+    public func addSetting(text: String, key: String) {
+        settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: text, title: nil))
     }
     
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {

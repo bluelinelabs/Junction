@@ -15,6 +15,7 @@ public final class IntSingleSelectionSetting: SectionType, SettingType {
     private var settings = [Setting]()
     private var selectedSetting: IntSetting?
     private var key: String
+    public var sectionDelegate: WaveDelegate?
     
     public init(possibleValues: [Int], enableCustom: Bool, name: String, key: String) {
         self.possibleValues = possibleValues
@@ -43,6 +44,10 @@ public final class IntSingleSelectionSetting: SectionType, SettingType {
         } else {
             return possibleValues.count
         }
+    }
+    
+    public func addSetting(text: String, key: String) {
+        
     }
     
     public func tableViewCellIdentifier(indexPath: NSIndexPath) -> String {

@@ -16,6 +16,7 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
     private var settings = [StringSetting]()
     private var selectedSetting: StringSetting?
     private var key: String
+    public var sectionDelegate: WaveDelegate?
     
     public init(possibleValues: [String], enableCustom: Bool, name: String, key: String) {
         self.possibleValues = possibleValues
@@ -44,6 +45,10 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
         } else {
             return possibleValues.count
         }
+    }
+    
+    public func addSetting(text: String, key: String) {
+        
     }
     
     public func tableViewCellIdentifier(indexPath: NSIndexPath) -> String {
@@ -77,14 +82,15 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
         selectedSetting.store()
     }
     
-    private func customOptionTapped() {
+    private func customOptionTapped(tableView: UITableView, section: Int) {
+        
     }
     
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
         settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
         
         guard settings[indexPath.row].value != "Custom Option" else {
-            customOptionTapped()
+            customOptionTapped(tableView, section: indexPath.section)
             return
         }
         
