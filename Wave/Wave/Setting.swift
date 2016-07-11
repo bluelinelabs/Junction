@@ -12,11 +12,9 @@ public class Setting: SettingType, RowType {
     
     public var cellIdentifier: String = "waveCell"
     public var title: String?
-    private var inputCellIdentifier = "inputWaveCell"
     
     public func registerCells(tableView: UITableView) {
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        tableView.registerClass(InputTableViewCell.self, forCellReuseIdentifier: inputCellIdentifier)
     }
     
     public func configureCell(tableViewCell: UITableViewCell) {

@@ -8,17 +8,22 @@
 
 import UIKit
 
-class InputTableViewCell: UITableViewCell {
+internal class InputTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-    
-    func configureCell() {
-        let textField = UITextField(frame: CGRect(x: 16, y: 0, width: frame.width, height: frame.height))
+    lazy var textField: UITextField = {
+        let textField = UITextField(frame: CGRect(x: 16, y: 0, width: self.frame.width, height: self.frame.height))
         textField.placeholder = "Custom Option"
-        
+        textField.clearButtonMode = .WhileEditing
+        return textField
+    }()
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
         addSubview(textField)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

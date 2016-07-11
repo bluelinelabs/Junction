@@ -58,7 +58,7 @@ final internal class WaveViewController: UIViewController {
 extension WaveViewController: UITableViewDelegate {
     internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let section = sections[indexPath.section]
-        let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath)
+        let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath.row)
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         section.didSelectCell(cell!, tableView: tableView, indexPath: indexPath)
     }
@@ -77,16 +77,7 @@ extension WaveViewController: UITableViewDataSource {
         let section = sections[indexPath.section]
         section.registerCells(tableView)
         
-        let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath)
-        
-        if let section = section as? StringSingleSelectionSection {
-            //check if we're setting the last cell
-            if section.enableCustom && section.getSettings().count - 1 == indexPath.row {
-                let cell = tableView.dequeueReusableCellWithIdentifier("inputWaveCell") as! InputTableViewCell
-                cell.configureCell()
-                return cell
-            }
-        }
+        let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath.row)
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
@@ -97,6 +88,13 @@ extension WaveViewController: UITableViewDataSource {
     
     internal func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].name
+    }
+}
+
+extension WaveViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

@@ -14,10 +14,9 @@ public protocol SectionType {
     
     func registerCells(tableView: UITableView)
     func numberOfRows() -> Int
-    func tableViewCellIdentifier(indexPath: NSIndexPath) -> String
+    func tableViewCellIdentifier(row: Int) -> String
     func configureCell(cell: UITableViewCell, row: Int)
     func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath)
     func addSetting(text: String, key: String)
-    func getSettings() -> [Setting]
     func store()
 }

@@ -8,15 +8,17 @@
 
 import Foundation
 
-public final class StringSingleSelectionSection: SectionType, SettingType {
+public final class StringSingleSelectionSection: NSObject, SectionType, SettingType {
     
     public var possibleValues: [String]
     public var enableCustom = false
     public var name: String
-    private var settings = [StringSetting]()
-    private var selectedSetting: StringSetting?
+    private var settings = [RowType]()
+    private var selectedSetting: String?
     private var key: String
     public var sectionDelegate: WaveDelegate?
+    private let inputCellIdentifier = "inputWaveCell"
+    private let displayCellIdentifier = "waveCell"
     
     public init(possibleValues: [String], enableCustom: Bool, name: String, key: String) {
         self.possibleValues = possibleValues
@@ -33,14 +35,9 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
         }
     }
     
-    public func getSettings() -> [Setting] {
-        return settings
-    }
-    
     public func registerCells(tableView: UITableView) {
-        for setting in settings {
-            setting.registerCells(tableView)
-        }
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: displayCellIdentifier)
+        tableView.registerClass(InputTableViewCell.self, forCellReuseIdentifier: inputCellIdentifier)
     }
     
     public func numberOfRows() -> Int {
@@ -55,18 +52,27 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
         
     }
     
-    public func tableViewCellIdentifier(indexPath: NSIndexPath) -> String {
-        return settings[indexPath.row].cellIdentifier
+    public func tableViewCellIdentifier(row: Int) -> String {
+        if enableCustom && settings.count - 1 == row {
+            return inputCellIdentifier
+        } else {
+            return displayCellIdentifier
+        }
     }
     
     public func configureCell(cell: UITableViewCell, row: Int) {
-        cell.textLabel!.text = settings[row].value
         
-        guard let selectedOption = WaveKeeper.sharedInstance.getValueWithKey(key) as? String else {
-            return
+        if let inputCell = cell as? InputTableViewCell {
+            inputCell.textField.delegate = self
         }
         
         guard row < possibleValues.count else {
+            return
+        }
+        
+        cell.textLabel!.text = possibleValues[row]
+        
+        guard let selectedOption = WaveKeeper.sharedInstance.getValueWithKey(key) as? String else {
             return
         }
         
@@ -78,30 +84,30 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
     }
 
     public func store() {
-        
         guard let selectedSetting = selectedSetting else {
             return
         }
         
-        selectedSetting.store()
-    }
-    
-    private func customOptionTapped(tableView: UITableView, section: Int) {
-        
+        WaveKeeper.sharedInstance.addValueForKey(key, value: selectedSetting)
     }
     
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
         settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
         
-        guard settings[indexPath.row].value != "Custom Option" else {
-            customOptionTapped(tableView, section: indexPath.section)
-            return
+        if tableViewCellIdentifier(indexPath.row) == displayCellIdentifier {
+            selectedSetting = possibleValues[indexPath.row]
+            store()
+            
+            configureCell(tableViewCell, row: indexPath.row)
+            tableView.reloadData()
         }
-        
-        selectedSetting = settings[indexPath.row]
-        store()
-         
-        configureCell(tableViewCell, row: indexPath.row)
-        tableView.reloadData()
+    }
+}
+
+extension StringSingleSelectionSection: UITextFieldDelegate {
+    public func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        self.sectionDelegate?.editsMade!()
+        return true
     }
 }

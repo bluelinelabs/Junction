@@ -54,8 +54,8 @@ public final class IntSingleSelectionSetting: SectionType, SettingType {
         
     }
     
-    public func tableViewCellIdentifier(indexPath: NSIndexPath) -> String {
-        return settings[indexPath.row].cellIdentifier
+    public func tableViewCellIdentifier(row: Int) -> String {
+        return settings[row].cellIdentifier
     }
     
     public func configureCell(cell: UITableViewCell, row: Int) {
