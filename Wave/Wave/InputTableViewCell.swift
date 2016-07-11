@@ -13,9 +13,12 @@ class InputTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let label = UITextField(frame: CGRect(x: 16, y: 0, width: frame.width, height: frame.height))
-        label.placeholder = "Type In Me"
+    }
+    
+    func configureCell() {
+        let textField = UITextField(frame: CGRect(x: 16, y: 0, width: frame.width, height: frame.height))
+        textField.placeholder = "Custom Option"
         
-        addSubview(label)
+        addSubview(textField)
     }
 }

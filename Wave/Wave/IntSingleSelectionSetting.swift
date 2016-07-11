@@ -32,6 +32,10 @@ public final class IntSingleSelectionSetting: SectionType, SettingType {
         }
     }
     
+    public func getSettings() -> [Setting] {
+        return settings
+    }
+    
     public func registerCells(tableView: UITableView) {
         for setting in settings {
             setting.registerCells(tableView)

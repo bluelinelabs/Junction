@@ -30,13 +30,7 @@ final internal class WaveViewController: UIViewController {
         
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    internal override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
-        tableView.reloadData()
-    }
-    
     override internal func loadView() {
         super.loadView()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(dismiss))
@@ -54,13 +48,6 @@ final internal class WaveViewController: UIViewController {
         for var section in sections {
             section.sectionDelegate = self
         }
-    }
-    
-    internal init() {
-        self.sections = []
-        self.frame = CGRectZero
-        
-        super.init(nibName: nil, bundle: nil)
     }
     
     internal required init?(coder aDecoder: NSCoder) {
@@ -91,13 +78,23 @@ extension WaveViewController: UITableViewDataSource {
         section.registerCells(tableView)
         
         let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath)
-        let cell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        
+        if let section = section as? StringSingleSelectionSection {
+            //check if we're setting the last cell
+            if section.enableCustom && section.getSettings().count - 1 == indexPath.row {
+                let cell = tableView.dequeueReusableCellWithIdentifier("inputWaveCell") as! InputTableViewCell
+                cell.configureCell()
+                return cell
+            }
+        }
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
         section.configureCell(cell, row: indexPath.row)
         
         return cell
     }
-     
+    
     internal func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].name
     }
@@ -105,6 +102,6 @@ extension WaveViewController: UITableViewDataSource {
 
 extension WaveViewController: WaveDelegate {
     func editsMade() {
-        tableView.reloadData() 
+        tableView.reloadData()
     }
 }

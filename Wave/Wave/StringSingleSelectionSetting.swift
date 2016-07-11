@@ -29,8 +29,12 @@ public final class StringSingleSelectionSection: SectionType, SettingType {
         }
         
         if enableCustom {
-            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(key)_customOption", value: "Custom Option", title: nil))
+            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(key)_customOption", value: "Custom Option", title: "Custom Option"))
         }
+    }
+    
+    public func getSettings() -> [Setting] {
+        return settings
     }
     
     public func registerCells(tableView: UITableView) {
