@@ -15,7 +15,7 @@ public final class IntSingleSelectionSetting: SingleSelectionBase<Int> {
         }
         
         WaveKeeper.sharedInstance.addValueToCustomOption("\(key)_customOption", value: value)
-        settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
+        rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
         possibleValues.append(value)
     }
     

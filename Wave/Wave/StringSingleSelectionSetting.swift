@@ -11,7 +11,7 @@ import Foundation
 public final class StringSingleSelectionSection: SingleSelectionBase<String> {
     override func addCustomValue(value: String) {
         WaveKeeper.sharedInstance.addValueToCustomOption("\(key)_customOption", value: value)
-        settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: value, title: nil))
+        rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: value, title: nil))
         possibleValues.append(value)
     }
     

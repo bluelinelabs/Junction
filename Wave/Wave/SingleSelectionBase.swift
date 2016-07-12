@@ -14,7 +14,7 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
     public var possibleValues: [T]
     public var enableCustom = false
     public var name: String
-    internal var settings = [RowType]()
+    internal var rows = [RowType]()
     private var selectedOption: Int?
     internal var key: String
     public var sectionDelegate: SectionModifiedDelegate?
@@ -29,16 +29,16 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
         self.key = key
         
         for value in possibleValues {
-            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
+            rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
         }
         
         if enableCustom {
-            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(key)_customOption", value: "Custom Option", title: "Custom Option"))
+            rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(key)_customOption", value: "Custom Option", title: "Custom Option"))
             
             if let customOptions = WaveKeeper.sharedInstance.getValueWithKey("\(key)_customOption") as? [T] {
                 for option in customOptions {
                     self.possibleValues.append(option)
-                    settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(option), title: nil))
+                    rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(option), title: nil))
                 }
             }
         }
@@ -64,7 +64,7 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
     }
     
     public func tableViewCellIdentifier(row: Int) -> String {
-        if enableCustom && settings.count - 1 == row {
+        if enableCustom && rows.count - 1 == row {
             return inputCellIdentifier
         } else {
             return displayCellIdentifier
@@ -118,7 +118,7 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
     }
     
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
-        settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
+        rows[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
         
         if tableViewCellIdentifier(indexPath.row) == displayCellIdentifier {
             selectedOption = indexPath.row
