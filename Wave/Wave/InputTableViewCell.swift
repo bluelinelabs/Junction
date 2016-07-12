@@ -11,7 +11,7 @@ import UIKit
 internal class InputTableViewCell: UITableViewCell {
 
     lazy var textField: UITextField = {
-        let textField = UITextField(frame: CGRect(x: 16, y: 0, width: self.frame.width, height: self.frame.height))
+        let textField = UITextField(frame: CGRect(x: 16, y: 0, width: self.frame.width - 32, height: self.frame.height))
         textField.placeholder = "Custom Option"
         textField.clearButtonMode = .WhileEditing
         return textField
