@@ -8,103 +8,18 @@
 
 import Foundation
 
-public final class IntSingleSelectionSetting: SectionType, SettingType {
-    public var possibleValues: [Int]
-    public var enableCustom = false
-    public var name: String
-    private var settings = [Setting]()
-    private var selectedSetting: IntSetting?
-    private var key: String
-    public var sectionDelegate: WaveDelegate?
-    
-    public init(possibleValues: [Int], enableCustom: Bool, name: String, key: String) {
-        self.possibleValues = possibleValues
-        self.enableCustom = enableCustom
-        self.name = name
-        self.key = key
-        
-        for value in possibleValues {
-            settings.append(IntSetting(defaultValue: nil, value: value, key: key, title: nil))
-        }
-        
-        if enableCustom {
-            settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(key)_customOption", value: "Custom Option", title: nil))
-        }
-    }
-    
-    public func getSettings() -> [Setting] {
-        return settings
-    }
-    
-    public func registerCells(tableView: UITableView) {
-        for setting in settings {
-            setting.registerCells(tableView)
-        }
-    }
-    
-    public func numberOfRows() -> Int {
-        if enableCustom {
-            return possibleValues.count + 1
-        } else {
-            return possibleValues.count
-        }
-    }
-    
-    public func tableViewCellIdentifier(row: Int) -> String {
-        return settings[row].cellIdentifier
-    }
-    
-    public func configureCell(cell: UITableViewCell, row: Int) {
-        var value: AnyObject!
-        
-        if let intSetting = settings[row] as? IntSetting {
-            value = intSetting.value
-        } else if let stringSetting = settings[row] as? StringSetting {
-            value = stringSetting.value
-        }
-        
-        cell.textLabel!.text = String(value)
-        
-        guard let selectedOption = WaveKeeper.sharedInstance.getValueWithKey(key) as? Int else {
+public final class IntSingleSelectionSetting: SingleSelectionBase<Int> {
+    override func addCustomValue(value: String) {
+        guard let value = Int(value) else {
             return
         }
         
-        guard row < possibleValues.count else {
-            return
-        }
-        
-        if selectedOption == possibleValues[row] {
-            cell.accessoryType = .Checkmark
-        } else {
-            cell.accessoryType = .None
-        }
+        WaveKeeper.sharedInstance.addValueToCustomOption("\(key)_customOption", value: value)
+        settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
+        possibleValues.append(value)
     }
     
-    public func store() {
-        guard let selectedSetting = selectedSetting else {
-            return
-        }
-        
-        selectedSetting.store()
-    }
-    
-    private func customOptionTapped() {
-        
-    }
-
-    public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
-        settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
-        
-        guard let setting = settings[indexPath.row] as? IntSetting else {
-            customOptionTapped()
-            return
-        }
-        
-        selectedSetting = setting
-        store()
-        
-        configureCell(tableViewCell, row: indexPath.row)
-        tableView.reloadData()
-        
+    public override init(possibleValues: [Int], enableCustom: Bool, name: String, key: String) {
+        super.init(possibleValues: possibleValues, enableCustom: enableCustom, name: name, key: key)
     }
 }
