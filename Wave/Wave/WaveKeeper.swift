@@ -51,7 +51,7 @@ internal final class WaveKeeper {
     }
     
     internal func addValueToCustomOption(key: String, value: AnyObject) -> Bool {
-        self.createPlistIfNeeded()
+        createPlistIfNeeded()
         
         let filename = "WaveData.plist"
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
