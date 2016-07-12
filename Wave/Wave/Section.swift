@@ -23,10 +23,6 @@ public final class Section: SectionType {
         }
     }
     
-    public func getSettings() -> [Setting] {
-        return settings
-    }
-    
     public func registerCells(tableView: UITableView) {
         for setting in settings {
             setting.registerCells(tableView)
