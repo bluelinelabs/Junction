@@ -10,10 +10,11 @@ import Foundation
 
 public protocol SectionType {
     var name: String { get set }
+    var sectionDelegate: SectionModifiedDelegate? { get set }
     
     func registerCells(tableView: UITableView)
     func numberOfRows() -> Int
-    func tableViewCellIdentifier(indexPath: NSIndexPath) -> String
+    func tableViewCellIdentifier(row: Int) -> String
     func configureCell(cell: UITableViewCell, row: Int)
     func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath)
     func store()

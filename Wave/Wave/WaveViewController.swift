@@ -8,7 +8,7 @@
 
 import UIKit
 
-final public class WaveViewController: UIViewController {
+final internal class WaveViewController: UIViewController {
     //The controller that will manage the actual sidebar
     
     var sections: [SectionType]
@@ -30,14 +30,8 @@ final public class WaveViewController: UIViewController {
         
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    public override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
-        tableView.reloadData()
-    }
-    
-    override public func loadView() {
+    override internal func loadView() {
         super.loadView()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(dismiss))
         title = NSLocalizedString("Wave", comment: "Wave Nav Bar Title")
@@ -45,49 +39,67 @@ final public class WaveViewController: UIViewController {
         view.addSubview(tableView)
     }
 
-    public init(frame: CGRect, sections: [SectionType]) {
+    internal init(frame: CGRect, sections: [SectionType]) {
         self.sections = sections
         self.frame = frame
         
         super.init(nibName: nil, bundle: nil)
+        
+        for var section in sections {
+            section.sectionDelegate = self
+        }
     }
     
-    public required init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
 extension WaveViewController: UITableViewDelegate {
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let section = sections[indexPath.section]
-        let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath)
+        let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath.row)
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         section.didSelectCell(cell!, tableView: tableView, indexPath: indexPath)
     }
 }
 
 extension WaveViewController: UITableViewDataSource {
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    internal func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return sections.count
     }
     
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].numberOfRows()
     }
     
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    internal func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let section = sections[indexPath.section]
         section.registerCells(tableView)
         
-        let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath)
-        let cell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath.row)
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
         section.configureCell(cell, row: indexPath.row)
         
         return cell
     }
-     
-    public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    
+    internal func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].name
+    }
+}
+
+extension WaveViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+extension WaveViewController: SectionModifiedDelegate {
+    func editsMade() {
+        tableView.reloadData()
     }
 }

@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         .addRow(intSetting)
         
         let secondSection = StringSingleSelectionSection(possibleValues: ["google.com", "yahoo.com"], enableCustom: true, name: "Single Selection String", key: "singleSelectionString")
-        //let secondSection = IntSingleSelectionSetting(possibleValues: [1, 2, 3, 4, 5], enableCustom: true, name: "test", key: "singleSelectionInt")
         
         window = WaveWindow(frame: UIScreen.mainScreen().bounds, style: .Shake, sections: [firstSection, secondSection], enabled: true)
         window!.rootViewController = UINavigationController(rootViewController: ViewController())

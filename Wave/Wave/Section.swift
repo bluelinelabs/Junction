@@ -11,6 +11,7 @@ import Foundation
 public final class Section: SectionType {
     public var name: String = ""
     var settings = [Setting]()
+    public var sectionDelegate: SectionModifiedDelegate?
     
     public init(name: String) {
         self.name = name
@@ -32,8 +33,8 @@ public final class Section: SectionType {
         return settings.count
     }
     
-    public func tableViewCellIdentifier(indexPath: NSIndexPath) -> String {
-        return settings[indexPath.row].cellIdentifier
+    public func tableViewCellIdentifier(row: Int) -> String {
+        return settings[row].cellIdentifier
     }
     
     public func addRow(setting: Setting) -> Section {

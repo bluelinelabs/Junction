@@ -50,6 +50,28 @@ internal final class WaveKeeper {
         return dict
     }
     
+    internal func addValueToCustomOption(key: String, value: AnyObject) -> Bool {
+        createPlistIfNeeded()
+        
+        let filename = "WaveData.plist"
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let path = documentDirectory.stringByAppendingString("/\(filename)")
+        
+        guard let previousArrayValues = loadAllData()![key] else {
+            return addValueForKey(key, value: [value])
+        }
+        
+        let previousValues = loadAllData()?.mutableCopy()
+        
+        previousArrayValues.addObject(value)
+        
+        let dictionary = NSDictionary(dictionary: [key: previousArrayValues])
+        
+        previousValues?.addEntriesFromDictionary(dictionary as [NSObject: AnyObject])
+        
+        return previousValues!.writeToFile(path, atomically: true)
+    }
+    
     internal func addValueForKey(key: String, value: AnyObject) -> Bool {
         createPlistIfNeeded()
         
