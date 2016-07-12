@@ -11,6 +11,7 @@
 		394420841D2EF3000090D0A1 /* StringSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394420831D2EF3000090D0A1 /* StringSetting.swift */; };
 		394420861D2EF31A0090D0A1 /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394420851D2EF31A0090D0A1 /* Wave.swift */; };
 		395235901D33FE3500005D02 /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3952358F1D33FE3500005D02 /* InputTableViewCell.swift */; };
+		395235951D35292E00005D02 /* SingleSelectionBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395235941D35292E00005D02 /* SingleSelectionBase.swift */; };
 		39590DA31D33EC6800E0F8D6 /* WaveDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39590DA21D33EC6800E0F8D6 /* WaveDelegate.swift */; };
 		398BF6961D2C2D2300068FDC /* StringSingleSelectionSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398BF6951D2C2D2300068FDC /* StringSingleSelectionSetting.swift */; };
 		399C5C0B1D217BC500DF8691 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C5C0A1D217BC500DF8691 /* SectionType.swift */; };
@@ -47,6 +48,7 @@
 		394420831D2EF3000090D0A1 /* StringSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringSetting.swift; sourceTree = "<group>"; };
 		394420851D2EF31A0090D0A1 /* Wave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
 		3952358F1D33FE3500005D02 /* InputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTableViewCell.swift; sourceTree = "<group>"; };
+		395235941D35292E00005D02 /* SingleSelectionBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSelectionBase.swift; sourceTree = "<group>"; };
 		39590DA21D33EC6800E0F8D6 /* WaveDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveDelegate.swift; sourceTree = "<group>"; };
 		398BF6951D2C2D2300068FDC /* StringSingleSelectionSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringSingleSelectionSetting.swift; sourceTree = "<group>"; };
 		399C5C0A1D217BC500DF8691 /* SectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				3919DC011D2C1FFD00A68973 /* IntSetting.swift */,
 				398BF6951D2C2D2300068FDC /* StringSingleSelectionSetting.swift */,
+				395235941D35292E00005D02 /* SingleSelectionBase.swift */,
 				39E96A681D2D5E4E0032E250 /* IntSingleSelectionSetting.swift */,
 				394420831D2EF3000090D0A1 /* StringSetting.swift */,
 			);
@@ -351,6 +354,7 @@
 				398BF6961D2C2D2300068FDC /* StringSingleSelectionSetting.swift in Sources */,
 				39CBDDB31D1D8B0B00CA2124 /* WaveKeeper.swift in Sources */,
 				394420841D2EF3000090D0A1 /* StringSetting.swift in Sources */,
+				395235951D35292E00005D02 /* SingleSelectionBase.swift in Sources */,
 				39E96A691D2D5E4E0032E250 /* IntSingleSelectionSetting.swift in Sources */,
 				3919DC021D2C1FFD00A68973 /* IntSetting.swift in Sources */,
 			);
