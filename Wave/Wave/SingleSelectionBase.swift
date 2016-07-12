@@ -35,22 +35,18 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
         if enableCustom {
             settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(key)_customOption", value: "Custom Option", title: "Custom Option"))
             
-            guard let customOptions = WaveKeeper.sharedInstance.getValueWithKey("\(key)_customOption") as? [T] else {
-                return
-            }
-            
-            for option in customOptions {
-                self.possibleValues.append(option)
-                settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(option), title: nil))
+            if let customOptions = WaveKeeper.sharedInstance.getValueWithKey("\(key)_customOption") as? [T] {
+                for option in customOptions {
+                    self.possibleValues.append(option)
+                    settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(option), title: nil))
+                }
             }
         }
         
-        guard let selectedOption = WaveKeeper.sharedInstance.getValueWithKey(key) as? T else {
-            return
-        }
-        
-        self.selectedOption = possibleValues.indexOf { object -> Bool in
-            return (object as! AnyObject).isEqual(selectedOption as? AnyObject)
+        if let selectedOption = WaveKeeper.sharedInstance.getValueWithKey(key) as? T {
+            self.selectedOption = possibleValues.indexOf { object -> Bool in
+                return (object as! AnyObject).isEqual(selectedOption as? AnyObject)
+            }
         }
     }
     
