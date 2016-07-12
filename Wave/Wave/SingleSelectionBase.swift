@@ -17,7 +17,7 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
     internal var settings = [RowType]()
     private var selectedOption: Int?
     internal var key: String
-    public var sectionDelegate: WaveDelegate?
+    public var sectionDelegate: SectionModifiedDelegate?
     private let inputCellIdentifier = "inputWaveCell"
     private let displayCellIdentifier = "waveCell"
     private var delegateProxy: UITextFieldDelegateProxy?

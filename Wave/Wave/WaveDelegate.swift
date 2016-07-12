@@ -8,6 +8,6 @@
 
 import Foundation
 
-@objc public protocol WaveDelegate {
+@objc public protocol SectionModifiedDelegate {
     optional func editsMade()
 }

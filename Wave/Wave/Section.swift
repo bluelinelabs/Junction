@@ -11,7 +11,7 @@ import Foundation
 public final class Section: SectionType {
     public var name: String = ""
     var settings = [Setting]()
-    public var sectionDelegate: WaveDelegate?
+    public var sectionDelegate: SectionModifiedDelegate?
     
     public init(name: String) {
         self.name = name

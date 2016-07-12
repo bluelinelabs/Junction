@@ -98,7 +98,7 @@ extension WaveViewController: UITextFieldDelegate {
     }
 }
 
-extension WaveViewController: WaveDelegate {
+extension WaveViewController: SectionModifiedDelegate {
     func editsMade() {
         tableView.reloadData()
     }

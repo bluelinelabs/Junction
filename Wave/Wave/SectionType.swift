@@ -10,7 +10,7 @@ import Foundation
 
 public protocol SectionType {
     var name: String { get set }
-    var sectionDelegate: WaveDelegate? { get set }
+    var sectionDelegate: SectionModifiedDelegate? { get set }
     
     func registerCells(tableView: UITableView)
     func numberOfRows() -> Int
