@@ -73,7 +73,7 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
     
     public func configureCell(cell: UITableViewCell, row: Int) {
         
-        if let inputCell = cell as? InputTableViewCell {
+        if cell.reuseIdentifier == inputCellIdentifier {
             delegateProxy = UITextFieldDelegateProxy { [weak self] (textField) in
                 textField.resignFirstResponder()
                 
@@ -89,6 +89,7 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
                 return false
             }
             
+            let inputCell = cell as! InputTableViewCell
             inputCell.textField.delegate = delegateProxy
         }
         
