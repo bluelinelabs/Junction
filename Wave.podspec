@@ -60,7 +60,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/bluelinelabs/Wave.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/bluelinelabs/Wave.git" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
