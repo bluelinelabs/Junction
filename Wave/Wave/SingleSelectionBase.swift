@@ -20,6 +20,7 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
     public var sectionDelegate: WaveDelegate?
     private let inputCellIdentifier = "inputWaveCell"
     private let displayCellIdentifier = "waveCell"
+    private var delegateProxy: UITextFieldDelegateProxy?
     
     public init(possibleValues: [T], enableCustom: Bool, name: String, key: String) {
         self.possibleValues = possibleValues
@@ -77,7 +78,22 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
     public func configureCell(cell: UITableViewCell, row: Int) {
         
         if let inputCell = cell as? InputTableViewCell {
-           // inputCell.textField.delegate = self
+            delegateProxy = UITextFieldDelegateProxy { [weak self] (textField) in
+                textField.resignFirstResponder()
+                
+                guard let text = textField.text where text != "" else {
+                    return false
+                }
+                
+                textField.text = nil
+                
+                self?.addCustomValue(text)
+                self?.sectionDelegate?.editsMade!()
+                
+                return false
+            }
+            
+            inputCell.textField.delegate = delegateProxy
         }
         
         guard row < possibleValues.count else {
@@ -118,24 +134,19 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
     
     internal func addCustomValue(value: String) {
         fatalError("addCustomValue must be overriden by subclasses")
-        
-        //        WaveKeeper.sharedInstance.addValueToCustomOption("\(key)_customOption", value: value)
-        //        possibleValues.append(value)
-        //        settings.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: value, title: nil))
     }
 }
 
-//extension SingleSelectionBase: UITextFieldDelegate {
-//    public func textFieldShouldReturn(textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        
-//        if textField.text != nil && textField.text != "" {
-//            addCustomValue(textField.text!)
-//        }
-//        
-//        textField.text = nil
-//        
-//        self.sectionDelegate?.editsMade!()
-//        return true
-//    }
-//}
+private class UITextFieldDelegateProxy: NSObject, UITextFieldDelegate {
+    typealias returnActionType = UITextField -> Bool
+    
+    let returnAction: returnActionType
+    
+    init(returnAction: returnActionType) {
+        self.returnAction = returnAction
+    }
+    
+    @objc func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return returnAction(textField)
+    }
+}
