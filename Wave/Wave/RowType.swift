@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol RowType {
     var cellIdentifier: String { get set }

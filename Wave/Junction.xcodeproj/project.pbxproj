@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		3919DC021D2C1FFD00A68973 /* IntSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3919DC011D2C1FFD00A68973 /* IntSetting.swift */; };
 		394420841D2EF3000090D0A1 /* StringSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394420831D2EF3000090D0A1 /* StringSetting.swift */; };
-		394420861D2EF31A0090D0A1 /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394420851D2EF31A0090D0A1 /* Wave.swift */; };
+		394420861D2EF31A0090D0A1 /* Junction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394420851D2EF31A0090D0A1 /* Junction.swift */; };
 		395235901D33FE3500005D02 /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3952358F1D33FE3500005D02 /* InputTableViewCell.swift */; };
 		395235951D35292E00005D02 /* SingleSelectionBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395235941D35292E00005D02 /* SingleSelectionBase.swift */; };
-		39590DA31D33EC6800E0F8D6 /* WaveDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39590DA21D33EC6800E0F8D6 /* WaveDelegate.swift */; };
+		39590DA31D33EC6800E0F8D6 /* SectionModifiedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39590DA21D33EC6800E0F8D6 /* SectionModifiedDelegate.swift */; };
 		398BF6961D2C2D2300068FDC /* StringSingleSelectionSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398BF6951D2C2D2300068FDC /* StringSingleSelectionSetting.swift */; };
 		399C5C0B1D217BC500DF8691 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C5C0A1D217BC500DF8691 /* SectionType.swift */; };
 		399C5C0D1D217C0800DF8691 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C5C0C1D217C0800DF8691 /* Section.swift */; };
@@ -23,13 +23,13 @@
 		39B3777B1D22C378009C4834 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3777A1D22C378009C4834 /* ViewController.swift */; };
 		39B377801D22C378009C4834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39B3777F1D22C378009C4834 /* Assets.xcassets */; };
 		39B377831D22C378009C4834 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B377811D22C378009C4834 /* LaunchScreen.storyboard */; };
-		39CBDD981D1D77B100CA2124 /* Wave.h in Headers */ = {isa = PBXBuildFile; fileRef = 39CBDD971D1D77B100CA2124 /* Wave.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		39CBDD9F1D1D77B100CA2124 /* Wave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39CBDD941D1D77B100CA2124 /* Wave.framework */; };
+		39CBDD981D1D77B100CA2124 /* Junction.h in Headers */ = {isa = PBXBuildFile; fileRef = 39CBDD971D1D77B100CA2124 /* Junction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		39CBDD9F1D1D77B100CA2124 /* Junction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39CBDD941D1D77B100CA2124 /* Junction.framework */; };
 		39CBDDA41D1D77B100CA2124 /* WaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDA31D1D77B100CA2124 /* WaveTests.swift */; };
-		39CBDDAF1D1D893C00CA2124 /* WaveWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDAE1D1D893C00CA2124 /* WaveWindow.swift */; };
-		39CBDDB11D1D8A9A00CA2124 /* WaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDB01D1D8A9A00CA2124 /* WaveViewController.swift */; };
-		39CBDDB31D1D8B0B00CA2124 /* WaveKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDB21D1D8B0B00CA2124 /* WaveKeeper.swift */; };
-		39CBDDB51D1D8C1000CA2124 /* WaveDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDB41D1D8C1000CA2124 /* WaveDesign.swift */; };
+		39CBDDAF1D1D893C00CA2124 /* JunctionWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDAE1D1D893C00CA2124 /* JunctionWindow.swift */; };
+		39CBDDB11D1D8A9A00CA2124 /* JunctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDB01D1D8A9A00CA2124 /* JunctionViewController.swift */; };
+		39CBDDB31D1D8B0B00CA2124 /* JunctionKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDB21D1D8B0B00CA2124 /* JunctionKeeper.swift */; };
+		39CBDDB51D1D8C1000CA2124 /* JunctionDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDDB41D1D8C1000CA2124 /* JunctionDesign.swift */; };
 		39E96A691D2D5E4E0032E250 /* IntSingleSelectionSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E96A681D2D5E4E0032E250 /* IntSingleSelectionSetting.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,32 +46,32 @@
 /* Begin PBXFileReference section */
 		3919DC011D2C1FFD00A68973 /* IntSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntSetting.swift; sourceTree = "<group>"; };
 		394420831D2EF3000090D0A1 /* StringSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringSetting.swift; sourceTree = "<group>"; };
-		394420851D2EF31A0090D0A1 /* Wave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
+		394420851D2EF31A0090D0A1 /* Junction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Junction.swift; sourceTree = "<group>"; };
 		3952358F1D33FE3500005D02 /* InputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTableViewCell.swift; sourceTree = "<group>"; };
 		395235941D35292E00005D02 /* SingleSelectionBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSelectionBase.swift; sourceTree = "<group>"; };
-		39590DA21D33EC6800E0F8D6 /* WaveDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveDelegate.swift; sourceTree = "<group>"; };
+		39590DA21D33EC6800E0F8D6 /* SectionModifiedDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionModifiedDelegate.swift; sourceTree = "<group>"; };
 		398BF6951D2C2D2300068FDC /* StringSingleSelectionSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringSingleSelectionSetting.swift; sourceTree = "<group>"; };
 		399C5C0A1D217BC500DF8691 /* SectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
 		399C5C0C1D217C0800DF8691 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		399C5C0E1D217C2A00DF8691 /* SettingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingType.swift; sourceTree = "<group>"; };
 		399C5C101D217C3400DF8691 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		399C5C131D2180D900DF8691 /* RowType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowType.swift; sourceTree = "<group>"; };
-		39B377761D22C378009C4834 /* WaveExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaveExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39B377761D22C378009C4834 /* Junction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Junction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39B377781D22C378009C4834 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39B3777A1D22C378009C4834 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		39B3777F1D22C378009C4834 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39B377821D22C378009C4834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39B377841D22C378009C4834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		39CBDD941D1D77B100CA2124 /* Wave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Wave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		39CBDD971D1D77B100CA2124 /* Wave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wave.h; sourceTree = "<group>"; };
+		39CBDD941D1D77B100CA2124 /* Junction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Junction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39CBDD971D1D77B100CA2124 /* Junction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Junction.h; sourceTree = "<group>"; };
 		39CBDD991D1D77B100CA2124 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		39CBDD9E1D1D77B100CA2124 /* WaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39CBDD9E1D1D77B100CA2124 /* Junction.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Junction.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CBDDA31D1D77B100CA2124 /* WaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveTests.swift; sourceTree = "<group>"; };
 		39CBDDA51D1D77B100CA2124 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		39CBDDAE1D1D893C00CA2124 /* WaveWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveWindow.swift; sourceTree = "<group>"; };
-		39CBDDB01D1D8A9A00CA2124 /* WaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveViewController.swift; sourceTree = "<group>"; };
-		39CBDDB21D1D8B0B00CA2124 /* WaveKeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveKeeper.swift; sourceTree = "<group>"; };
-		39CBDDB41D1D8C1000CA2124 /* WaveDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveDesign.swift; sourceTree = "<group>"; };
+		39CBDDAE1D1D893C00CA2124 /* JunctionWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JunctionWindow.swift; sourceTree = "<group>"; };
+		39CBDDB01D1D8A9A00CA2124 /* JunctionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JunctionViewController.swift; sourceTree = "<group>"; };
+		39CBDDB21D1D8B0B00CA2124 /* JunctionKeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JunctionKeeper.swift; sourceTree = "<group>"; };
+		39CBDDB41D1D8C1000CA2124 /* JunctionDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JunctionDesign.swift; sourceTree = "<group>"; };
 		39E96A681D2D5E4E0032E250 /* IntSingleSelectionSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntSingleSelectionSetting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39CBDD9F1D1D77B100CA2124 /* Wave.framework in Frameworks */,
+				39CBDD9F1D1D77B100CA2124 /* Junction.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +124,7 @@
 		399C5C121D2180AC00DF8691 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				39590DA21D33EC6800E0F8D6 /* WaveDelegate.swift */,
+				39590DA21D33EC6800E0F8D6 /* SectionModifiedDelegate.swift */,
 				399C5C0A1D217BC500DF8691 /* SectionType.swift */,
 				399C5C0C1D217C0800DF8691 /* Section.swift */,
 				399C5C0E1D217C2A00DF8691 /* SettingType.swift */,
@@ -134,7 +134,7 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
-		39B377771D22C378009C4834 /* WaveExample */ = {
+		39B377771D22C378009C4834 /* JunctionExample */ = {
 			isa = PBXGroup;
 			children = (
 				39B377781D22C378009C4834 /* AppDelegate.swift */,
@@ -143,15 +143,16 @@
 				39B377811D22C378009C4834 /* LaunchScreen.storyboard */,
 				39B377841D22C378009C4834 /* Info.plist */,
 			);
+			name = JunctionExample;
 			path = WaveExample;
 			sourceTree = "<group>";
 		};
 		39CBDD8A1D1D77B100CA2124 = {
 			isa = PBXGroup;
 			children = (
-				39CBDD961D1D77B100CA2124 /* Wave */,
-				39CBDDA21D1D77B100CA2124 /* WaveTests */,
-				39B377771D22C378009C4834 /* WaveExample */,
+				39CBDD961D1D77B100CA2124 /* Junction */,
+				39CBDDA21D1D77B100CA2124 /* JunctionTests */,
+				39B377771D22C378009C4834 /* JunctionExample */,
 				39CBDD951D1D77B100CA2124 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -159,36 +160,38 @@
 		39CBDD951D1D77B100CA2124 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				39CBDD941D1D77B100CA2124 /* Wave.framework */,
-				39CBDD9E1D1D77B100CA2124 /* WaveTests.xctest */,
-				39B377761D22C378009C4834 /* WaveExample.app */,
+				39CBDD941D1D77B100CA2124 /* Junction.framework */,
+				39CBDD9E1D1D77B100CA2124 /* Junction.xctest */,
+				39B377761D22C378009C4834 /* Junction.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		39CBDD961D1D77B100CA2124 /* Wave */ = {
+		39CBDD961D1D77B100CA2124 /* Junction */ = {
 			isa = PBXGroup;
 			children = (
-				394420851D2EF31A0090D0A1 /* Wave.swift */,
-				39CBDDAE1D1D893C00CA2124 /* WaveWindow.swift */,
-				39CBDDB41D1D8C1000CA2124 /* WaveDesign.swift */,
-				39CBDDB01D1D8A9A00CA2124 /* WaveViewController.swift */,
+				394420851D2EF31A0090D0A1 /* Junction.swift */,
+				39CBDDAE1D1D893C00CA2124 /* JunctionWindow.swift */,
+				39CBDDB41D1D8C1000CA2124 /* JunctionDesign.swift */,
+				39CBDDB01D1D8A9A00CA2124 /* JunctionViewController.swift */,
 				395235911D33FE3700005D02 /* Views */,
 				398BF6971D2C2D3000068FDC /* Settings */,
 				399C5C121D2180AC00DF8691 /* Protocols */,
-				39CBDDB21D1D8B0B00CA2124 /* WaveKeeper.swift */,
-				39CBDD971D1D77B100CA2124 /* Wave.h */,
+				39CBDDB21D1D8B0B00CA2124 /* JunctionKeeper.swift */,
+				39CBDD971D1D77B100CA2124 /* Junction.h */,
 				39CBDD991D1D77B100CA2124 /* Info.plist */,
 			);
+			name = Junction;
 			path = Wave;
 			sourceTree = "<group>";
 		};
-		39CBDDA21D1D77B100CA2124 /* WaveTests */ = {
+		39CBDDA21D1D77B100CA2124 /* JunctionTests */ = {
 			isa = PBXGroup;
 			children = (
 				39CBDDA31D1D77B100CA2124 /* WaveTests.swift */,
 				39CBDDA51D1D77B100CA2124 /* Info.plist */,
 			);
+			name = JunctionTests;
 			path = WaveTests;
 			sourceTree = "<group>";
 		};
@@ -199,16 +202,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39CBDD981D1D77B100CA2124 /* Wave.h in Headers */,
+				39CBDD981D1D77B100CA2124 /* Junction.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		39B377751D22C378009C4834 /* WaveExample */ = {
+		39B377751D22C378009C4834 /* JunctionExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 39B377871D22C378009C4834 /* Build configuration list for PBXNativeTarget "WaveExample" */;
+			buildConfigurationList = 39B377871D22C378009C4834 /* Build configuration list for PBXNativeTarget "JunctionExample" */;
 			buildPhases = (
 				39B377721D22C378009C4834 /* Sources */,
 				39B377731D22C378009C4834 /* Frameworks */,
@@ -218,14 +221,14 @@
 			);
 			dependencies = (
 			);
-			name = WaveExample;
+			name = JunctionExample;
 			productName = WaveExample;
-			productReference = 39B377761D22C378009C4834 /* WaveExample.app */;
+			productReference = 39B377761D22C378009C4834 /* Junction.app */;
 			productType = "com.apple.product-type.application";
 		};
-		39CBDD931D1D77B100CA2124 /* Wave */ = {
+		39CBDD931D1D77B100CA2124 /* Junction */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 39CBDDA81D1D77B100CA2124 /* Build configuration list for PBXNativeTarget "Wave" */;
+			buildConfigurationList = 39CBDDA81D1D77B100CA2124 /* Build configuration list for PBXNativeTarget "Junction" */;
 			buildPhases = (
 				39CBDD8F1D1D77B100CA2124 /* Sources */,
 				39CBDD901D1D77B100CA2124 /* Frameworks */,
@@ -236,14 +239,14 @@
 			);
 			dependencies = (
 			);
-			name = Wave;
+			name = Junction;
 			productName = Wave;
-			productReference = 39CBDD941D1D77B100CA2124 /* Wave.framework */;
+			productReference = 39CBDD941D1D77B100CA2124 /* Junction.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		39CBDD9D1D1D77B100CA2124 /* WaveTests */ = {
+		39CBDD9D1D1D77B100CA2124 /* JunctionTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 39CBDDAB1D1D77B100CA2124 /* Build configuration list for PBXNativeTarget "WaveTests" */;
+			buildConfigurationList = 39CBDDAB1D1D77B100CA2124 /* Build configuration list for PBXNativeTarget "JunctionTests" */;
 			buildPhases = (
 				39CBDD9A1D1D77B100CA2124 /* Sources */,
 				39CBDD9B1D1D77B100CA2124 /* Frameworks */,
@@ -254,9 +257,9 @@
 			dependencies = (
 				39CBDDA11D1D77B100CA2124 /* PBXTargetDependency */,
 			);
-			name = WaveTests;
+			name = JunctionTests;
 			productName = WaveTests;
-			productReference = 39CBDD9E1D1D77B100CA2124 /* WaveTests.xctest */;
+			productReference = 39CBDD9E1D1D77B100CA2124 /* Junction.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -280,7 +283,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 39CBDD8E1D1D77B100CA2124 /* Build configuration list for PBXProject "Wave" */;
+			buildConfigurationList = 39CBDD8E1D1D77B100CA2124 /* Build configuration list for PBXProject "Junction" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -293,9 +296,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				39CBDD931D1D77B100CA2124 /* Wave */,
-				39CBDD9D1D1D77B100CA2124 /* WaveTests */,
-				39B377751D22C378009C4834 /* WaveExample */,
+				39CBDD931D1D77B100CA2124 /* Junction */,
+				39CBDD9D1D1D77B100CA2124 /* JunctionTests */,
+				39B377751D22C378009C4834 /* JunctionExample */,
 			);
 		};
 /* End PBXProject section */
@@ -341,18 +344,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				399C5C0F1D217C2A00DF8691 /* SettingType.swift in Sources */,
-				39CBDDB51D1D8C1000CA2124 /* WaveDesign.swift in Sources */,
+				39CBDDB51D1D8C1000CA2124 /* JunctionDesign.swift in Sources */,
 				399C5C0B1D217BC500DF8691 /* SectionType.swift in Sources */,
-				39CBDDAF1D1D893C00CA2124 /* WaveWindow.swift in Sources */,
-				394420861D2EF31A0090D0A1 /* Wave.swift in Sources */,
+				39CBDDAF1D1D893C00CA2124 /* JunctionWindow.swift in Sources */,
+				394420861D2EF31A0090D0A1 /* Junction.swift in Sources */,
 				399C5C0D1D217C0800DF8691 /* Section.swift in Sources */,
 				395235901D33FE3500005D02 /* InputTableViewCell.swift in Sources */,
 				399C5C141D2180D900DF8691 /* RowType.swift in Sources */,
-				39590DA31D33EC6800E0F8D6 /* WaveDelegate.swift in Sources */,
-				39CBDDB11D1D8A9A00CA2124 /* WaveViewController.swift in Sources */,
+				39590DA31D33EC6800E0F8D6 /* SectionModifiedDelegate.swift in Sources */,
+				39CBDDB11D1D8A9A00CA2124 /* JunctionViewController.swift in Sources */,
 				399C5C111D217C3400DF8691 /* Setting.swift in Sources */,
 				398BF6961D2C2D2300068FDC /* StringSingleSelectionSetting.swift in Sources */,
-				39CBDDB31D1D8B0B00CA2124 /* WaveKeeper.swift in Sources */,
+				39CBDDB31D1D8B0B00CA2124 /* JunctionKeeper.swift in Sources */,
 				394420841D2EF3000090D0A1 /* StringSetting.swift in Sources */,
 				395235951D35292E00005D02 /* SingleSelectionBase.swift in Sources */,
 				39E96A691D2D5E4E0032E250 /* IntSingleSelectionSetting.swift in Sources */,
@@ -373,7 +376,7 @@
 /* Begin PBXTargetDependency section */
 		39CBDDA11D1D77B100CA2124 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 39CBDD931D1D77B100CA2124 /* Wave */;
+			target = 39CBDD931D1D77B100CA2124 /* Junction */;
 			targetProxy = 39CBDDA01D1D77B100CA2124 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -394,10 +397,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = WaveExample/Info.plist;
+				INFOPLIST_FILE = JunctionExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.WaveExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.JunctionExample;
+				PRODUCT_NAME = Junction;
 			};
 			name = Debug;
 		};
@@ -405,10 +408,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = WaveExample/Info.plist;
+				INFOPLIST_FILE = JunctionExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.WaveExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.JunctionExample;
+				PRODUCT_NAME = Junction;
 			};
 			name = Release;
 		};
@@ -514,8 +517,8 @@
 				INFOPLIST_FILE = Wave/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.Wave;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.Junction;
+				PRODUCT_NAME = Junction;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -532,8 +535,8 @@
 				INFOPLIST_FILE = Wave/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.Wave;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.Junction;
+				PRODUCT_NAME = Junction;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -544,7 +547,7 @@
 				INFOPLIST_FILE = WaveTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.WaveTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Junction;
 			};
 			name = Debug;
 		};
@@ -554,14 +557,14 @@
 				INFOPLIST_FILE = WaveTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.WaveTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Junction;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		39B377871D22C378009C4834 /* Build configuration list for PBXNativeTarget "WaveExample" */ = {
+		39B377871D22C378009C4834 /* Build configuration list for PBXNativeTarget "JunctionExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				39B377851D22C378009C4834 /* Debug */,
@@ -570,7 +573,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		39CBDD8E1D1D77B100CA2124 /* Build configuration list for PBXProject "Wave" */ = {
+		39CBDD8E1D1D77B100CA2124 /* Build configuration list for PBXProject "Junction" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				39CBDDA61D1D77B100CA2124 /* Debug */,
@@ -579,7 +582,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		39CBDDA81D1D77B100CA2124 /* Build configuration list for PBXNativeTarget "Wave" */ = {
+		39CBDDA81D1D77B100CA2124 /* Build configuration list for PBXNativeTarget "Junction" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				39CBDDA91D1D77B100CA2124 /* Debug */,
@@ -588,7 +591,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		39CBDDAB1D1D77B100CA2124 /* Build configuration list for PBXNativeTarget "WaveTests" */ = {
+		39CBDDAB1D1D77B100CA2124 /* Build configuration list for PBXNativeTarget "JunctionTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				39CBDDAC1D1D77B100CA2124 /* Debug */,

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 //TODO: Make sure this supports only objects that can be serialized
 public class SingleSelectionBase<T: Any>: SectionType, SettingType {

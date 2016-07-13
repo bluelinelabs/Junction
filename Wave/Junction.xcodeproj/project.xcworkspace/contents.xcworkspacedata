@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Wave.xcodeproj">
+      location = "self:/Users/jimmymcdermott/Desktop/Wave/Wave/Junction.xcodeproj">
    </FileRef>
 </Workspace>

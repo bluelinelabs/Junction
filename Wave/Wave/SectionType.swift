@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol SectionType {
     var name: String { get set }

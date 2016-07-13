@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Wave
+import Junction
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

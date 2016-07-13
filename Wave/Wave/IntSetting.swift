@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public final class IntSetting: Setting {
     public var defaultValue: String?

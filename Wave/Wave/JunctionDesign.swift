@@ -9,7 +9,7 @@
 import Foundation
 
 public struct WaveDesign {
-    static var barWidth: CGFloat = 270.0
-    static var contentOpacity: CGFloat = 0.5
-    static var animationDuration: CGFloat = 0.4
+    static var barWidth = 270.0
+    static var contentOpacity = 0.5
+    static var animationDuration = 0.4
 }
