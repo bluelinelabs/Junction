@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   A framework that lets you change variables at runtime, not compiletime.
                    DESC
 
-  s.homepage     = "https://github.com/bluelinelabs/Wave/"
+  s.homepage     = "https://github.com/bluelinelabs/Junction"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -61,7 +61,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/bluelinelabs/Wave.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/bluelinelabs/Junction.git", :tag => s.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -72,8 +72,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Wave/Wave/*.swift"
-  s.exclude_files = "Wave/WaveExample/*"
+  s.source_files  = "Junction/Junction/*.swift"
+  s.exclude_files = "Junction/Junction Example/*"
 
 
 end
