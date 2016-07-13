@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "Junction"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A framework that lets you change variables at runtime, not compiletime"
 
   # This description is used to generate tags and improve search results.
