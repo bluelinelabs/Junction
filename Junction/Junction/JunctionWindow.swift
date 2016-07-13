@@ -29,7 +29,7 @@ public final class JunctionWindow: UIWindow {
     }
     
     public override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if motion == .MotionShake && style == .Shake {
+        if motion == .MotionShake && style == .Shake && enabled {
             self.presentJunction()
         }
         
