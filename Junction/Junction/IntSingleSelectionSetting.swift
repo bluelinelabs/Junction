@@ -19,7 +19,7 @@ public final class IntSingleSelectionSetting: SingleSelectionBase<Int> {
         possibleValues.append(value)
     }
     
-    public override init(possibleValues: [Int], enableCustom: Bool, name: String, key: String) {
-        super.init(possibleValues: possibleValues, enableCustom: enableCustom, name: name, key: key)
+    public init(possibleValues: [Int], enableCustom: Bool, name: String, key: String, defaultValue: Int) {
+        super.init(possibleValues: possibleValues, enableCustom: enableCustom, name: name, key: key, defaultValue: possibleValues[defaultValue])
     }
 }

@@ -15,7 +15,7 @@ public final class StringSingleSelectionSection: SingleSelectionBase<String> {
         possibleValues.append(value)
     }
     
-    public override init(possibleValues: [String], enableCustom: Bool, name: String, key: String) {
-        super.init(possibleValues: possibleValues, enableCustom: enableCustom, name: name, key: key)
+    public init(possibleValues: [String], enableCustom: Bool, name: String, key: String, defaultValue: Int) {
+        super.init(possibleValues: possibleValues, enableCustom: enableCustom, name: name, key: key, defaultValue: possibleValues[defaultValue])
     }
 }

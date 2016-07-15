@@ -22,12 +22,14 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
     private let inputCellIdentifier = "inputJunctionCell"
     private let displayCellIdentifier = "junctionCell"
     private var delegateProxy: UITextFieldDelegateProxy?
+    private var defaultValue: T?
     
-    public init(possibleValues: [T], enableCustom: Bool, name: String, key: String) {
+    public init(possibleValues: [T], enableCustom: Bool, name: String, key: String, defaultValue: T?) {
         self.possibleValues = possibleValues
         self.enableCustom = enableCustom
         self.name = name
         self.key = key
+        self.defaultValue = defaultValue
         
         for value in possibleValues {
             rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
