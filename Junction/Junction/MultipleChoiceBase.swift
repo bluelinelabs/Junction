@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 //TODO: Make sure this supports only objects that can be serialized
-public class SingleSelectionBase<T: Any>: SectionType, SettingType {
+public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
     
-    public var possibleValues: [T]
+    public var possibleValues: [MultipleChoiceOption<T>]
     public var enableCustom = false
     public var name: String
     internal var rows = [RowType]()
@@ -22,12 +22,17 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
     private let inputCellIdentifier = "inputJunctionCell"
     private let displayCellIdentifier = "junctionCell"
     private var delegateProxy: UITextFieldDelegateProxy?
+    private var defaultValue: MultipleChoiceOption<T>?
     
-    public init(possibleValues: [T], enableCustom: Bool, name: String, key: String) {
+    public init(possibleValues: [MultipleChoiceOption<T>], enableCustom: Bool, name: String, key: String) {
         self.possibleValues = possibleValues
         self.enableCustom = enableCustom
         self.name = name
         self.key = key
+        
+        let initialValue = possibleValues.filter({ $0.isInitialValue }).first
+        
+        self.defaultValue = initialValue
         
         for value in possibleValues {
             rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
@@ -38,7 +43,8 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
             
             if let customOptions = JunctionKeeper.sharedInstance.getValueWithKey("\(key)_customOption") as? [T] {
                 for option in customOptions {
-                    self.possibleValues.append(option)
+                    let newMultipleSelectionObject = MultipleChoiceOption(value: option, isInitialValue: false)
+                    self.possibleValues.append(newMultipleSelectionObject)
                     rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(option), title: nil))
                 }
             }
@@ -46,8 +52,13 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
         
         if let selectedOption = JunctionKeeper.sharedInstance.getValueWithKey(key) as? T {
             self.selectedOption = possibleValues.indexOf { object -> Bool in
-                return (object as! AnyObject).isEqual(selectedOption as? AnyObject)
+                return (object as AnyObject).isEqual(selectedOption as? AnyObject)
             }
+        }
+        
+        if let defaultValue = self.defaultValue {
+            JunctionKeeper.sharedInstance.addValueForKey(key, value: defaultValue as AnyObject)
+            sectionDelegate?.editsMade!()
         }
     }
     
@@ -94,16 +105,26 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
             inputCell.textField.delegate = delegateProxy
         }
         
-        guard row < possibleValues.count else {
-            return
-        }
-        
-        cell.textLabel!.text = String(possibleValues[row])
-        
-        if selectedOption == row {
-            cell.accessoryType = .Checkmark
-        } else {
-            cell.accessoryType = .None
+        if row < possibleValues.count {
+            cell.textLabel!.text = String(possibleValues[row].value)
+            
+            var checkAgainst: Int?
+            
+            if let selectedOption = selectedOption {
+                checkAgainst = selectedOption
+            } else if let defaultValue = defaultValue {
+                checkAgainst = possibleValues.indexOf { object -> Bool in
+                    return (object as AnyObject).isEqual(defaultValue)
+                }
+            }
+            
+            if let rowNumber = checkAgainst {
+                if rowNumber == row {
+                    cell.accessoryType = .Checkmark
+                } else {
+                    cell.accessoryType = .None
+                }
+            }
         }
     }
     
@@ -113,7 +134,7 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
             return
         }
         
-        let selected = possibleValues[index]
+        let selected = possibleValues[index].value
         
         JunctionKeeper.sharedInstance.addValueForKey(key, value: selected as! AnyObject)
     }

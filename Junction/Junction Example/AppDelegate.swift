@@ -23,13 +23,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .addRow(stringSetting)
             .addRow(intSetting)
         
-        let secondSection = StringSingleSelectionSection(possibleValues: ["google.com", "yahoo.com"], enableCustom: true, name: "Single Selection String", key: "singleSelectionString")
+        let multipleSelectionOptions = [MultipleChoiceOption<String>(value: "google.com", isInitialValue: true), MultipleChoiceOption<String>(value: "yahoo.com", isInitialValue: false)]
         
-        window = JunctionWindow(frame: UIScreen.mainScreen().bounds, style: .Shake, sections: [firstSection, secondSection], enabled: true)
+        let secondSection = StringMultipleChoiceSetting(possibleValues: multipleSelectionOptions, enableCustom: true, name: "Single Selection String", key: "singleSelectionString")
+        
+        Junction.sections = [firstSection, secondSection]
+        Junction.style = .Shake
+        Junction.settingsUpdatedBlock = { previousValues, newValues in
+            print(previousValues)
+            print(newValues)
+        }
+        
+        window = Junction.createWindow(UIScreen.mainScreen().bounds, debugMode: true)
         window!.rootViewController = UINavigationController(rootViewController: ViewController())
         window!.makeKeyAndVisible()
 
         return true
     }
 }
-

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public final class IntSingleSelectionSetting: SingleSelectionBase<Int> {
+public final class IntMultipleChoiceSetting: MultipleChoiceBase<Int> {
     override func addCustomValue(value: String) {
         guard let value = Int(value) else {
             return
@@ -16,10 +16,10 @@ public final class IntSingleSelectionSetting: SingleSelectionBase<Int> {
         
         JunctionKeeper.sharedInstance.addValueToCustomOption("\(key)_customOption", value: value)
         rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
-        possibleValues.append(value)
+        possibleValues.append(MultipleChoiceOption(value: value, isInitialValue: false))
     }
     
-    public override init(possibleValues: [Int], enableCustom: Bool, name: String, key: String) {
+    public override init(possibleValues: [MultipleChoiceOption<Int>], enableCustom: Bool, name: String, key: String) {
         super.init(possibleValues: possibleValues, enableCustom: enableCustom, name: name, key: key)
     }
 }

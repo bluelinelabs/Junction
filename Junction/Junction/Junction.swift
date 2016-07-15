@@ -9,11 +9,25 @@
 import Foundation
 
 public final class Junction {
-    public static let sharedInstance = Junction()
     
-    private init() { }
+    public typealias SettingsCallback = (previousValues: NSDictionary, newValues: NSDictionary) -> Void
     
-    public func valueForKey(key: String) -> AnyObject? {
-        return JunctionKeeper.sharedInstance.getValueWithKey(key)
+    public static var settingsUpdatedBlock: SettingsCallback? = nil
+    
+    public static var style: PresentationStyle!
+    public static var sections: [SectionType]!
+    private static var debugMode = false
+    
+    public static func createWindow(frame: CGRect, debugMode: Bool) -> UIWindow {
+        self.debugMode = debugMode
+        return JunctionWindow(frame: frame, style: style, sections: sections, enabled: debugMode)
+    }
+    
+    public static func valueForKey(key: String, productionValue: AnyObject?) -> AnyObject? {
+        if debugMode {
+            return JunctionKeeper.sharedInstance.getValueWithKey(key)
+        } else {
+            return productionValue
+        }
     }
 }

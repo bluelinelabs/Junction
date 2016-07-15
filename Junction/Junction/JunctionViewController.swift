@@ -13,6 +13,7 @@ final internal class JunctionViewController: UIViewController {
     
     var sections: [SectionType]
     var frame: CGRect
+    var previousValues: NSDictionary!
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: self.frame, style: .Grouped)
@@ -24,13 +25,30 @@ final internal class JunctionViewController: UIViewController {
     
     func dismiss() {
         
-        for section in sections {
-            section.store()
+        storeAll()
+        
+        if let dictionary = JunctionKeeper.sharedInstance.loadAllData() {
+            Junction.settingsUpdatedBlock?(previousValues: previousValues, newValues: dictionary)
         }
         
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    private func storeAll() {
+        for section in sections {
+            section.store()
+        }
+    }
+    
+    internal func prepareForDisplay() {
+        storeAll()
         
+        if let dictionary = JunctionKeeper.sharedInstance.loadAllData() {
+            previousValues = dictionary
+        }
+        
+    }
+    
     override internal func loadView() {
         super.loadView()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(dismiss))
