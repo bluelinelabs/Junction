@@ -12,7 +12,7 @@ import UIKit
 //TODO: Make sure this supports only objects that can be serialized
 public class MultipleSelectionBase<T: Any>: SectionType, SettingType {
     
-    public var possibleValues: [T]
+    public var possibleValues: [MultipleSelectionObject<T>]
     public var enableCustom = false
     public var name: String
     internal var rows = [RowType]()
@@ -22,14 +22,17 @@ public class MultipleSelectionBase<T: Any>: SectionType, SettingType {
     private let inputCellIdentifier = "inputJunctionCell"
     private let displayCellIdentifier = "junctionCell"
     private var delegateProxy: UITextFieldDelegateProxy?
-    private var defaultValue: T?
+    private var defaultValue: MultipleSelectionObject<T>?
     
-    public init(possibleValues: [T], enableCustom: Bool, name: String, key: String, defaultValue: T?) {
+    public init(possibleValues: [MultipleSelectionObject<T>], enableCustom: Bool, name: String, key: String) {
         self.possibleValues = possibleValues
         self.enableCustom = enableCustom
         self.name = name
         self.key = key
-        self.defaultValue = defaultValue
+        
+        let initialValue = possibleValues.filter({ $0.isInitialValue }).first
+        
+        self.defaultValue = initialValue
         
         for value in possibleValues {
             rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
@@ -40,7 +43,8 @@ public class MultipleSelectionBase<T: Any>: SectionType, SettingType {
             
             if let customOptions = JunctionKeeper.sharedInstance.getValueWithKey("\(key)_customOption") as? [T] {
                 for option in customOptions {
-                    self.possibleValues.append(option)
+                    let newMultipleSelectionObject = MultipleSelectionObject(value: option, isInitialValue: false)
+                    self.possibleValues.append(newMultipleSelectionObject)
                     rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(option), title: nil))
                 }
             }
@@ -48,12 +52,12 @@ public class MultipleSelectionBase<T: Any>: SectionType, SettingType {
         
         if let selectedOption = JunctionKeeper.sharedInstance.getValueWithKey(key) as? T {
             self.selectedOption = possibleValues.indexOf { object -> Bool in
-                return (object as! AnyObject).isEqual(selectedOption as? AnyObject)
+                return (object as AnyObject).isEqual(selectedOption as? AnyObject)
             }
         }
         
         if let defaultValue = self.defaultValue {
-            JunctionKeeper.sharedInstance.addValueForKey(key, value: defaultValue as! AnyObject)
+            JunctionKeeper.sharedInstance.addValueForKey(key, value: defaultValue as AnyObject)
             sectionDelegate?.editsMade!()
         }
     }
@@ -102,7 +106,7 @@ public class MultipleSelectionBase<T: Any>: SectionType, SettingType {
         }
         
         if row < possibleValues.count {
-            cell.textLabel!.text = String(possibleValues[row])
+            cell.textLabel!.text = String(possibleValues[row].value)
             
             var checkAgainst: Int?
             
@@ -110,7 +114,7 @@ public class MultipleSelectionBase<T: Any>: SectionType, SettingType {
                 checkAgainst = selectedOption
             } else if let defaultValue = defaultValue {
                 checkAgainst = possibleValues.indexOf { object -> Bool in
-                    return (object as! AnyObject).isEqual(defaultValue as? AnyObject)
+                    return (object as AnyObject).isEqual(defaultValue)
                 }
             }
             
@@ -122,9 +126,6 @@ public class MultipleSelectionBase<T: Any>: SectionType, SettingType {
                 }
             }
         }
-
-        
-        
     }
     
     public func store() {
@@ -133,7 +134,7 @@ public class MultipleSelectionBase<T: Any>: SectionType, SettingType {
             return
         }
         
-        let selected = possibleValues[index]
+        let selected = possibleValues[index].value
         
         JunctionKeeper.sharedInstance.addValueForKey(key, value: selected as! AnyObject)
     }
