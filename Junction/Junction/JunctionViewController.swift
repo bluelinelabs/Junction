@@ -32,7 +32,7 @@ final internal class JunctionViewController: UIViewController {
             newValues = dictionary
         }
         
-        Junction.completionBlock?(previousValues: previousValues, newValues: newValues)
+        Junction.settingsUpdatedBlock?(previousValues: previousValues, newValues: newValues)
         
         dismissViewControllerAnimated(true, completion: nil)
     }

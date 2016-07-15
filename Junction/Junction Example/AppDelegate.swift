@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Junction.sections = [firstSection, secondSection]
         Junction.style = .Shake
-        Junction.completionBlock = { previousValues, newValues in
+        Junction.settingsUpdatedBlock = { previousValues, newValues in
             print(previousValues)
             print(newValues)
         }
