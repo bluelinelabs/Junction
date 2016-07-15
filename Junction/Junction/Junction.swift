@@ -10,7 +10,7 @@ import Foundation
 
 public final class Junction {
     
-    public typealias SettingsCallback = (previousValues: [AnyObject], newValues: [AnyObject]) -> Void
+    public typealias SettingsCallback = (previousValues: NSDictionary, newValues: NSDictionary) -> Void
     
     public static var completionBlock: SettingsCallback? = nil
     

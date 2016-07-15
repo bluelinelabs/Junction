@@ -41,7 +41,7 @@ internal final class JunctionKeeper {
         return NSDictionary(contentsOfURL: fileURL)?[key]
     }
     
-    private func loadAllData() -> NSDictionary? {
+    internal func loadAllData() -> NSDictionary? {
         let filename = "JunctionData.plist"
         
         guard let fileURL =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first?.URLByAppendingPathComponent(filename) else { return nil }

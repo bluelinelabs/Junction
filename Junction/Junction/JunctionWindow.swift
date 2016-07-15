@@ -49,6 +49,7 @@ internal final class JunctionWindow: UIWindow {
         if let nav = visibleViewController as? UINavigationController, firstVc = nav.viewControllers.first {
             if !(firstVc is JunctionViewController) {
                 let navController = UINavigationController(rootViewController: junctionViewController)
+                junctionViewController.prepareForDisplay()
                 visibleViewController.presentViewController(navController, animated: true, completion: nil)
             }
         }
