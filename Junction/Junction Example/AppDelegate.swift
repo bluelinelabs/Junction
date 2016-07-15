@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let secondSection = StringMultipleSelectionSetting(possibleValues: ["google.com", "yahoo.com"], enableCustom: true, name: "Single Selection String", key: "singleSelectionString", defaultIndex: 0)
         
-        Junction.enabled = true
         Junction.sections = [firstSection, secondSection]
         Junction.style = .Shake
         Junction.completionBlock = { previousValues, newValues in
@@ -33,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(newValues)
         }
         
-        window = Junction.createWindow(UIScreen.mainScreen().bounds)
+        window = Junction.createWindow(UIScreen.mainScreen().bounds, debugMode: true)
         window!.rootViewController = UINavigationController(rootViewController: ViewController())
         window!.makeKeyAndVisible()
 
