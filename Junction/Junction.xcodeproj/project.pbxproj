@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		39F325FD1D36875800A24E74 /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F325FC1D36875800A24E74 /* InputTableViewCell.swift */; };
 		39F3260F1D36877700A24E74 /* IntSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F325FE1D36877700A24E74 /* IntSetting.swift */; };
-		39F326101D36877700A24E74 /* IntSingleSelectionSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F325FF1D36877700A24E74 /* IntSingleSelectionSetting.swift */; };
+		39F326101D36877700A24E74 /* IntMultipleSelectionSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F325FF1D36877700A24E74 /* IntMultipleSelectionSetting.swift */; };
 		39F326111D36877700A24E74 /* Junction.h in Headers */ = {isa = PBXBuildFile; fileRef = 39F326001D36877700A24E74 /* Junction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39F326121D36877700A24E74 /* Junction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F326011D36877700A24E74 /* Junction.swift */; };
 		39F326131D36877700A24E74 /* JunctionDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F326021D36877700A24E74 /* JunctionDesign.swift */; };
@@ -22,9 +22,9 @@
 		39F3261A1D36877700A24E74 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F326091D36877700A24E74 /* SectionType.swift */; };
 		39F3261B1D36877700A24E74 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F3260A1D36877700A24E74 /* Setting.swift */; };
 		39F3261C1D36877700A24E74 /* SettingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F3260B1D36877700A24E74 /* SettingType.swift */; };
-		39F3261D1D36877700A24E74 /* SingleSelectionBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F3260C1D36877700A24E74 /* SingleSelectionBase.swift */; };
+		39F3261D1D36877700A24E74 /* MultipleSelectionBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F3260C1D36877700A24E74 /* MultipleSelectionBase.swift */; };
 		39F3261E1D36877700A24E74 /* StringSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F3260D1D36877700A24E74 /* StringSetting.swift */; };
-		39F3261F1D36877700A24E74 /* StringSingleSelectionSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F3260E1D36877700A24E74 /* StringSingleSelectionSetting.swift */; };
+		39F3261F1D36877700A24E74 /* StringMultipleSelectionSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F3260E1D36877700A24E74 /* StringMultipleSelectionSetting.swift */; };
 		39F3263D1D368B5400A24E74 /* JunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F3263C1D368B5400A24E74 /* JunctionTests.swift */; };
 		39F3263F1D368B5400A24E74 /* Junction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39CBDD941D1D77B100CA2124 /* Junction.framework */; };
 		39F3264C1D368B9000A24E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F3264B1D368B9000A24E74 /* AppDelegate.swift */; };
@@ -48,7 +48,7 @@
 		39CBDD941D1D77B100CA2124 /* Junction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Junction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39F325FC1D36875800A24E74 /* InputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputTableViewCell.swift; path = Junction/InputTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		39F325FE1D36877700A24E74 /* IntSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntSetting.swift; path = Junction/IntSetting.swift; sourceTree = SOURCE_ROOT; };
-		39F325FF1D36877700A24E74 /* IntSingleSelectionSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntSingleSelectionSetting.swift; path = Junction/IntSingleSelectionSetting.swift; sourceTree = SOURCE_ROOT; };
+		39F325FF1D36877700A24E74 /* IntMultipleSelectionSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntMultipleSelectionSetting.swift; path = Junction/IntMultipleSelectionSetting.swift; sourceTree = SOURCE_ROOT; };
 		39F326001D36877700A24E74 /* Junction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Junction.h; path = Junction/Junction.h; sourceTree = SOURCE_ROOT; };
 		39F326011D36877700A24E74 /* Junction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Junction.swift; path = Junction/Junction.swift; sourceTree = SOURCE_ROOT; };
 		39F326021D36877700A24E74 /* JunctionDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JunctionDesign.swift; path = Junction/JunctionDesign.swift; sourceTree = SOURCE_ROOT; };
@@ -61,9 +61,9 @@
 		39F326091D36877700A24E74 /* SectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionType.swift; path = Junction/SectionType.swift; sourceTree = SOURCE_ROOT; };
 		39F3260A1D36877700A24E74 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Setting.swift; path = Junction/Setting.swift; sourceTree = SOURCE_ROOT; };
 		39F3260B1D36877700A24E74 /* SettingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingType.swift; path = Junction/SettingType.swift; sourceTree = SOURCE_ROOT; };
-		39F3260C1D36877700A24E74 /* SingleSelectionBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingleSelectionBase.swift; path = Junction/SingleSelectionBase.swift; sourceTree = SOURCE_ROOT; };
+		39F3260C1D36877700A24E74 /* MultipleSelectionBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultipleSelectionBase.swift; path = Junction/MultipleSelectionBase.swift; sourceTree = SOURCE_ROOT; };
 		39F3260D1D36877700A24E74 /* StringSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringSetting.swift; path = Junction/StringSetting.swift; sourceTree = SOURCE_ROOT; };
-		39F3260E1D36877700A24E74 /* StringSingleSelectionSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringSingleSelectionSetting.swift; path = Junction/StringSingleSelectionSetting.swift; sourceTree = SOURCE_ROOT; };
+		39F3260E1D36877700A24E74 /* StringMultipleSelectionSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringMultipleSelectionSetting.swift; path = Junction/StringMultipleSelectionSetting.swift; sourceTree = SOURCE_ROOT; };
 		39F326201D3687A900A24E74 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Junction/Info.plist; sourceTree = SOURCE_ROOT; };
 		39F3263A1D368B5400A24E74 /* JunctionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JunctionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39F3263C1D368B5400A24E74 /* JunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JunctionTests.swift; sourceTree = "<group>"; };
@@ -115,10 +115,10 @@
 			isa = PBXGroup;
 			children = (
 				39F325FE1D36877700A24E74 /* IntSetting.swift */,
-				39F325FF1D36877700A24E74 /* IntSingleSelectionSetting.swift */,
-				39F3260C1D36877700A24E74 /* SingleSelectionBase.swift */,
+				39F325FF1D36877700A24E74 /* IntMultipleSelectionSetting.swift */,
+				39F3260C1D36877700A24E74 /* MultipleSelectionBase.swift */,
 				39F3260D1D36877700A24E74 /* StringSetting.swift */,
-				39F3260E1D36877700A24E74 /* StringSingleSelectionSetting.swift */,
+				39F3260E1D36877700A24E74 /* StringMultipleSelectionSetting.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -348,10 +348,10 @@
 				39F326151D36877700A24E74 /* JunctionViewController.swift in Sources */,
 				39F326131D36877700A24E74 /* JunctionDesign.swift in Sources */,
 				39F326181D36877700A24E74 /* Section.swift in Sources */,
-				39F3261D1D36877700A24E74 /* SingleSelectionBase.swift in Sources */,
-				39F3261F1D36877700A24E74 /* StringSingleSelectionSetting.swift in Sources */,
+				39F3261D1D36877700A24E74 /* MultipleSelectionBase.swift in Sources */,
+				39F3261F1D36877700A24E74 /* StringMultipleSelectionSetting.swift in Sources */,
 				39F3260F1D36877700A24E74 /* IntSetting.swift in Sources */,
-				39F326101D36877700A24E74 /* IntSingleSelectionSetting.swift in Sources */,
+				39F326101D36877700A24E74 /* IntMultipleSelectionSetting.swift in Sources */,
 				39F326141D36877700A24E74 /* JunctionKeeper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,6 +599,7 @@
 				39F326441D368B5400A24E74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39F326581D368B9000A24E74 /* Build configuration list for PBXNativeTarget "Junction Example" */ = {
 			isa = XCConfigurationList;
@@ -607,6 +608,7 @@
 				39F3265A1D368B9000A24E74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

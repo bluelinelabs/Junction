@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .addRow(stringSetting)
             .addRow(intSetting)
         
-        let secondSection = StringSingleSelectionSection(possibleValues: ["google.com", "yahoo.com"], enableCustom: true, name: "Single Selection String", key: "singleSelectionString", defaultValue: 0)
+        let secondSection = StringMultipleSelectionSetting(possibleValues: ["google.com", "yahoo.com"], enableCustom: true, name: "Single Selection String", key: "singleSelectionString", defaultIndex: 0)
         
         Junction.enabled = true
         Junction.sections = [firstSection, secondSection]
