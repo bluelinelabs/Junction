@@ -8,7 +8,7 @@
 
 import Foundation
 
-public final class IntMultipleSelectionSetting: MultipleSelectionBase<Int> {
+public final class IntMultipleChoiceSetting: MultipleChoiceBase<Int> {
     override func addCustomValue(value: String) {
         guard let value = Int(value) else {
             return

@@ -23,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .addRow(stringSetting)
             .addRow(intSetting)
         
-        let multipleSelectionOptions = [MultipleSelectionObject<String>(value: "google.com", isInitialValue: true), MultipleSelectionObject<String>(value: "yahoo.com", isInitialValue: false)]
+        let multipleSelectionOptions = [MultipleChoiceOption<String>(value: "google.com", isInitialValue: true), MultipleChoiceOption<String>(value: "yahoo.com", isInitialValue: false)]
         
-        let secondSection = StringMultipleSelectionSetting(possibleValues: multipleSelectionOptions, enableCustom: true, name: "Single Selection String", key: "singleSelectionString")
+        let secondSection = StringMultipleChoiceSetting(possibleValues: multipleSelectionOptions, enableCustom: true, name: "Single Selection String", key: "singleSelectionString")
         
         Junction.sections = [firstSection, secondSection]
         Junction.style = .Shake
