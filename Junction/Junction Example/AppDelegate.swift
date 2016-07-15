@@ -25,16 +25,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let secondSection = StringSingleSelectionSection(possibleValues: ["google.com", "yahoo.com"], enableCustom: true, name: "Single Selection String", key: "singleSelectionString", defaultValue: 0)
         
-        let junction = Junction()
-        junction.enabled = true
-        junction.sections = [firstSection, secondSection]
-        junction.style = .Shake
+        Junction.enabled = true
+        Junction.sections = [firstSection, secondSection]
+        Junction.style = .Shake
+        Junction.completionBlock = { previousValues, newValues in
+            print(previousValues)
+            print(newValues)
+        }
         
-        window = junction.createWindow(UIScreen.mainScreen().bounds)
+        window = Junction.createWindow(UIScreen.mainScreen().bounds)
         window!.rootViewController = UINavigationController(rootViewController: ViewController())
         window!.makeKeyAndVisible()
 
         return true
     }
 }
-

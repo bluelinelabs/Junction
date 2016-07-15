@@ -28,6 +28,8 @@ final internal class JunctionViewController: UIViewController {
             section.store()
         }
         
+        Junction.completionBlock?(previousValues: [""], newValues: [""])
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
         
