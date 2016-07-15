@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		395D962B1D39671C009229BF /* MultipleChoiceOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D962A1D39671C009229BF /* MultipleChoiceOption.swift */; };
+		395D962D1D3973CE009229BF /* MultipleChoiceOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D962C1D3973CE009229BF /* MultipleChoiceOption.swift */; };
 		39F325FD1D36875800A24E74 /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F325FC1D36875800A24E74 /* InputTableViewCell.swift */; };
 		39F3260F1D36877700A24E74 /* IntSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F325FE1D36877700A24E74 /* IntSetting.swift */; };
 		39F326101D36877700A24E74 /* IntMultipleChoiceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F325FF1D36877700A24E74 /* IntMultipleChoiceSetting.swift */; };
@@ -46,7 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		395D962A1D39671C009229BF /* MultipleChoiceOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleChoiceOption.swift; sourceTree = SOURCE_ROOT; };
+		395D962C1D3973CE009229BF /* MultipleChoiceOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultipleChoiceOption.swift; path = Junction/MultipleChoiceOption.swift; sourceTree = SOURCE_ROOT; };
 		39CBDD941D1D77B100CA2124 /* Junction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Junction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39F325FC1D36875800A24E74 /* InputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputTableViewCell.swift; path = Junction/InputTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		39F325FE1D36877700A24E74 /* IntSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntSetting.swift; path = Junction/IntSetting.swift; sourceTree = SOURCE_ROOT; };
@@ -161,7 +161,7 @@
 		39CBDD961D1D77B100CA2124 /* Junction */ = {
 			isa = PBXGroup;
 			children = (
-				395D962A1D39671C009229BF /* MultipleChoiceOption.swift */,
+				395D962C1D3973CE009229BF /* MultipleChoiceOption.swift */,
 				39F326011D36877700A24E74 /* Junction.swift */,
 				39F326021D36877700A24E74 /* JunctionDesign.swift */,
 				39F326041D36877700A24E74 /* JunctionViewController.swift */,
@@ -342,13 +342,13 @@
 				39F3261C1D36877700A24E74 /* SettingType.swift in Sources */,
 				39F326121D36877700A24E74 /* Junction.swift in Sources */,
 				39F3261B1D36877700A24E74 /* Setting.swift in Sources */,
-				395D962B1D39671C009229BF /* MultipleChoiceOption.swift in Sources */,
 				39F3261E1D36877700A24E74 /* StringSetting.swift in Sources */,
 				39F326161D36877700A24E74 /* JunctionWindow.swift in Sources */,
 				39F325FD1D36875800A24E74 /* InputTableViewCell.swift in Sources */,
 				39F3261A1D36877700A24E74 /* SectionType.swift in Sources */,
 				39F326171D36877700A24E74 /* RowType.swift in Sources */,
 				39F326191D36877700A24E74 /* SectionModifiedDelegate.swift in Sources */,
+				395D962D1D3973CE009229BF /* MultipleChoiceOption.swift in Sources */,
 				39F326151D36877700A24E74 /* JunctionViewController.swift in Sources */,
 				39F326131D36877700A24E74 /* JunctionDesign.swift in Sources */,
 				39F326181D36877700A24E74 /* Section.swift in Sources */,
