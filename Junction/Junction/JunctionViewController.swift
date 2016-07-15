@@ -14,7 +14,6 @@ final internal class JunctionViewController: UIViewController {
     var sections: [SectionType]
     var frame: CGRect
     var previousValues: NSDictionary!
-    var newValues: NSDictionary!
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: self.frame, style: .Grouped)
@@ -29,10 +28,8 @@ final internal class JunctionViewController: UIViewController {
         storeAll()
         
         if let dictionary = JunctionKeeper.sharedInstance.loadAllData() {
-            newValues = dictionary
+            Junction.settingsUpdatedBlock?(previousValues: previousValues, newValues: dictionary)
         }
-        
-        Junction.settingsUpdatedBlock?(previousValues: previousValues, newValues: newValues)
         
         dismissViewControllerAnimated(true, completion: nil)
     }
