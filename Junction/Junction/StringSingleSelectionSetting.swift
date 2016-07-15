@@ -16,6 +16,10 @@ public final class StringSingleSelectionSection: SingleSelectionBase<String> {
     }
     
     public init(possibleValues: [String], enableCustom: Bool, name: String, key: String, defaultValue: Int) {
+        guard defaultValue < possibleValues.count else {
+            fatalError("default value must be the index of a possible value, and therefore cannot be greater than or equal to possibleValues.count")
+        }
+        
         super.init(possibleValues: possibleValues, enableCustom: enableCustom, name: name, key: key, defaultValue: possibleValues[defaultValue])
     }
 }

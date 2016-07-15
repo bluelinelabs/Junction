@@ -51,6 +51,11 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
                 return (object as! AnyObject).isEqual(selectedOption as? AnyObject)
             }
         }
+        
+        if let defaultValue = self.defaultValue {
+            JunctionKeeper.sharedInstance.addValueForKey(key, value: defaultValue as! AnyObject)
+            sectionDelegate?.editsMade!()
+        }
     }
     
     public func registerCells(tableView: UITableView) {
@@ -96,17 +101,30 @@ public class SingleSelectionBase<T: Any>: SectionType, SettingType {
             inputCell.textField.delegate = delegateProxy
         }
         
-        guard row < possibleValues.count else {
-            return
+        if row < possibleValues.count {
+            cell.textLabel!.text = String(possibleValues[row])
+            
+            var checkAgainst: Int?
+            
+            if let selectedOption = selectedOption {
+                checkAgainst = selectedOption
+            } else if let defaultValue = defaultValue {
+                checkAgainst = possibleValues.indexOf { object -> Bool in
+                    return (object as! AnyObject).isEqual(defaultValue as? AnyObject)
+                }
+            }
+            
+            if let rowNumber = checkAgainst {
+                if rowNumber == row {
+                    cell.accessoryType = .Checkmark
+                } else {
+                    cell.accessoryType = .None
+                }
+            }
         }
+
         
-        cell.textLabel!.text = String(possibleValues[row])
         
-        if selectedOption == row {
-            cell.accessoryType = .Checkmark
-        } else {
-            cell.accessoryType = .None
-        }
     }
     
     public func store() {
