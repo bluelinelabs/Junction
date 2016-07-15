@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class MultipleSelectionObject<T: Any> {
+public class MultipleChoiceOption<T: Any> {
     
     internal var value: T
     internal var isInitialValue: Bool

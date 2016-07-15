@@ -12,7 +12,7 @@ import UIKit
 //TODO: Make sure this supports only objects that can be serialized
 public class MultipleSelectionBase<T: Any>: SectionType, SettingType {
     
-    public var possibleValues: [MultipleSelectionObject<T>]
+    public var possibleValues: [MultipleChoiceOption<T>]
     public var enableCustom = false
     public var name: String
     internal var rows = [RowType]()
@@ -22,9 +22,9 @@ public class MultipleSelectionBase<T: Any>: SectionType, SettingType {
     private let inputCellIdentifier = "inputJunctionCell"
     private let displayCellIdentifier = "junctionCell"
     private var delegateProxy: UITextFieldDelegateProxy?
-    private var defaultValue: MultipleSelectionObject<T>?
+    private var defaultValue: MultipleChoiceOption<T>?
     
-    public init(possibleValues: [MultipleSelectionObject<T>], enableCustom: Bool, name: String, key: String) {
+    public init(possibleValues: [MultipleChoiceOption<T>], enableCustom: Bool, name: String, key: String) {
         self.possibleValues = possibleValues
         self.enableCustom = enableCustom
         self.name = name
@@ -43,7 +43,7 @@ public class MultipleSelectionBase<T: Any>: SectionType, SettingType {
             
             if let customOptions = JunctionKeeper.sharedInstance.getValueWithKey("\(key)_customOption") as? [T] {
                 for option in customOptions {
-                    let newMultipleSelectionObject = MultipleSelectionObject(value: option, isInitialValue: false)
+                    let newMultipleSelectionObject = MultipleChoiceOption(value: option, isInitialValue: false)
                     self.possibleValues.append(newMultipleSelectionObject)
                     rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(option), title: nil))
                 }

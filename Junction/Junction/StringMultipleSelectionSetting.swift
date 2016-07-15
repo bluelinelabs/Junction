@@ -12,10 +12,10 @@ public final class StringMultipleSelectionSetting: MultipleSelectionBase<String>
     override func addCustomValue(value: String) {
         JunctionKeeper.sharedInstance.addValueToCustomOption("\(key)_customOption", value: value)
         rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: value, title: nil))
-        possibleValues.append(MultipleSelectionObject(value: value, isInitialValue: false))
+        possibleValues.append(MultipleChoiceOption(value: value, isInitialValue: false))
     }
     
-    public override init(possibleValues: [MultipleSelectionObject<String>], enableCustom: Bool, name: String, key: String) {
+    public override init(possibleValues: [MultipleChoiceOption<String>], enableCustom: Bool, name: String, key: String) {
         
         if (possibleValues.filter { $0.isInitialValue }).count > 1 {
             fatalError("You cannot specify more than one initial value")

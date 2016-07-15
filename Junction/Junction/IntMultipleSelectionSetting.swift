@@ -16,10 +16,10 @@ public final class IntMultipleSelectionSetting: MultipleSelectionBase<Int> {
         
         JunctionKeeper.sharedInstance.addValueToCustomOption("\(key)_customOption", value: value)
         rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
-        possibleValues.append(MultipleSelectionObject(value: value, isInitialValue: false))
+        possibleValues.append(MultipleChoiceOption(value: value, isInitialValue: false))
     }
     
-    public override init(possibleValues: [MultipleSelectionObject<Int>], enableCustom: Bool, name: String, key: String) {
+    public override init(possibleValues: [MultipleChoiceOption<Int>], enableCustom: Bool, name: String, key: String) {
         super.init(possibleValues: possibleValues, enableCustom: enableCustom, name: name, key: key)
     }
 }
