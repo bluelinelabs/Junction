@@ -57,7 +57,7 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
         }
         
         if let defaultValue = self.defaultValue {
-            JunctionKeeper.sharedInstance.addValueForKey(key, value: defaultValue as AnyObject)
+            JunctionKeeper.sharedInstance.addValueForKey(key, value: defaultValue.value as! AnyObject)
             sectionDelegate?.editsMade!()
         }
     }
