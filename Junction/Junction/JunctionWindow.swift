@@ -14,6 +14,7 @@ internal final class JunctionWindow: UIWindow {
     private var style: PresentationStyle
     private var enabled: Bool
     private var junctionViewController: JunctionViewController
+    private var visibleViewController: UIViewController!
     
     internal init(frame: CGRect, style: PresentationStyle, sections: [SectionType], enabled: Bool) {
         self.style = style
@@ -41,17 +42,25 @@ internal final class JunctionWindow: UIWindow {
             return
         }
         
-        var visibleViewController = rootViewController
+        visibleViewController = rootViewController
         while (visibleViewController.presentedViewController != nil) {
             visibleViewController = visibleViewController.presentedViewController!
         }
         
         if let nav = visibleViewController as? UINavigationController, firstVc = nav.viewControllers.first {
             if !(firstVc is JunctionViewController) {
-                let navController = UINavigationController(rootViewController: junctionViewController)
-                junctionViewController.prepareForDisplay()
-                visibleViewController.presentViewController(navController, animated: true, completion: nil)
+                display(firstVc)
             }
+        } else {
+            display(visibleViewController)
+        }
+    }
+    
+    private func display(vc: UIViewController) {
+        if !(vc is JunctionViewController) {
+            let navController = UINavigationController(rootViewController: junctionViewController)
+            junctionViewController.prepareForDisplay()
+            visibleViewController.presentViewController(navController, animated: true, completion: nil)
         }
     }
     
