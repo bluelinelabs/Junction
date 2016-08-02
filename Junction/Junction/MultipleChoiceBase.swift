@@ -30,9 +30,7 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
         self.name = name
         self.key = key
         
-        let initialValue = possibleValues.filter({ $0.isInitialValue }).first
-        
-        self.defaultValue = initialValue
+        self.defaultValue = possibleValues.filter({ $0.isInitialValue }).first
         
         for value in possibleValues {
             rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
@@ -52,13 +50,13 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
         
         if let selectedOption = JunctionKeeper.sharedInstance.getValueWithKey(key) as? T {
             self.selectedOption = possibleValues.indexOf { object -> Bool in
-                return (object as AnyObject).isEqual(selectedOption as? AnyObject)
+                return (object.value as! AnyObject).isEqual(selectedOption as? AnyObject)
             }
-        }
-        
-        if let defaultValue = self.defaultValue {
-            JunctionKeeper.sharedInstance.addValueForKey(key, value: defaultValue.value as! AnyObject)
-            sectionDelegate?.editsMade!()
+        } else {
+            if let defaultValue = self.defaultValue {
+                JunctionKeeper.sharedInstance.addValueForKey(key, value: defaultValue.value as! AnyObject)
+                sectionDelegate?.editsMade!()
+            }
         }
     }
     
@@ -108,21 +106,18 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
         if row < possibleValues.count {
             cell.textLabel!.text = String(possibleValues[row].value)
             
-            var checkAgainst: Int?
-            
-            if let selectedOption = selectedOption {
-                checkAgainst = selectedOption
-            } else if let defaultValue = defaultValue {
-                checkAgainst = possibleValues.indexOf { object -> Bool in
-                    return (object as AnyObject).isEqual(defaultValue)
+            if let selectedItem = JunctionKeeper.sharedInstance.getValueWithKey(key) as? T {
+                
+                let index = possibleValues.indexOf { object -> Bool in
+                    return (object.value as! AnyObject).isEqual(selectedItem as? AnyObject)
                 }
-            }
-            
-            if let rowNumber = checkAgainst {
-                if rowNumber == row {
-                    cell.accessoryType = .Checkmark
-                } else {
-                    cell.accessoryType = .None
+                
+                if let index = index {
+                    if row == index {
+                        cell.accessoryType = .Checkmark
+                    } else {
+                        cell.accessoryType = .None
+                    }
                 }
             }
         }
