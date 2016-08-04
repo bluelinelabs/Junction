@@ -50,7 +50,7 @@ internal final class JunctionKeeper {
         return dict
     }
     
-    internal func addValueToCustomOption(key: String, value: AnyObject) -> Bool {
+    internal func addValueToArray(key: String, value: AnyObject) -> Bool {
         createPlistIfNeeded()
         
         let filename = "JunctionData.plist"
@@ -63,7 +63,9 @@ internal final class JunctionKeeper {
         
         let previousValues = loadAllData()?.mutableCopy()
         
-        previousArrayValues.addObject(value)
+        if !previousArrayValues.containsObject(value) {
+            previousArrayValues.addObject(value)
+        }
         
         let dictionary = NSDictionary(dictionary: [key: previousArrayValues])
         
