@@ -25,14 +25,20 @@ internal class InputTableViewCell: UITableViewCell {
 
         contentView.addSubview(textField)
 
-        NSLayoutConstraint(item: textField, attribute: .Leading, relatedBy: .Equal, toItem: contentView, attribute: .Leading, multiplier: 1, constant: 16).active = true
-        NSLayoutConstraint(item: textField, attribute: .Trailing, relatedBy: .Equal, toItem: contentView, attribute: .Trailing, multiplier: 1, constant: -16).active = true
+        NSLayoutConstraint(item: textField, attribute: .LeadingMargin, relatedBy: .Equal, toItem: contentView, attribute: .LeadingMargin, multiplier: 1, constant: 16).active = true
+        NSLayoutConstraint(item: textField, attribute: .TrailingMargin, relatedBy: .Equal, toItem: contentView, attribute: .TrailingMargin, multiplier: 1, constant: -16).active = true
         NSLayoutConstraint(item: textField, attribute: .CenterY, relatedBy: .Equal, toItem: contentView, attribute: .CenterY, multiplier: 1, constant: 0).active = true
         NSLayoutConstraint(item: textField, attribute: .Height, relatedBy: .Equal, toItem: contentView, attribute: .Height, multiplier: 1, constant: 0).active = true
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        if selected {
+            textField.becomeFirstResponder()
+        }
     }
     
 }
