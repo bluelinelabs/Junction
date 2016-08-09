@@ -15,11 +15,13 @@ public class Setting: SettingType, RowType {
     public var title: String?
     
     public func registerCells(tableView: UITableView) {
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.registerClass(LabelTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
     public func configureCell(tableViewCell: UITableViewCell) {
-        tableViewCell.textLabel?.text = title
+        if let cell = tableViewCell as? LabelTableViewCell {
+            cell.label.text = title
+        }
     }
 
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {

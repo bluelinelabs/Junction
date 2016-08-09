@@ -20,7 +20,7 @@ internal final class JunctionWindow: UIWindow {
         self.style = style
         self.enabled = enabled
         
-        self.junctionViewController = JunctionViewController(frame: frame, sections: sections)
+        self.junctionViewController = JunctionViewController(sections: sections)
         
         super.init(frame: frame)
         

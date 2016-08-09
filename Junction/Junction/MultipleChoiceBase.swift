@@ -61,7 +61,7 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
     }
     
     public func registerCells(tableView: UITableView) {
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: displayCellIdentifier)
+        tableView.registerClass(LabelTableViewCell.self, forCellReuseIdentifier: displayCellIdentifier)
         tableView.registerClass(InputTableViewCell.self, forCellReuseIdentifier: inputCellIdentifier)
     }
     
@@ -101,13 +101,12 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
             
             let inputCell = cell as! InputTableViewCell
             inputCell.textField.delegate = delegateProxy
-        }
-        
-        if row < possibleValues.count {
-            cell.textLabel!.text = String(possibleValues[row].value)
+        } else if cell.reuseIdentifier == displayCellIdentifier {
+            let cell = cell as! LabelTableViewCell
+            
+            cell.label.text = String(possibleValues[row].value)
             
             if let selectedItem = JunctionKeeper.sharedInstance.getValueWithKey(key) as? T {
-                
                 let index = possibleValues.indexOf { object -> Bool in
                     return (object.value as! AnyObject).isEqual(selectedItem as? AnyObject)
                 }
