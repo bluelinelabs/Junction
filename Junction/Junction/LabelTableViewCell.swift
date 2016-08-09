@@ -21,8 +21,8 @@ internal class LabelTableViewCell: UITableViewCell {
         
         contentView.addSubview(label)
         
-        NSLayoutConstraint(item: label, attribute: .Leading, relatedBy: .Equal, toItem: contentView, attribute: .Leading, multiplier: 1, constant: 16).active = true
-        NSLayoutConstraint(item: label, attribute: .Trailing, relatedBy: .Equal, toItem: contentView, attribute: .Trailing, multiplier: 1, constant: -16).active = true
+        NSLayoutConstraint(item: label, attribute: .LeadingMargin, relatedBy: .Equal, toItem: contentView, attribute: .LeadingMargin, multiplier: 1, constant: 16).active = true
+        NSLayoutConstraint(item: label, attribute: .TrailingMargin, relatedBy: .Equal, toItem: contentView, attribute: .TrailingMargin, multiplier: 1, constant: -16).active = true
         NSLayoutConstraint(item: label, attribute: .CenterY, relatedBy: .Equal, toItem: contentView, attribute: .CenterY, multiplier: 1, constant: 0).active = true
     }
     
