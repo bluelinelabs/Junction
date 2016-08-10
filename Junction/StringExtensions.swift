@@ -14,4 +14,10 @@ extension String {
             return "\(self)_customOption"
         }
     }
+    
+    var multiSelect: String {
+        get {
+            return "\(self)_multiSelect"
+        }
+    }
 }

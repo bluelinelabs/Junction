@@ -22,7 +22,7 @@ class ExampleJunctionSetup: JunctionSetup {
         let multipleSelectionOptions = [MultipleChoiceOption<String>(value: "google.com", isInitialValue: true), MultipleChoiceOption<String>(value: "yahoo.com", isInitialValue: false)]
         let intMultipleSelectionOptions = [MultipleChoiceOption<Int>(value: 1, isInitialValue: true), MultipleChoiceOption<Int>(value: 2, isInitialValue: true)]
         
-        let secondSection = StringMultipleChoiceSetting(possibleValues: multipleSelectionOptions, customOption: .Custom("Add Endpoint"), name: "Single Selection String", key: "singleSelectionString", isMultiSelect: false)
+        let secondSection = StringMultipleChoiceSetting(possibleValues: multipleSelectionOptions, customOption: .Custom("Add Endpoint"), name: "Single Selection String", key: "singleSelectionString", isMultiSelect: true)
         let thirdSection = IntMultipleChoiceSetting(possibleValues: intMultipleSelectionOptions, customOption: .None, name: "Single Selection Int", key: "singleSelectionInt", isMultiSelect: false)
         
         return [firstSection, secondSection, thirdSection]

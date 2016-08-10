@@ -18,9 +18,13 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
     
     public var enableCustom = false
     public var name: String
+    
     private var selectedOption: Int?
+    private var selectedOptions = [Int]()
+    
     internal var key: String
     public var sectionDelegate: SectionModifiedDelegate?
+    
     private let inputCellIdentifier = "inputJunctionCell"
     private let displayCellIdentifier = "junctionCell"
     private var delegateProxy: UITextFieldDelegateProxy?
@@ -129,17 +133,44 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
             
             cell.label.text = String(possibleValues[row].value)
             
-            if let selectedItem = JunctionKeeper.sharedInstance.getValueWithKey(key) as? T {
-                let index = possibleValues.indexOf { object -> Bool in
-                    return (object.value as! AnyObject).isEqual(selectedItem as? AnyObject)
-                }
-                
-                if let index = index {
-                    if row == index {
+            if isMultiSelect {
+                if let selectedItems = JunctionKeeper.sharedInstance.getValueWithKey(key.multiSelect) as? [T] {
+                    var indexes = [Int]()
+                    
+                    for selectedItem in selectedItems {
+                        let index = possibleValues.indexOf { object -> Bool in
+                            return (object.value as! AnyObject).isEqual(selectedItem as? AnyObject)
+                        }
+                        
+                        if let index = index {
+                            indexes.append(index)
+                        }
+                    }
+                    
+                    
+                    if indexes.contains(row) {
                         cell.accessoryType = .Checkmark
                     } else {
                         cell.accessoryType = .None
                     }
+                } else {
+                    cell.accessoryType = .None
+                }
+            } else {
+                if let selectedItem = JunctionKeeper.sharedInstance.getValueWithKey(key) as? T {
+                    let index = possibleValues.indexOf { object -> Bool in
+                        return (object.value as! AnyObject).isEqual(selectedItem as? AnyObject)
+                    }
+                    
+                    if let index = index {
+                        if row == index {
+                            cell.accessoryType = .Checkmark
+                        } else {
+                            cell.accessoryType = .None
+                        }
+                    }
+                } else {
+                    cell.accessoryType = .None
                 }
             }
         }
@@ -156,12 +187,39 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
         JunctionKeeper.sharedInstance.addValueForKey(key, value: selected as! AnyObject)
     }
     
+    private func storeMultiple(add: T) {
+        
+    }
+    
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
         rows[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
         
         if tableViewCellIdentifier(indexPath.row) == displayCellIdentifier {
-            selectedOption = indexPath.row
-            store()
+            if isMultiSelect {
+                
+                if let selectedNames = JunctionKeeper.sharedInstance.getValueWithKey(key.multiSelect) as? [T] {
+                    let currentlySelectedOption = possibleValues[indexPath.row].value
+                    
+                    let contains = selectedNames.contains({ (item) -> Bool in
+                        return (item as! AnyObject).isEqual(currentlySelectedOption as? AnyObject)
+                    })
+                    
+                    if contains {
+                        JunctionKeeper.sharedInstance.deleteValueFromArray(key.multiSelect, valueToDelete: possibleValues[indexPath.row].value as! AnyObject)
+                    } else {
+                        selectedOptions.append(indexPath.row)
+                        JunctionKeeper.sharedInstance.addValueToArray(key.multiSelect, value: possibleValues[indexPath.row].value as! AnyObject)
+                    }
+                } else {
+                    //the plist file was empty, we can safely insert because there's no risk of duplicating a current record
+                    selectedOptions.append(indexPath.row)
+                    JunctionKeeper.sharedInstance.addValueToArray(key.multiSelect, value: possibleValues[indexPath.row].value as! AnyObject)
+
+                }
+            } else {
+                selectedOption = indexPath.row
+                store()
+            }
             
             configureCell(tableViewCell, row: indexPath.row)
             tableView.reloadData()
@@ -185,17 +243,19 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
     }
     
     public func didDeleteRow(row: Int) {
-        let previousSelectedValue = possibleValues[selectedOption!].value
-        
-        JunctionKeeper.sharedInstance.deleteValueFromArray(key.customOption, valueToDelete: possibleValues[row].value as! AnyObject)
-        possibleValues.removeAtIndex(row)
-        rows.removeAtIndex(row)
-        
-        selectedOption = possibleValues.indexOf({ (option) -> Bool in
-            return (option.value as! AnyObject).isEqual(previousSelectedValue as? AnyObject)
-        })
-        
-        sectionDelegate?.editsMade!()
+        if let selectedOption = selectedOption {
+            let previousSelectedValue = possibleValues[selectedOption].value
+            
+            JunctionKeeper.sharedInstance.deleteValueFromArray(key.customOption, valueToDelete: possibleValues[row].value as! AnyObject)
+            possibleValues.removeAtIndex(row)
+            rows.removeAtIndex(row)
+            
+            self.selectedOption = possibleValues.indexOf({ (option) -> Bool in
+                return (option.value as! AnyObject).isEqual(previousSelectedValue as? AnyObject)
+            })
+            
+            sectionDelegate?.editsMade!()
+        }
     }
 }
 
