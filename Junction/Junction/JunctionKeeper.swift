@@ -57,20 +57,19 @@ internal final class JunctionKeeper {
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         let path = documentDirectory.stringByAppendingString("/\(filename)")
         
-        let previousValues = loadAllData()?.mutableCopy()[key]
-        let previous = loadAllData()?.mutableCopy()
-        
-        if let previousValues = previousValues as? NSArray {
-            let newValuesToPass = previousValues.arrayByAddingObject(value)
-            previous?.addEntriesFromDictionary([key: newValuesToPass])
+        let previousValues = loadAllData()?.mutableCopy()
+
+        if let previousValuesUnwrapped = previousValues?[key] as? NSArray {
+            let newValuesToPass = previousValuesUnwrapped.arrayByAddingObject(value)
+            previousValues?.addEntriesFromDictionary([key: newValuesToPass])
             
-            return previous!.writeToFile(path, atomically: true)
+            return previousValues!.writeToFile(path, atomically: true)
         } else {
             let newValuesToPass = [value]
 
-            previous?.addEntriesFromDictionary([key: newValuesToPass])
+            previousValues?.addEntriesFromDictionary([key: newValuesToPass])
             
-            return previous!.writeToFile(path, atomically: true)
+            return previousValues!.writeToFile(path, atomically: true)
         }
     }
     
