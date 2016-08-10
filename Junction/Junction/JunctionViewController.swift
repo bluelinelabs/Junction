@@ -8,19 +8,11 @@
 
 import UIKit
 
-final internal class JunctionViewController: UIViewController {
+final internal class JunctionViewController: UITableViewController {
     //The controller that will manage the actual sidebar
     
     var sections: [SectionType]
     var previousValues: NSDictionary!
-    
-    private lazy var tableView: UITableView = { [unowned self] in
-        let tableView = UITableView(frame: CGRectZero, style: .Grouped)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        return tableView
-    }()
     
     func dismiss() {
         
@@ -53,10 +45,6 @@ final internal class JunctionViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(dismiss))
         title = NSLocalizedString("Junction", comment: "Junction Nav Bar Title")
         
-        view.addSubview(tableView)
-        
-        view.backgroundColor = UIColor.redColor()
-        
         NSLayoutConstraint(item: tableView, attribute: .Leading, relatedBy: .Equal, toItem: view, attribute: .Leading, multiplier: 1, constant: 0).active = true
         NSLayoutConstraint(item: tableView, attribute: .Trailing, relatedBy: .Equal, toItem: view, attribute: .Trailing, multiplier: 1, constant: 0).active = true
         NSLayoutConstraint(item: tableView, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1, constant: 0).active = true
@@ -66,7 +54,7 @@ final internal class JunctionViewController: UIViewController {
     internal init(sections: [SectionType]) {
         self.sections = sections
         
-        super.init(nibName: nil, bundle: nil)
+        super.init(style: .Grouped)
         
         for var section in sections {
             section.sectionDelegate = self
@@ -83,38 +71,40 @@ final internal class JunctionViewController: UIViewController {
     }
 }
 
-extension JunctionViewController: UITableViewDelegate {
-    internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//UITableView Delegate
+extension JunctionViewController {
+    internal override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let section = sections[indexPath.section]
         let cellIdentifier = sections[indexPath.section].tableViewCellIdentifier(indexPath.row)
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         section.didSelectCell(cell!, tableView: tableView, indexPath: indexPath)
     }
     
-    internal func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    internal override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         let section = sections[indexPath.section]
         return section.canSwipeToDelete(indexPath.row)
     }
     
-    internal func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    internal override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .Default, title: "Delete") { (action, indexPath) in
-            print("delete")
+            self.sections[indexPath.section].didDeleteRow(indexPath.row)
         }
         
         return [deleteAction]
     }
 }
 
-extension JunctionViewController: UITableViewDataSource {
-    internal func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//UITableView DataSource
+extension JunctionViewController {
+    internal override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return sections.count
     }
     
-    internal func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].numberOfRows()
     }
     
-    internal func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    internal override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let section = sections[indexPath.section]
         section.registerCells(tableView)
         
@@ -127,7 +117,7 @@ extension JunctionViewController: UITableViewDataSource {
         return cell
     }
     
-    internal func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    internal override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].name
     }
 }

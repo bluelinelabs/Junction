@@ -11,4 +11,5 @@ import Foundation
 public protocol SettingType {
     func store()
     func canSwipeToDelete() -> Bool
+    func didDeleteRow(row: Int)
 }

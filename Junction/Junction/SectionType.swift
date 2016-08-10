@@ -19,5 +19,6 @@ public protocol SectionType {
     func configureCell(cell: UITableViewCell, row: Int)
     func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath)
     func canSwipeToDelete(row: Int) -> Bool
+    func didDeleteRow(row: Int)
     func store()
 }

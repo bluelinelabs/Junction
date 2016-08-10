@@ -35,4 +35,8 @@ public class Setting: SettingType, RowType {
     public func canSwipeToDelete() -> Bool {
         fatalError("Override in subclass")
     }
+    
+    public func didDeleteRow(row: Int) {
+        fatalError("Override in subclass")
+    }
 }

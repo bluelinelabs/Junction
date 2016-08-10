@@ -12,10 +12,12 @@ import UIKit
 //TODO: Make sure this supports only objects that can be serialized
 public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
     
+    //we keep the following two arrays in sync because one manages the actual values, and one manages the actual cells
     public var possibleValues: [MultipleChoiceOption<T>]
+    internal var rows = [RowType]()
+    
     public var enableCustom = false
     public var name: String
-    internal var rows = [RowType]()
     private var selectedOption: Int?
     internal var key: String
     public var sectionDelegate: SectionModifiedDelegate?
@@ -164,6 +166,12 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
         } else {
             return false
         }
+    }
+    
+    public func didDeleteRow(row: Int) {
+        possibleValues.removeAtIndex(row)
+        rows.removeAtIndex(row)
+        sectionDelegate?.editsMade!()
     }
 }
 
