@@ -105,7 +105,9 @@ internal final class JunctionKeeper {
                 
                 if let index = index {
                     let previous = loadAllData()?.mutableCopy()
-                    previous?.addEntriesFromDictionary([key: [valuesForKey.removeAtIndex(index)]])
+                    valuesForKey.removeAtIndex(index)
+                    
+                    previous?.addEntriesFromDictionary([key: valuesForKey])
                     previous?.writeToFile(path, atomically: true)
                 }
             }

@@ -63,6 +63,11 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
         } else {
             if let defaultValue = self.defaultValue {
                 JunctionKeeper.sharedInstance.addValueForKey(key, value: defaultValue.value as! AnyObject)
+                
+                selectedOption = possibleValues.indexOf({ (option) -> Bool in
+                    return (option.value as! AnyObject).isEqual(defaultValue.value as? AnyObject)
+                })
+                
                 sectionDelegate?.editsMade!()
             }
         }
