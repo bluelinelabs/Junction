@@ -57,21 +57,21 @@ internal final class JunctionKeeper {
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         let path = documentDirectory.stringByAppendingString("/\(filename)")
         
-        guard let previousArrayValues = loadAllData()![key] else {
-            return addValueForKey(key, value: [value])
+        let previousValues = loadAllData()?.mutableCopy()[key]
+        let previous = loadAllData()?.mutableCopy()
+        
+        if let previousValues = previousValues as? NSArray {
+            let newValuesToPass = previousValues.arrayByAddingObject(value)
+            previous?.addEntriesFromDictionary([key: newValuesToPass])
+            
+            return previous!.writeToFile(path, atomically: true)
+        } else {
+            let newValuesToPass = [value]
+
+            previous?.addEntriesFromDictionary([key: newValuesToPass])
+            
+            return previous!.writeToFile(path, atomically: true)
         }
-        
-        let previousValues = loadAllData()?.mutableCopy()
-        
-        if !previousArrayValues.containsObject(value) {
-            previousArrayValues.addObject(value)
-        }
-        
-        let dictionary = NSDictionary(dictionary: [key: previousArrayValues])
-        
-        previousValues?.addEntriesFromDictionary(dictionary as [NSObject: AnyObject])
-        
-        return previousValues!.writeToFile(path, atomically: true)
     }
     
     internal func addValueForKey(key: String, value: AnyObject) -> Bool {
@@ -104,10 +104,8 @@ internal final class JunctionKeeper {
                 })
                 
                 if let index = index {
-                    
                     let previous = loadAllData()?.mutableCopy()
-                    previous?.addEntriesFromDictionary([key: valuesForKey.removeAtIndex(index)])
-                    
+                    previous?.addEntriesFromDictionary([key: [valuesForKey.removeAtIndex(index)]])
                     previous?.writeToFile(path, atomically: true)
                 }
             }

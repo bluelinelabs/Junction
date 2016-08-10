@@ -26,6 +26,7 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
     private var delegateProxy: UITextFieldDelegateProxy?
     private var defaultValue: MultipleChoiceOption<T>?
     private var isMultiSelect: Bool
+    
     //originalValues should never mutate past the init. We hold this reference so that we can cross reference it when we check for canSwipeToDelete
     private var originalValues: [MultipleChoiceOption<T>]
     
@@ -169,9 +170,16 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
     }
     
     public func didDeleteRow(row: Int) {
+        let previousSelectedValue = possibleValues[selectedOption!].value
+        
         JunctionKeeper.sharedInstance.deleteValueFromArray(key.customOption, valueToDelete: possibleValues[row].value as! AnyObject)
         possibleValues.removeAtIndex(row)
         rows.removeAtIndex(row)
+        
+        selectedOption = possibleValues.indexOf({ (option) -> Bool in
+            return (option.value as! AnyObject).isEqual(previousSelectedValue as? AnyObject)
+        })
+        
         sectionDelegate?.editsMade!()
     }
 }
