@@ -89,4 +89,18 @@ internal final class JunctionKeeper {
         
         return previousValues!.writeToFile(path, atomically: true)
     }
+    
+    internal func deleteValueFromArray(key: String, valueToDelete: AnyObject) -> Bool {
+        createPlistIfNeeded()
+        
+        let filename = "JunctionData.plist"
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let path = documentDirectory.stringByAppendingString("/\(filename)")
+        
+        if let previousValues = loadAllData()?.mutableCopy() as? NSDictionary {
+            print(previousValues[key])
+        }
+        
+        return false
+    }
 }

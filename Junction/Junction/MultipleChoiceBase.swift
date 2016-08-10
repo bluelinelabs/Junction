@@ -44,9 +44,9 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
         }
         
         if enableCustom {
-            rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: "\(key)_customOption", value: "Custom Option", title: "Custom Option"))
+            rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key.customOption, value: "Custom Option", title: "Custom Option"))
             
-            if let customOptions = JunctionKeeper.sharedInstance.getValueWithKey("\(key)_customOption") as? [T] {
+            if let customOptions = JunctionKeeper.sharedInstance.getValueWithKey(key.customOption) as? [T] {
                 for option in customOptions {
                     let newMultipleSelectionObject = MultipleChoiceOption(value: option, isInitialValue: false)
                     self.possibleValues.append(newMultipleSelectionObject)
@@ -171,6 +171,7 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
     public func didDeleteRow(row: Int) {
         possibleValues.removeAtIndex(row)
         rows.removeAtIndex(row)
+        JunctionKeeper.sharedInstance.deleteValueFromArray(key.customOption, valueToDelete: possibleValues[row].value as! AnyObject)
         sectionDelegate?.editsMade!()
     }
 }
