@@ -28,7 +28,7 @@ public final class IntMultipleChoiceSetting: MultipleChoiceBase<Int> {
         }
     }
     
-    public override init(possibleValues: [MultipleChoiceOption<Int>], enableCustom: Bool, name: String, key: String, isMultiSelect: Bool) {
-        super.init(possibleValues: possibleValues, enableCustom: enableCustom, name: name, key: key, isMultiSelect: isMultiSelect)
+    public override init(possibleValues: [MultipleChoiceOption<Int>], customOption: CustomOption, name: String, key: String, isMultiSelect: Bool) {
+        super.init(possibleValues: possibleValues, customOption: customOption, name: name, key: key, isMultiSelect: isMultiSelect)
     }
 }

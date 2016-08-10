@@ -26,13 +26,22 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
     private var delegateProxy: UITextFieldDelegateProxy?
     private var defaultValue: MultipleChoiceOption<T>?
     private var isMultiSelect: Bool
+    private var placeholder: String?
     
     //originalValues should never mutate past the init. We hold this reference so that we can cross reference it when we check for canSwipeToDelete
     private var originalValues: [MultipleChoiceOption<T>]
     
-    public init(possibleValues: [MultipleChoiceOption<T>], enableCustom: Bool, name: String, key: String, isMultiSelect: Bool) {
+    public init(possibleValues: [MultipleChoiceOption<T>], customOption: CustomOption, name: String, key: String, isMultiSelect: Bool) {
         self.possibleValues = possibleValues
-        self.enableCustom = enableCustom
+        
+        switch customOption {
+        case let .Custom(text):
+            self.enableCustom = true
+            placeholder = text
+        default:
+            self.enableCustom = false
+        }
+
         self.name = name
         self.key = key
         self.isMultiSelect = isMultiSelect
@@ -114,6 +123,7 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
             
             let inputCell = cell as! InputTableViewCell
             inputCell.textField.delegate = delegateProxy
+            inputCell.textField.placeholder = placeholder
         } else if cell.reuseIdentifier == displayCellIdentifier {
             let cell = cell as! LabelTableViewCell
             

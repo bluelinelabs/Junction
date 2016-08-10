@@ -25,12 +25,12 @@ public final class StringMultipleChoiceSetting: MultipleChoiceBase<String> {
         }
     }
     
-    public override init(possibleValues: [MultipleChoiceOption<String>], enableCustom: Bool, name: String, key: String, isMultiSelect: Bool) {
+    public override init(possibleValues: [MultipleChoiceOption<String>], customOption: CustomOption, name: String, key: String, isMultiSelect: Bool) {
         
         if (possibleValues.filter { $0.isInitialValue }).count > 1 {
             fatalError("You cannot specify more than one initial value")
         } else {
-            super.init(possibleValues: possibleValues, enableCustom: enableCustom, name: name, key: key, isMultiSelect: isMultiSelect)
+            super.init(possibleValues: possibleValues, customOption: customOption, name: name, key: key, isMultiSelect: isMultiSelect)
         }
     }
 }

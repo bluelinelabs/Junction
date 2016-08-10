@@ -12,7 +12,6 @@ internal class InputTableViewCell: UITableViewCell {
 
     lazy var textField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Custom Option"
         textField.clearButtonMode = .WhileEditing
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.autocorrectionType = .No
