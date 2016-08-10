@@ -1,5 +1,5 @@
 //
-//  MyJunctionSetup.swift
+//  ExampleJunctionSetup.swift
 //  Junction
 //
 //  Created by Jimmy McDermott on 8/10/16.

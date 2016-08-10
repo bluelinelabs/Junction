@@ -8,7 +8,8 @@
 
 import Foundation
 
+public typealias TextFieldPlaceholder = String
 public enum CustomOption {
     case None
-    case Custom(String)
+    case Custom(TextFieldPlaceholder)
 }
