@@ -14,7 +14,7 @@ public final class Junction {
     
     public static var settingsUpdatedBlock: SettingsCallback? = nil
     
-    public static var style: PresentationStyle! = .Shake
+    public static var style: PresentationStyle = .Shake
     private static var sections: [SectionType]!
     private static var debugMode = false
     
