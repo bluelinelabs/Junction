@@ -10,5 +10,5 @@ import Foundation
 
 public protocol JunctionSetup {
     func sections() -> [SectionType]
-    func debugMode() -> Bool
+    var debugMode: Bool { get set }
 }

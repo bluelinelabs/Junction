@@ -20,7 +20,7 @@ public final class Junction {
     
     public static func createWindow(frame: CGRect, setup: JunctionSetup) -> UIWindow {
         sections = setup.sections()
-        debugMode = setup.debugMode()
+        debugMode = setup.debugMode
         return JunctionWindow(frame: frame, style: style, sections: sections, enabled: debugMode)
     }
     

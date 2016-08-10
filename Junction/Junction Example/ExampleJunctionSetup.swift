@@ -11,6 +11,8 @@ import Junction
 
 class ExampleJunctionSetup: JunctionSetup {
     
+    var debugMode = true
+    
     func sections() -> [SectionType] {
         let stringSetting = StringSetting(placeholder: "", defaultValue: nil, key: "mainEndpoint", value: "https://www.google.com", title: "Main Endpoint:")
         let intSetting = IntSetting(defaultValue: nil, value: 8080, key: "port", title: "Port")
@@ -26,9 +28,5 @@ class ExampleJunctionSetup: JunctionSetup {
         let thirdSection = IntMultipleChoiceSetting(possibleValues: intMultipleSelectionOptions, customOption: .None, name: "Single Selection Int", key: "singleSelectionInt", isMultiSelect: false)
         
         return [firstSection, secondSection, thirdSection]
-    }
-    
-    func debugMode() -> Bool {
-        return true
     }
 }
