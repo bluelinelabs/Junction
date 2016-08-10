@@ -10,9 +10,16 @@ import Foundation
 
 public final class StringMultipleChoiceSetting: MultipleChoiceBase<String> {
     override func addCustomValue(value: String) {
-        JunctionKeeper.sharedInstance.addValueToArray("\(key)_customOption", value: value)
-        rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: value, title: nil))
-        possibleValues.append(MultipleChoiceOption(value: value, isInitialValue: false))
+        let options = JunctionKeeper.sharedInstance.getValueWithKey("\(key)_customOption")
+        if let options = options as? [String] {
+            if !options.contains(value) {
+                JunctionKeeper.sharedInstance.addValueToArray("\(key)_customOption", value: value)
+                rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: value, title: nil))
+                possibleValues.append(MultipleChoiceOption(value: value, isInitialValue: false))
+            }
+        } else if options == nil {
+            JunctionKeeper.sharedInstance.addValueToArray("\(key)_customOption", value: value)
+        }
     }
     
     public override init(possibleValues: [MultipleChoiceOption<String>], enableCustom: Bool, name: String, key: String, isMultiSelect: Bool) {

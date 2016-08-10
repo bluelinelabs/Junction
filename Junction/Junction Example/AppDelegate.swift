@@ -24,10 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .addRow(intSetting)
         
         let multipleSelectionOptions = [MultipleChoiceOption<String>(value: "google.com", isInitialValue: true), MultipleChoiceOption<String>(value: "yahoo.com", isInitialValue: false)]
+        let intMultipleSelectionOptions = [MultipleChoiceOption<Int>(value: 1, isInitialValue: true), MultipleChoiceOption<Int>(value: 2, isInitialValue: true)]
         
-        let secondSection = StringMultipleChoiceSetting(possibleValues: multipleSelectionOptions, enableCustom: true, name: "Single Selection String", key: "singleSelectionString")
+        let secondSection = StringMultipleChoiceSetting(possibleValues: multipleSelectionOptions, enableCustom: true, name: "Single Selection String", key: "singleSelectionString", isMultiSelect: false)
+        let thirdSection = IntMultipleChoiceSetting(possibleValues: intMultipleSelectionOptions, enableCustom: true, name: "Single Selection Int", key: "singleSelectionInt", isMultiSelect: false)
         
-        Junction.sections = [firstSection, secondSection]
+        Junction.sections = [firstSection, secondSection, thirdSection]
         Junction.style = .Shake
         Junction.settingsUpdatedBlock = { previousValues, newValues in
             print(previousValues)
