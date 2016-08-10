@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension String {
+internal extension String {
     var customOption: String {
         get {
             return "\(self)_customOption"
