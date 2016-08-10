@@ -98,7 +98,19 @@ internal final class JunctionKeeper {
         let path = documentDirectory.stringByAppendingString("/\(filename)")
         
         if let previousValues = loadAllData()?.mutableCopy() as? NSDictionary {
-            print(previousValues[key])
+            if var valuesForKey = previousValues[key] as? [AnyObject] {
+                let index = valuesForKey.indexOf({ (object) -> Bool in
+                    return object.isEqual(valueToDelete)
+                })
+                
+                if let index = index {
+                    
+                    let previous = loadAllData()?.mutableCopy()
+                    previous?.addEntriesFromDictionary([key: valuesForKey.removeAtIndex(index)])
+                    
+                    previous?.writeToFile(path, atomically: true)
+                }
+            }
         }
         
         return false

@@ -169,9 +169,9 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
     }
     
     public func didDeleteRow(row: Int) {
+        JunctionKeeper.sharedInstance.deleteValueFromArray(key.customOption, valueToDelete: possibleValues[row].value as! AnyObject)
         possibleValues.removeAtIndex(row)
         rows.removeAtIndex(row)
-        JunctionKeeper.sharedInstance.deleteValueFromArray(key.customOption, valueToDelete: possibleValues[row].value as! AnyObject)
         sectionDelegate?.editsMade!()
     }
 }

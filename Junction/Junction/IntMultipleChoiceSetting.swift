@@ -21,8 +21,10 @@ public final class IntMultipleChoiceSetting: MultipleChoiceBase<Int> {
                 rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
                 possibleValues.append(MultipleChoiceOption(value: value, isInitialValue: false))
             }
-        } else if options == nil {
+        } else {
             JunctionKeeper.sharedInstance.addValueToArray(key.customOption, value: value)
+            rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
+            possibleValues.append(MultipleChoiceOption(value: value, isInitialValue: false))
         }
     }
     
