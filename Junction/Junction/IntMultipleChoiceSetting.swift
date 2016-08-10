@@ -14,13 +14,8 @@ public final class IntMultipleChoiceSetting: MultipleChoiceBase<Int> {
             return
         }
         
-<<<<<<< Updated upstream
-        JunctionKeeper.sharedInstance.addValueToCustomOption("\(key)_customOption", value: value)
-        rows.append(StringSetting(placeholder: nil, defaultValue: String(value), key: key, title: nil))
-=======
         JunctionKeeper.sharedInstance.addValueToArray("\(key)_customOption", value: value)
         rows.append(StringSetting(placeholder: nil, defaultValue: nil, key: key, value: String(value), title: nil))
->>>>>>> Stashed changes
         possibleValues.append(MultipleChoiceOption(value: value, isInitialValue: false))
     }
     

@@ -12,14 +12,13 @@ final internal class JunctionViewController: UIViewController {
     //The controller that will manage the actual sidebar
     
     var sections: [SectionType]
-    var frame: CGRect
     var previousValues: NSDictionary!
     
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: self.frame, style: .Grouped)
-        tableView.autoresizingMask = [.FlexibleRightMargin, .FlexibleLeftMargin, .FlexibleBottomMargin, .FlexibleTopMargin]
+    private lazy var tableView: UITableView = { [unowned self] in
+        let tableView = UITableView(frame: CGRectZero, style: .Grouped)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
@@ -55,11 +54,17 @@ final internal class JunctionViewController: UIViewController {
         title = NSLocalizedString("Junction", comment: "Junction Nav Bar Title")
         
         view.addSubview(tableView)
+        
+        view.backgroundColor = UIColor.redColor()
+        
+        NSLayoutConstraint(item: tableView, attribute: .Leading, relatedBy: .Equal, toItem: view, attribute: .Leading, multiplier: 1, constant: 0).active = true
+        NSLayoutConstraint(item: tableView, attribute: .Trailing, relatedBy: .Equal, toItem: view, attribute: .Trailing, multiplier: 1, constant: 0).active = true
+        NSLayoutConstraint(item: tableView, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1, constant: 0).active = true
+        NSLayoutConstraint(item: tableView, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: 0).active = true
     }
 
-    internal init(frame: CGRect, sections: [SectionType]) {
+    internal init(sections: [SectionType]) {
         self.sections = sections
-        self.frame = frame
         
         super.init(nibName: nil, bundle: nil)
         
