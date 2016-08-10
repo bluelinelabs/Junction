@@ -14,12 +14,13 @@ public final class Junction {
     
     public static var settingsUpdatedBlock: SettingsCallback? = nil
     
-    public static var style: PresentationStyle!
-    public static var sections: [SectionType]!
+    public static var style: PresentationStyle! = .Shake
+    private static var sections: [SectionType]!
     private static var debugMode = false
     
-    public static func createWindow(frame: CGRect, debugMode: Bool) -> UIWindow {
-        self.debugMode = debugMode
+    public static func createWindow(frame: CGRect, setup: JunctionSetup) -> UIWindow {
+        sections = setup.sections()
+        debugMode = setup.debugMode()
         return JunctionWindow(frame: frame, style: style, sections: sections, enabled: debugMode)
     }
     
