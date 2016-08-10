@@ -13,13 +13,17 @@ internal final class JunctionKeeper {
     
     private init() { }
     
+    private func getPath() -> String {
+        let filename = "JunctionData.plist"
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        return documentDirectory.stringByAppendingString("/\(filename)")
+    }
+    
     private func createPlistIfNeeded() -> Bool {
         var exists = false
-        let plist = "JunctionData.plist"
         let fileManager = NSFileManager.defaultManager()
         
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        let path = documentDirectory.stringByAppendingString("/\(plist)")
+        let path = JunctionKeeper.sharedInstance.getPath()
         
         if !fileManager.fileExistsAtPath(path) {
             let emptyData = NSDictionary(dictionary: [:])
@@ -53,9 +57,7 @@ internal final class JunctionKeeper {
     internal func addValueToArray(key: String, value: AnyObject) -> Bool {
         createPlistIfNeeded()
         
-        let filename = "JunctionData.plist"
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        let path = documentDirectory.stringByAppendingString("/\(filename)")
+        let path = JunctionKeeper.sharedInstance.getPath()
         
         let previousValues = loadAllData()?.mutableCopy()
 
@@ -76,9 +78,7 @@ internal final class JunctionKeeper {
     internal func addValueForKey(key: String, value: AnyObject) -> Bool {
         createPlistIfNeeded()
         
-        let filename = "JunctionData.plist"
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        let path = documentDirectory.stringByAppendingString("/\(filename)")
+        let path = JunctionKeeper.sharedInstance.getPath()
         
         let dictionary = NSDictionary(dictionary: [key: value])
         
@@ -92,9 +92,7 @@ internal final class JunctionKeeper {
     internal func deleteValueFromArray(key: String, valueToDelete: AnyObject) -> Bool {
         createPlistIfNeeded()
         
-        let filename = "JunctionData.plist"
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        let path = documentDirectory.stringByAppendingString("/\(filename)")
+        let path = JunctionKeeper.sharedInstance.getPath()
         
         if let previousValues = loadAllData()?.mutableCopy() as? NSDictionary {
             if var valuesForKey = previousValues[key] as? [AnyObject] {
