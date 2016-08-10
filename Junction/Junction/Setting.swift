@@ -29,6 +29,10 @@ public class Setting: SettingType, RowType {
     }
     
     public func store() {
-        
+        fatalError("Override in subclass")
+    }
+    
+    public func canSwipeToDelete() -> Bool {
+        fatalError("Override in subclass")
     }
 }

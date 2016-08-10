@@ -90,6 +90,19 @@ extension JunctionViewController: UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         section.didSelectCell(cell!, tableView: tableView, indexPath: indexPath)
     }
+    
+    internal func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        let section = sections[indexPath.section]
+        return section.canSwipeToDelete(indexPath.row)
+    }
+    
+    internal func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete") { (action, indexPath) in
+            print("delete")
+        }
+        
+        return [deleteAction]
+    }
 }
 
 extension JunctionViewController: UITableViewDataSource {

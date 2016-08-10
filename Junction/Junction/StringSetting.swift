@@ -36,4 +36,8 @@ public final class StringSetting: Setting {
     override public func store() {
         JunctionKeeper.sharedInstance.addValueForKey(key, value: value)
     }
+    
+    public override func canSwipeToDelete() -> Bool {
+        return false
+    }
 }

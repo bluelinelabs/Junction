@@ -50,4 +50,8 @@ public final class Section: SectionType {
     public func didSelectCell(tableViewCell: UITableViewCell, tableView: UITableView, indexPath: NSIndexPath) {
         settings[indexPath.row].didSelectCell(tableViewCell, tableView: tableView, indexPath: indexPath)
     }
+
+    public func canSwipeToDelete(row: Int) -> Bool {
+        return settings[row].canSwipeToDelete()
+    }
 }

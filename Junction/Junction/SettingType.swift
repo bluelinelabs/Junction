@@ -10,4 +10,5 @@ import Foundation
 
 public protocol SettingType {
     func store()
+    func canSwipeToDelete() -> Bool
 }

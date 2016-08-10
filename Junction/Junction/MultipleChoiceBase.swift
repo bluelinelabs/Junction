@@ -24,6 +24,8 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
     private var delegateProxy: UITextFieldDelegateProxy?
     private var defaultValue: MultipleChoiceOption<T>?
     private var isMultiSelect: Bool
+    //originalValues should never mutate past the init. We hold this reference so that we can cross reference it when we check for canSwipeToDelete
+    private var originalValues: [MultipleChoiceOption<T>]
     
     public init(possibleValues: [MultipleChoiceOption<T>], enableCustom: Bool, name: String, key: String, isMultiSelect: Bool) {
         self.possibleValues = possibleValues
@@ -31,6 +33,7 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
         self.name = name
         self.key = key
         self.isMultiSelect = isMultiSelect
+        self.originalValues = possibleValues
         
         self.defaultValue = possibleValues.filter({ $0.isInitialValue }).first
         
@@ -149,6 +152,18 @@ public class MultipleChoiceBase<T: Any>: SectionType, SettingType {
     
     internal func addCustomValue(value: String) {
         fatalError("addCustomValue must be overriden by subclasses")
+    }
+    
+    public func canSwipeToDelete() -> Bool {
+        return true
+    }
+    
+    public func canSwipeToDelete(row: Int) -> Bool {
+        if row >= originalValues.count {
+            return true
+        } else {
+            return false
+        }
     }
 }
 
