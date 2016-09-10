@@ -37,7 +37,7 @@ internal final class JunctionWindow: UIWindow {
         super.motionBegan(motion, withEvent: event)
     }
     
-    private func presentJunction() {
+    internal func presentJunction() {
         guard let rootViewController = rootViewController else {
             return
         }
@@ -73,4 +73,5 @@ public enum PresentationStyle {
     case LeftDrawer
     case RightDrawer
     case Shake
+    case Custom
 }

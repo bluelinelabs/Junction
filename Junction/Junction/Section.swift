@@ -14,8 +14,13 @@ public final class Section: SectionType {
     var settings = [Setting]()
     public var sectionDelegate: SectionModifiedDelegate?
     
-    public init(name: String) {
+    public convenience init(name: String) {
+        self.init(name: name, settings: [Setting]())
+    }
+    
+    public init(name: String, settings: [Setting]) {
         self.name = name
+        self.settings = settings
     }
     
     public func store() {

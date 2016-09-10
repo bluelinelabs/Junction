@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public final class Junction {
     
@@ -30,4 +31,11 @@ public final class Junction {
             return productionValue
         }
     }
+    
+    public static func present() {
+        if let window = UIApplication.sharedApplication().keyWindow as? JunctionWindow {
+            window.presentJunction()
+        }
+    }
+    
 }

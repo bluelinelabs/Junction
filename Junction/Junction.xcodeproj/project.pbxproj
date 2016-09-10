@@ -33,6 +33,7 @@
 		39F326511D368B9000A24E74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F3264F1D368B9000A24E74 /* Main.storyboard */; };
 		39F326531D368B9000A24E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39F326521D368B9000A24E74 /* Assets.xcassets */; };
 		39F326561D368B9000A24E74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F326541D368B9000A24E74 /* LaunchScreen.storyboard */; };
+		5F3E6FDF1D8477B10096C690 /* DisplayOnlySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3E6FDE1D8477B10096C690 /* DisplayOnlySetting.swift */; };
 		5F6A4D701D5A643D005545C3 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6A4D6F1D5A643D005545C3 /* LabelTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		39F326521D368B9000A24E74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39F326551D368B9000A24E74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39F326571D368B9000A24E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F3E6FDE1D8477B10096C690 /* DisplayOnlySetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayOnlySetting.swift; sourceTree = SOURCE_ROOT; };
 		5F6A4D6F1D5A643D005545C3 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 				39F3260C1D36877700A24E74 /* MultipleChoiceBase.swift */,
 				39F3260D1D36877700A24E74 /* StringSetting.swift */,
 				39F3260E1D36877700A24E74 /* StringMultipleChoiceSetting.swift */,
+				5F3E6FDE1D8477B10096C690 /* DisplayOnlySetting.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -276,17 +279,20 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "BlueLine Labs";
 				TargetAttributes = {
 					39CBDD931D1D77B100CA2124 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					39F326391D368B5400A24E74 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					39F326481D368B9000A24E74 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -347,6 +353,7 @@
 				39F3261B1D36877700A24E74 /* Setting.swift in Sources */,
 				39F3261E1D36877700A24E74 /* StringSetting.swift in Sources */,
 				39F326161D36877700A24E74 /* JunctionWindow.swift in Sources */,
+				5F3E6FDF1D8477B10096C690 /* DisplayOnlySetting.swift in Sources */,
 				39F325FD1D36875800A24E74 /* InputTableViewCell.swift in Sources */,
 				39F3261A1D36877700A24E74 /* SectionType.swift in Sources */,
 				39F326171D36877700A24E74 /* RowType.swift in Sources */,
@@ -425,8 +432,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -474,8 +483,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -495,6 +506,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -506,6 +518,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -517,6 +530,7 @@
 				PRODUCT_NAME = Junction;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -524,6 +538,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -534,6 +549,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.Junction;
 				PRODUCT_NAME = Junction;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -544,6 +560,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.JunctionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -554,6 +571,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bluelinelabs.JunctionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -565,6 +583,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "bluelinelabs.Junction-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -576,6 +595,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "bluelinelabs.Junction-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
